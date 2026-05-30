@@ -50,7 +50,7 @@ Se o tipo não estiver claro, perguntar:
 
 ## Estilo visual base
 
-O MazyOS tem um estilo próprio — editorial, calmo, premium. Sem clip-art, sem emoji decorativo, sem gradiente arco-íris, sem template genérico de IA. `identidade/design-guide.md` sobrescreve esses padrões; quando o design-guide for vago ou estiver em branco, usar o que tá aqui (não parar pra pedir `/instalar` — o `/carrossel` funciona com defaults bons).
+O VetoraOS tem um estilo próprio — editorial, calmo, premium. Sem clip-art, sem emoji decorativo, sem gradiente arco-íris, sem template genérico de IA. `identidade/design-guide.md` sobrescreve esses padrões; quando o design-guide for vago ou estiver em branco, usar o que tá aqui (não parar pra pedir `/instalar` — o `/carrossel` funciona com defaults bons).
 
 ### Tipografia padrão
 
@@ -211,6 +211,28 @@ NODE_PATH="<pasta-com-node_modules>/node_modules" node render.js
 ```
 
 3. Mostrar slide 1, 2 e o CTA final renderizados. Se aprovado, mostrar os intermediários.
+
+### Passo 4b — UX Check (antes de renderizar)
+
+Antes de chamar `render.js`, avaliar o `carrossel.html` nas dimensões relevantes para carrossel:
+
+**Dimensões a checar:**
+- **Ponto de Vista** — os slides têm direção criativa clara ou parecem template genérico?
+- **Tipografia** — escalas e pesos criam hierarquia sem depender de cor? Kerning apertado em títulos grandes, aberto em eyebrows?
+- **Sistema de Cores** — máx 3 cores por slide? Uma cor de destaque dominante? Segue o design-guide?
+- **Hierarquia** — em 3 segundos, fica óbvio o que é mais importante em cada slide?
+- **Imagens** — se houver fotos, têm intenção curatorial ou parecem Unsplash genérico?
+
+**Regra de aplicação:** aplicar ajustes críticos e médios diretamente no HTML sem parar para aprovação. Notificar o que foi corrigido em 1-2 linhas antes de renderizar:
+
+```
+[UX aplicado] 2 ajustes: eyebrow do slide 3 sem letter-spacing → corrigido para 0.25em; slide 4 e 5 com mesmo fundo → alternado para claro/escuro.
+```
+
+Se não houver nada a corrigir:
+```
+[UX] Carrossel aprovado — direção criativa, tipografia e sistema de cores dentro do padrão.
+```
 
 ### Passo 5 — Salvar e organizar
 

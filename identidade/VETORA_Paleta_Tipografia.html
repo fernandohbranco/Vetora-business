@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VETORA — Especificação Técnica · Paleta de Cores e Tipografia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* =========================================
+     VETORA — Design Tokens
+     ========================================= */
+  :root {
+    --azul-vetor: #0B1F3B;
+    --ciano-inteligente: #00A6A6;
+    --branco-gelo: #F5F7FA;
+    --grafite-tecnico: #1E252B;
+    --verde-direcao: #00A86B;
+    --cinza-neutro: #D9DEE3;
+    --azul-profundo: #061426;
+    --prata-digital: #B8C2CC;
+    --white: #FFFFFF;
+
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --max-width: 1280px;
+    --section-pad-y: 96px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--grafite-tecnico);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* =========================================
+     Typography
+     ========================================= */
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    color: var(--azul-vetor);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; }
+  h2 { font-size: 2.25rem; font-weight: 600; }
+  h3 { font-size: 1.5rem; font-weight: 600; }
+  h4 { font-size: 1.125rem; font-weight: 600; }
+
+  p { font-size: 1rem; color: var(--grafite-tecnico); }
+  p.lead { font-size: 1.125rem; color: #455260; max-width: 720px; }
+
+  .mono { font-family: var(--font-mono); font-size: 0.875rem; }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ciano-inteligente);
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  /* =========================================
+     Header / Capa
+     ========================================= */
+  .doc-header {
+    background: var(--azul-vetor);
+    color: var(--white);
+    padding: 80px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .doc-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .doc-header > .container { position: relative; z-index: 1; }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
+  .brand-symbol {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .brand-symbol svg { width: 100%; height: 100%; }
+
+  .brand-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  .doc-header h1 { color: var(--white); max-width: 900px; }
+
+  .doc-header .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.875rem;
+    color: var(--prata-digital);
+  }
+
+  .doc-header .meta strong { color: var(--white); font-weight: 500; display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+
+  .doc-header .signature {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ciano-inteligente);
+    font-size: 1rem;
+    margin-top: 16px;
+  }
+
+  /* =========================================
+     Section Layouts
+     ========================================= */
+  .section {
+    padding: var(--section-pad-y) 0;
+    border-bottom: 1px solid var(--cinza-neutro);
+  }
+
+  .section-dark {
+    background: var(--azul-vetor);
+    color: var(--white);
+    border-bottom: none;
+  }
+
+  .section-dark h2, .section-dark h3, .section-dark h4 { color: var(--white); }
+  .section-dark p { color: var(--prata-digital); }
+
+  .section-header {
+    margin-bottom: 64px;
+    max-width: 800px;
+  }
+
+  .section-number {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ciano-inteligente);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  /* =========================================
+     Color Swatches
+     ========================================= */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 32px;
+  }
+
+  .swatch-grid-secondary {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .swatch {
+    border: 1px solid var(--cinza-neutro);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--white);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .swatch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(11, 31, 59, 0.08);
+  }
+
+  .swatch-preview {
+    height: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+  }
+
+  .swatch-preview .role-badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    border-radius: 2px;
+    backdrop-filter: blur(8px);
+  }
+
+  .swatch-preview.dark .role-badge { background: rgba(255,255,255,0.15); color: var(--white); }
+  .swatch-preview.light .role-badge { background: rgba(11,31,59,0.08); color: var(--azul-vetor); }
+
+  .swatch-preview h3.swatch-name {
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .swatch-preview.dark { color: var(--white); }
+  .swatch-preview.dark h3.swatch-name { color: var(--white); }
+  .swatch-preview.light { color: var(--azul-vetor); }
+  .swatch-preview.light h3.swatch-name { color: var(--azul-vetor); }
+
+  .swatch-info {
+    padding: 24px;
+    border-top: 1px solid var(--cinza-neutro);
+  }
+
+  .swatch-values {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px 16px;
+    margin-bottom: 20px;
+    font-size: 0.8125rem;
+  }
+
+  .swatch-values dt {
+    font-family: var(--font-mono);
+    color: #788694;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .swatch-values dd {
+    font-family: var(--font-mono);
+    color: var(--grafite-tecnico);
+    font-weight: 500;
+  }
+
+  .swatch-usage {
+    font-size: 0.875rem;
+    color: #455260;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  .swatch-meaning {
+    font-size: 0.8125rem;
+    color: #788694;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  /* =========================================
+     Contrast Table
+     ========================================= */
+  .contrast-section {
+    margin-top: 32px;
+  }
+
+  .contrast-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--cinza-neutro);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .contrast-table thead {
+    background: var(--branco-gelo);
+  }
+
+  .contrast-table th {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--azul-vetor);
+    border-bottom: 1px solid var(--cinza-neutro);
+  }
+
+  .contrast-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--cinza-neutro);
+    font-size: 0.875rem;
+    vertical-align: middle;
+  }
+
+  .contrast-table tr:last-child td { border-bottom: none; }
+
+  .contrast-pair {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .color-chip {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    border: 1px solid rgba(11,31,59,0.08);
+    flex-shrink: 0;
+  }
+
+  .contrast-ratio {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--azul-vetor);
+  }
+
+  .contrast-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+  }
+
+  .tag-aaa { background: rgba(0,168,107,0.12); color: #007f50; }
+  .tag-aa { background: rgba(0,166,166,0.12); color: var(--ciano-inteligente); }
+  .tag-large { background: rgba(11,31,59,0.06); color: #455260; }
+  .tag-fail { background: rgba(220,38,38,0.08); color: #b91c1c; }
+
+  /* =========================================
+     Combinations
+     ========================================= */
+  .combo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .combo-card {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--cinza-neutro);
+  }
+
+  .combo-preview {
+    height: 160px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .combo-preview h4 {
+    font-size: 1.25rem;
+  }
+
+  .combo-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 8px 14px;
+    border-radius: 2px;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .combo-meta {
+    background: var(--branco-gelo);
+    padding: 16px 20px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: #455260;
+    border-top: 1px solid var(--cinza-neutro);
+  }
+
+  .combo-meta .combo-title {
+    font-family: var(--font-display);
+    color: var(--azul-vetor);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* =========================================
+     Restrictions list
+     ========================================= */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .rules-block h4 {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .rules-block h4::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ciano-inteligente);
+  }
+
+  .rules-block.dont h4::before { background: #b91c1c; }
+  .rules-block.do h4::before { background: var(--verde-direcao); }
+
+  .rules-list {
+    list-style: none;
+  }
+
+  .rules-list li {
+    padding: 12px 0;
+    border-top: 1px solid var(--cinza-neutro);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #455260;
+    display: flex;
+    gap: 12px;
+  }
+
+  .rules-list li::before {
+    content: '→';
+    color: var(--ciano-inteligente);
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+  }
+
+  .rules-list.dont li::before { content: '×'; color: #b91c1c; }
+
+  /* =========================================
+     Typography section
+     ========================================= */
+  .type-specimen {
+    background: var(--white);
+    border: 1px solid var(--cinza-neutro);
+    border-radius: 4px;
+    padding: 48px;
+    margin-bottom: 32px;
+  }
+
+  .type-specimen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--cinza-neutro);
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .type-specimen-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--azul-vetor);
+    letter-spacing: -0.02em;
+  }
+
+  .type-specimen.body-type .type-specimen-title {
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  .type-specimen-role {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--ciano-inteligente);
+    text-transform: uppercase;
+  }
+
+  .type-aaa {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    font-weight: 700;
+    color: var(--azul-vetor);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+  }
+
+  .type-specimen.body-type .type-aaa {
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  .type-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--cinza-neutro);
+    border-bottom: 1px solid var(--cinza-neutro);
+    margin-bottom: 40px;
+  }
+
+  .type-meta-grid dt {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: #788694;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .type-meta-grid dd {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--grafite-tecnico);
+    font-weight: 500;
+  }
+
+  .weight-showcase {
+    display: grid;
+    gap: 16px;
+  }
+
+  .weight-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--branco-gelo);
+  }
+
+  .weight-row:last-child { border-bottom: none; }
+
+  .weight-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: #788694;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .weight-sample {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    color: var(--azul-vetor);
+    letter-spacing: -0.01em;
+  }
+
+  .type-specimen.body-type .weight-sample {
+    font-family: var(--font-body);
+    font-size: 1.375rem;
+  }
+
+  /* Type scale */
+  .scale-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--cinza-neutro);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+
+  .scale-table th {
+    padding: 14px 20px;
+    background: var(--branco-gelo);
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--azul-vetor);
+    border-bottom: 1px solid var(--cinza-neutro);
+  }
+
+  .scale-table td {
+    padding: 20px;
+    border-bottom: 1px solid var(--cinza-neutro);
+    vertical-align: middle;
+  }
+
+  .scale-table tr:last-child td { border-bottom: none; }
+
+  .scale-token {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--ciano-inteligente);
+    font-weight: 500;
+  }
+
+  .scale-specs {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: #788694;
+  }
+
+  .scale-sample {
+    font-family: var(--font-display);
+    color: var(--azul-vetor);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .scale-sample.body { font-family: var(--font-body); font-weight: 400; color: var(--grafite-tecnico); }
+
+  /* =========================================
+     Application Examples
+     ========================================= */
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .app-mockup {
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--azul-vetor);
+  }
+
+  .mockup-window-bar {
+    padding: 14px 20px;
+    background: var(--azul-profundo);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mockup-window-bar::before, .mockup-window-bar::after {
+    content: '';
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+  }
+
+  .mockup-window-bar .url {
+    margin-left: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--prata-digital);
+  }
+
+  .mockup-hero {
+    padding: 80px 56px;
+    background: var(--azul-vetor);
+    color: var(--white);
+    position: relative;
+  }
+
+  .mockup-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  .mockup-hero > * { position: relative; z-index: 1; }
+
+  .mockup-hero h2 {
+    color: var(--white);
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 720px;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .mockup-hero h2 em {
+    font-style: normal;
+    color: var(--ciano-inteligente);
+  }
+
+  .mockup-hero p {
+    color: var(--prata-digital);
+    font-size: 1.0625rem;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .mockup-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: var(--ciano-inteligente);
+    color: var(--azul-vetor);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: 3px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Light mockup */
+  .mockup-light {
+    background: var(--white);
+    border: 1px solid var(--cinza-neutro);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .mockup-light .mockup-window-bar {
+    background: var(--branco-gelo);
+    border-bottom: 1px solid var(--cinza-neutro);
+  }
+
+  .mockup-light .mockup-window-bar::before,
+  .mockup-light .mockup-window-bar::after {
+    background: var(--cinza-neutro);
+  }
+
+  .mockup-light .mockup-window-bar .url { color: #788694; }
+
+  .mockup-card-section {
+    padding: 56px;
+    background: var(--white);
+  }
+
+  .mockup-section-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ciano-inteligente);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .mockup-card-section h3 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    max-width: 600px;
+  }
+
+  .mockup-card-section > p {
+    color: #455260;
+    margin-bottom: 40px;
+    max-width: 620px;
+  }
+
+  .mockup-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .mockup-feature {
+    padding: 24px;
+    background: var(--branco-gelo);
+    border: 1px solid var(--cinza-neutro);
+    border-radius: 4px;
+  }
+
+  .mockup-feature-icon {
+    width: 36px; height: 36px;
+    border: 1px solid var(--ciano-inteligente);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--ciano-inteligente);
+  }
+
+  .mockup-feature h4 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .mockup-feature p {
+    font-size: 0.875rem;
+    color: #788694;
+    line-height: 1.5;
+  }
+
+  /* =========================================
+     Footer
+     ========================================= */
+  .doc-footer {
+    background: var(--azul-profundo);
+    color: var(--prata-digital);
+    padding: 64px 0 40px;
+  }
+
+  .doc-footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+  }
+
+  .doc-footer-brand {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .doc-footer-tag {
+    font-style: italic;
+    color: var(--ciano-inteligente);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+  }
+
+  .doc-footer-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.8;
+    color: var(--prata-digital);
+    text-align: right;
+  }
+
+  /* =========================================
+     Print
+     ========================================= */
+  @media print {
+    .section { page-break-inside: avoid; padding: 48px 0; }
+    .swatch, .type-specimen, .combo-card, .app-mockup, .mockup-light { page-break-inside: avoid; }
+    .doc-header { padding: 48px 0; }
+  }
+
+  /* =========================================
+     Responsive
+     ========================================= */
+  @media (max-width: 880px) {
+    .container { padding: 0 24px; }
+    :root { --section-pad-y: 64px; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .mockup-feature-grid { grid-template-columns: 1fr; }
+    .mockup-hero { padding: 48px 32px; }
+    .mockup-card-section { padding: 32px; }
+    .type-specimen { padding: 32px 24px; }
+    .weight-row { grid-template-columns: 1fr; gap: 8px; }
+    h2 { font-size: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER / CAPA
+       ========================================== -->
+  <header class="doc-header">
+    <div class="container">
+      <div class="brand-mark">
+        <div class="brand-symbol">
+        </div>
+        <span class="brand-text">VETORA</span>
+      </div>
+
+      <span class="eyebrow">Documento Técnico · Brand Guidelines</span>
+      <h1>Paleta de Cores e Tipografia</h1>
+      <p class="signature">Estratégia, marca e tecnologia na direção certa.</p>
+
+      <div class="meta">
+        <div>
+          <strong>Versão</strong>
+          1.0
+        </div>
+        <div>
+          <strong>Documento</strong>
+          Especificação Visual
+        </div>
+        <div>
+          <strong>Aplicação</strong>
+          Digital e impresso
+        </div>
+        <div>
+          <strong>Status</strong>
+          Oficial · Uso obrigatório
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       INTRODUÇÃO
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">00 · INTRODUÇÃO</span>
+        <h2>Identidade visual com lógica de engenharia.</h2>
+        <p class="lead" style="margin-top: 24px;">Este documento define, com precisão técnica e visual, as duas camadas fundamentais da identidade VETORA: a paleta de cores e o sistema tipográfico. Cada elemento aqui descrito é normativo. Qualquer aplicação que desvie destas especificações deve ser justificada estrategicamente.</p>
+        <p class="lead" style="margin-top: 16px;">A paleta da VETORA conecta engenharia, tecnologia, sofisticação e clareza. A tipografia traduz essa intenção em ritmo, hierarquia e legibilidade. Juntas, formam a base sobre a qual todo ativo visual da marca é construído.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PARTE 1 — PALETA DE CORES
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01 · PALETA DE CORES</span>
+        <h2>Paleta Principal</h2>
+        <p class="lead" style="margin-top: 24px;">Cinco cores fundamentais. Cada uma com função, significado e restrições próprias. A paleta principal cobre 95% das aplicações da marca.</p>
+      </div>
+
+      <div class="swatch-grid">
+        <!-- Azul Vetor -->
+        <article class="swatch">
+          <div class="swatch-preview dark" style="background: #0B1F3B;">
+            <span class="role-badge">PRIMÁRIA</span>
+            <h3 class="swatch-name">Azul Vetor</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#0B1F3B</dd>
+              <dt>RGB</dt><dd>11, 31, 59</dd>
+              <dt>HSL</dt><dd>217°, 69%, 14%</dd>
+              <dt>CMYK</dt><dd>92, 73, 28, 67</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> fundo escuro, títulos fortes, cabeçalhos, elementos de autoridade. Cor predominante em peças institucionais.</p>
+            <p class="swatch-meaning">Comunica estratégia, confiança, profundidade, tecnologia e maturidade.</p>
+          </div>
+        </article>
+
+        <!-- Ciano Inteligente -->
+        <article class="swatch">
+          <div class="swatch-preview dark" style="background: #00A6A6;">
+            <span class="role-badge">ACENTO</span>
+            <h3 class="swatch-name">Ciano Inteligente</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#00A6A6</dd>
+              <dt>RGB</dt><dd>0, 166, 166</dd>
+              <dt>HSL</dt><dd>180°, 100%, 33%</dd>
+              <dt>CMYK</dt><dd>83, 12, 41, 0</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> detalhes, ícones, linhas, elementos de destaque e CTAs. Sempre como acento, nunca como base.</p>
+            <p class="swatch-meaning">Comunica IA, precisão, modernidade e transformação.</p>
+          </div>
+        </article>
+
+        <!-- Branco Gelo -->
+        <article class="swatch">
+          <div class="swatch-preview light" style="background: #F5F7FA;">
+            <span class="role-badge">FUNDO</span>
+            <h3 class="swatch-name">Branco Gelo</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#F5F7FA</dd>
+              <dt>RGB</dt><dd>245, 247, 250</dd>
+              <dt>HSL</dt><dd>216°, 29%, 97%</dd>
+              <dt>CMYK</dt><dd>2, 1, 0, 2</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> fundos claros, áreas de respiro, seções limpas. Preferível ao branco puro em interfaces digitais.</p>
+            <p class="swatch-meaning">Comunica clareza, organização e profissionalismo.</p>
+          </div>
+        </article>
+
+        <!-- Grafite Técnico -->
+        <article class="swatch">
+          <div class="swatch-preview dark" style="background: #1E252B;">
+            <span class="role-badge">TEXTO</span>
+            <h3 class="swatch-name">Grafite Técnico</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#1E252B</dd>
+              <dt>RGB</dt><dd>30, 37, 43</dd>
+              <dt>HSL</dt><dd>208°, 18%, 14%</dd>
+              <dt>CMYK</dt><dd>30, 14, 0, 83</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> corpo de texto, blocos escuros, rodapé, contraste. Substituto sóbrio do preto puro.</p>
+            <p class="swatch-meaning">Comunica robustez, técnica e sobriedade.</p>
+          </div>
+        </article>
+
+        <!-- Verde Direção -->
+        <article class="swatch">
+          <div class="swatch-preview dark" style="background: #00A86B;">
+            <span class="role-badge">INDICADOR</span>
+            <h3 class="swatch-name">Verde Direção</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#00A86B</dd>
+              <dt>RGB</dt><dd>0, 168, 107</dd>
+              <dt>HSL</dt><dd>158°, 100%, 33%</dd>
+              <dt>CMYK</dt><dd>100, 0, 36, 34</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> moderado — indicadores, destaques de avanço, dados positivos. Máximo 10% da peça visual.</p>
+            <p class="swatch-meaning">Comunica crescimento, movimento, aprovação e performance.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PALETA SECUNDÁRIA
+       ========================================== -->
+  <section class="section" style="background: var(--branco-gelo);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02 · PALETA DE CORES</span>
+        <h2>Paleta Secundária</h2>
+        <p class="lead" style="margin-top: 24px;">Três cores de apoio. Usadas em estruturas técnicas, divisões sutis e versões premium.</p>
+      </div>
+
+      <div class="swatch-grid swatch-grid-secondary">
+        <article class="swatch">
+          <div class="swatch-preview light" style="background: #D9DEE3;">
+            <span class="role-badge">DIVISÃO</span>
+            <h3 class="swatch-name">Cinza Neutro</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#D9DEE3</dd>
+              <dt>RGB</dt><dd>217, 222, 227</dd>
+              <dt>HSL</dt><dd>210°, 14%, 87%</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> divisórias, cards, linhas técnicas e fundos neutros.</p>
+          </div>
+        </article>
+
+        <article class="swatch">
+          <div class="swatch-preview dark" style="background: #061426;">
+            <span class="role-badge">PREMIUM</span>
+            <h3 class="swatch-name">Azul Profundo</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#061426</dd>
+              <dt>RGB</dt><dd>6, 20, 38</dd>
+              <dt>HSL</dt><dd>214°, 73%, 9%</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> exclusivo para versões premium, eventos executivos, rodapés sofisticados.</p>
+          </div>
+        </article>
+
+        <article class="swatch">
+          <div class="swatch-preview light" style="background: #B8C2CC;">
+            <span class="role-badge">DETALHE</span>
+            <h3 class="swatch-name">Prata Digital</h3>
+          </div>
+          <div class="swatch-info">
+            <dl class="swatch-values">
+              <dt>HEX</dt><dd>#B8C2CC</dd>
+              <dt>RGB</dt><dd>184, 194, 204</dd>
+              <dt>HSL</dt><dd>210°, 14%, 76%</dd>
+            </dl>
+            <p class="swatch-usage"><strong>Uso:</strong> elementos finos, linhas técnicas, mockups, texto auxiliar.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       COMBINAÇÕES RECOMENDADAS
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03 · PALETA DE CORES</span>
+        <h2>Combinações recomendadas</h2>
+        <p class="lead" style="margin-top: 24px;">Três combinações canônicas para uso em peças institucionais, comerciais e premium. Nunca usar mais de 3 cores em uma mesma peça.</p>
+      </div>
+
+      <div class="combo-grid">
+        <article class="combo-card">
+          <div class="combo-preview" style="background: #0B1F3B; color: #FFFFFF;">
+            <h4 style="color: #FFFFFF;">Direção institucional.</h4>
+            <span class="combo-cta" style="background: #00A6A6; color: #0B1F3B;">→ Conheça o método</span>
+          </div>
+          <div class="combo-meta">
+            <div class="combo-title">Combinação Padrão</div>
+            #0B1F3B · #00A6A6 · #FFFFFF
+          </div>
+        </article>
+
+        <article class="combo-card">
+          <div class="combo-preview" style="background: #F5F7FA; color: #0B1F3B;">
+            <h4 style="color: #0B1F3B;">Construímos clareza.</h4>
+            <span class="combo-cta" style="background: #0B1F3B; color: #FFFFFF;">→ Saiba mais</span>
+          </div>
+          <div class="combo-meta">
+            <div class="combo-title">Combinação Clara</div>
+            #F5F7FA · #0B1F3B · #00A6A6
+          </div>
+        </article>
+
+        <article class="combo-card">
+          <div class="combo-preview" style="background: #061426; color: #FFFFFF;">
+            <h4 style="color: #FFFFFF;">Inteligência aplicada.</h4>
+            <span class="combo-cta" style="background: transparent; color: #00A6A6; border: 1px solid #00A6A6;">→ Versão premium</span>
+          </div>
+          <div class="combo-meta">
+            <div class="combo-title">Combinação Premium</div>
+            #061426 · #00A6A6 · #B8C2CC
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ACESSIBILIDADE E CONTRASTE
+       ========================================== -->
+  <section class="section" style="background: var(--branco-gelo);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04 · PALETA DE CORES</span>
+        <h2>Acessibilidade e contraste</h2>
+        <p class="lead" style="margin-top: 24px;">Combinações testadas contra a WCAG 2.1. Texto institucional deve atingir AA (4.5:1) no mínimo. Títulos grandes (≥24px) podem aceitar AA Large (3:1).</p>
+      </div>
+
+      <div class="contrast-section">
+        <table class="contrast-table">
+          <thead>
+            <tr>
+              <th>Texto</th>
+              <th>Fundo</th>
+              <th>Razão</th>
+              <th>Classificação</th>
+              <th>Uso recomendado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#0B1F3B"></div>Azul Vetor</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#F5F7FA"></div>Branco Gelo</div></td>
+              <td><span class="contrast-ratio">14.8 : 1</span></td>
+              <td><span class="contrast-tag tag-aaa">AAA</span></td>
+              <td>Títulos e corpo de texto em fundos claros.</td>
+            </tr>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#1E252B"></div>Grafite Técnico</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#FFFFFF"></div>Branco</div></td>
+              <td><span class="contrast-ratio">14.4 : 1</span></td>
+              <td><span class="contrast-tag tag-aaa">AAA</span></td>
+              <td>Corpo de texto padrão.</td>
+            </tr>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#FFFFFF"></div>Branco</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#0B1F3B"></div>Azul Vetor</div></td>
+              <td><span class="contrast-ratio">14.8 : 1</span></td>
+              <td><span class="contrast-tag tag-aaa">AAA</span></td>
+              <td>Texto em fundos escuros institucionais.</td>
+            </tr>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#00A6A6"></div>Ciano Inteligente</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#0B1F3B"></div>Azul Vetor</div></td>
+              <td><span class="contrast-ratio">4.8 : 1</span></td>
+              <td><span class="contrast-tag tag-aa">AA</span></td>
+              <td>CTAs, links e destaques sobre fundo escuro.</td>
+            </tr>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#00A6A6"></div>Ciano Inteligente</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#FFFFFF"></div>Branco</div></td>
+              <td><span class="contrast-ratio">3.1 : 1</span></td>
+              <td><span class="contrast-tag tag-large">AA Large</span></td>
+              <td>Apenas em texto ≥24px ou ícones. Evitar para texto corrido.</td>
+            </tr>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#00A86B"></div>Verde Direção</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#FFFFFF"></div>Branco</div></td>
+              <td><span class="contrast-ratio">3.0 : 1</span></td>
+              <td><span class="contrast-tag tag-large">AA Large</span></td>
+              <td>Indicadores grandes, ícones e badges. Não usar em texto corrido.</td>
+            </tr>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#B8C2CC"></div>Prata Digital</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#0B1F3B"></div>Azul Vetor</div></td>
+              <td><span class="contrast-ratio">7.6 : 1</span></td>
+              <td><span class="contrast-tag tag-aaa">AAA</span></td>
+              <td>Texto auxiliar e legendas sobre fundo escuro.</td>
+            </tr>
+            <tr>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#788694"></div>Cinza médio</div></td>
+              <td><div class="contrast-pair"><div class="color-chip" style="background:#FFFFFF"></div>Branco</div></td>
+              <td><span class="contrast-ratio">4.7 : 1</span></td>
+              <td><span class="contrast-tag tag-aa">AA</span></td>
+              <td>Texto auxiliar, captions e meta-informação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       RESTRIÇÕES DE USO
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">05 · PALETA DE CORES</span>
+        <h2>Restrições de uso</h2>
+        <p class="lead" style="margin-top: 24px;">Regras normativas. Qualquer desvio precisa ser justificado por uma direção estratégica explícita.</p>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rules-block do">
+          <h4>Sempre fazer</h4>
+          <ul class="rules-list">
+            <li>Alternar fundos entre Azul Vetor (escuro) e Branco Gelo (claro) em peças longas.</li>
+            <li>Aplicar títulos em Azul Vetor sobre fundos claros — prioridade sobre Grafite Técnico.</li>
+            <li>Reservar o Ciano Inteligente para acentos, CTAs e ícones.</li>
+            <li>Verificar contraste WCAG AA antes de publicar qualquer peça.</li>
+            <li>Manter o Azul Profundo restrito a aplicações premium.</li>
+          </ul>
+        </div>
+
+        <div class="rules-block dont">
+          <h4>Nunca fazer</h4>
+          <ul class="rules-list dont">
+            <li>Usar o Ciano Inteligente como cor de fundo em grandes áreas.</li>
+            <li>Usar Verde Direção em mais de 10% da peça visual.</li>
+            <li>Combinar mais de três cores da paleta em uma única peça.</li>
+            <li>Aplicar Azul Profundo em material padrão — apenas premium.</li>
+            <li>Usar gradientes, sombras decorativas ou efeitos sobre as cores institucionais.</li>
+            <li>Empilhar dois fundos escuros consecutivos sem separação clara.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PARTE 2 — TIPOGRAFIA
+       ========================================== -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number" style="color: #00A6A6;">06 · TIPOGRAFIA</span>
+        <h2 style="color: #FFFFFF;">Sistema tipográfico</h2>
+        <p class="lead" style="margin-top: 24px; color: #B8C2CC;">Duas famílias. Cada uma com função clara. Sora dá personalidade e tecnologia aos títulos. Inter entrega clareza e usabilidade ao corpo de texto. A combinação é normativa em todas as peças da marca.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specimen Sora -->
+  <section class="section">
+    <div class="container">
+      <article class="type-specimen">
+        <header class="type-specimen-header">
+          <div>
+            <span class="type-specimen-role">Display · Títulos · Headlines</span>
+            <h3 class="type-specimen-title" style="margin-top: 8px;">Sora</h3>
+          </div>
+          <div style="text-align: right;">
+            <span class="mono" style="color: #788694; font-size: 0.75rem;">FONTE PRINCIPAL</span>
+            <div class="mono" style="color: var(--azul-vetor); margin-top: 4px;">Google Fonts</div>
+          </div>
+        </header>
+
+        <div class="type-aaa">Aa Bb Cc</div>
+
+        <dl class="type-meta-grid">
+          <div><dt>Família</dt><dd>Sora</dd></div>
+          <div><dt>Classificação</dt><dd>Sans-serif geométrico</dd></div>
+          <div><dt>Pesos disponíveis</dt><dd>100 — 800</dd></div>
+          <div><dt>Pesos recomendados</dt><dd>600, 700</dd></div>
+          <div><dt>Tracking padrão</dt><dd>−0.02em</dd></div>
+          <div><dt>Alternativas</dt><dd>Space Grotesk, Manrope</dd></div>
+        </dl>
+
+        <div class="weight-showcase">
+          <div class="weight-row">
+            <div class="weight-label">300 · Light</div>
+            <div class="weight-sample" style="font-weight: 300;">Estratégia, marca e tecnologia.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">400 · Regular</div>
+            <div class="weight-sample" style="font-weight: 400;">Estratégia, marca e tecnologia.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">500 · Medium</div>
+            <div class="weight-sample" style="font-weight: 500;">Estratégia, marca e tecnologia.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">600 · SemiBold</div>
+            <div class="weight-sample" style="font-weight: 600;">Estratégia, marca e tecnologia.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">700 · Bold</div>
+            <div class="weight-sample" style="font-weight: 700;">Estratégia, marca e tecnologia.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">800 · ExtraBold</div>
+            <div class="weight-sample" style="font-weight: 800;">Estratégia, marca e tecnologia.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Specimen Inter -->
+      <article class="type-specimen body-type">
+        <header class="type-specimen-header">
+          <div>
+            <span class="type-specimen-role">Texto · Corpo · Interfaces</span>
+            <h3 class="type-specimen-title" style="margin-top: 8px;">Inter</h3>
+          </div>
+          <div style="text-align: right;">
+            <span class="mono" style="color: #788694; font-size: 0.75rem;">FONTE DE TEXTO</span>
+            <div class="mono" style="color: var(--azul-vetor); margin-top: 4px;">Google Fonts</div>
+          </div>
+        </header>
+
+        <div class="type-aaa">Aa Bb Cc</div>
+
+        <dl class="type-meta-grid">
+          <div><dt>Família</dt><dd>Inter</dd></div>
+          <div><dt>Classificação</dt><dd>Sans-serif neutro</dd></div>
+          <div><dt>Pesos disponíveis</dt><dd>100 — 900</dd></div>
+          <div><dt>Pesos recomendados</dt><dd>400, 500</dd></div>
+          <div><dt>Tracking padrão</dt><dd>0em</dd></div>
+          <div><dt>Alternativas</dt><dd>Lato, Open Sans</dd></div>
+        </dl>
+
+        <div class="weight-showcase">
+          <div class="weight-row">
+            <div class="weight-label">300 · Light</div>
+            <div class="weight-sample" style="font-weight: 300;">Construímos clareza, percepção e direção.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">400 · Regular</div>
+            <div class="weight-sample" style="font-weight: 400;">Construímos clareza, percepção e direção.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">500 · Medium</div>
+            <div class="weight-sample" style="font-weight: 500;">Construímos clareza, percepção e direção.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">600 · SemiBold</div>
+            <div class="weight-sample" style="font-weight: 600;">Construímos clareza, percepção e direção.</div>
+          </div>
+          <div class="weight-row">
+            <div class="weight-label">700 · Bold</div>
+            <div class="weight-sample" style="font-weight: 700;">Construímos clareza, percepção e direção.</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ESCALA TIPOGRÁFICA
+       ========================================== -->
+  <section class="section" style="background: var(--branco-gelo);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">07 · TIPOGRAFIA</span>
+        <h2>Escala tipográfica</h2>
+        <p class="lead" style="margin-top: 24px;">Sistema modular baseado em incrementos consistentes. Use os tokens abaixo em CSS, Figma e Notion para garantir hierarquia visual previsível.</p>
+      </div>
+
+      <table class="scale-table">
+        <thead>
+          <tr>
+            <th style="width: 140px;">Token</th>
+            <th style="width: 180px;">Especificação</th>
+            <th>Amostra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="scale-token">display</span></td>
+            <td><div class="scale-specs">Sora 700 · 64px / 1.05<br>tracking −0.03em</div></td>
+            <td><div class="scale-sample" style="font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em;">Direção certa.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">h1</span></td>
+            <td><div class="scale-specs">Sora 700 · 48px / 1.1<br>tracking −0.02em</div></td>
+            <td><div class="scale-sample" style="font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em;">Estratégia que materializa.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">h2</span></td>
+            <td><div class="scale-specs">Sora 600 · 36px / 1.15<br>tracking −0.01em</div></td>
+            <td><div class="scale-sample" style="font-size: 1.875rem; font-weight: 600; letter-spacing: -0.01em;">Construímos vitrines comerciais.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">h3</span></td>
+            <td><div class="scale-specs">Sora 600 · 24px / 1.2</div></td>
+            <td><div class="scale-sample" style="font-size: 1.375rem; font-weight: 600;">Método em cinco etapas.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">h4</span></td>
+            <td><div class="scale-specs">Sora 600 · 18px / 1.3</div></td>
+            <td><div class="scale-sample" style="font-size: 1.125rem; font-weight: 600;">Diagnóstico estratégico.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">eyebrow</span></td>
+            <td><div class="scale-specs">Sora 600 · 12px / 1<br>tracking 0.18em · UPPERCASE</div></td>
+            <td><div class="scale-sample" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ciano-inteligente);">DOCUMENTO TÉCNICO</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">lead</span></td>
+            <td><div class="scale-specs">Inter 400 · 18px / 1.6</div></td>
+            <td><div class="scale-sample body" style="font-size: 1.125rem;">Texto de abertura, mais leve, para introdução de seções.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">body</span></td>
+            <td><div class="scale-specs">Inter 400 · 16px / 1.6</div></td>
+            <td><div class="scale-sample body" style="font-size: 1rem;">Corpo de texto padrão. Usado em parágrafos, descrições e materiais comerciais.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">small</span></td>
+            <td><div class="scale-specs">Inter 400 · 14px / 1.5</div></td>
+            <td><div class="scale-sample body" style="font-size: 0.875rem;">Texto auxiliar, captions e legendas técnicas.</div></td>
+          </tr>
+          <tr>
+            <td><span class="scale-token">caption</span></td>
+            <td><div class="scale-specs">Inter 500 · 12px / 1.4<br>tracking 0.05em</div></td>
+            <td><div class="scale-sample body" style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em;">Metadados, rótulos e referências.</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       RESTRIÇÕES TIPOGRÁFICAS
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">08 · TIPOGRAFIA</span>
+        <h2>Restrições tipográficas</h2>
+        <p class="lead" style="margin-top: 24px;">A consistência tipográfica é o que diferencia uma marca técnica madura de um material amador. Estas regras são absolutas.</p>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rules-block do">
+          <h4>Sempre fazer</h4>
+          <ul class="rules-list">
+            <li>Títulos em Sora SemiBold (600) ou Bold (700).</li>
+            <li>Corpo de texto em Inter Regular (400), com Medium (500) para ênfase pontual.</li>
+            <li>Tracking levemente reduzido (−0.01em a −0.03em) em títulos grandes para elegância.</li>
+            <li>Hierarquia clara — distinguir h1, h2, h3 com saltos visuais perceptíveis.</li>
+            <li>Line-height generoso em corpo (1.5–1.7) para legibilidade.</li>
+          </ul>
+        </div>
+
+        <div class="rules-block dont">
+          <h4>Nunca fazer</h4>
+          <ul class="rules-list dont">
+            <li>Misturar mais de duas famílias tipográficas em uma única peça.</li>
+            <li>Usar mais de dois pesos diferentes da mesma família em um mesmo bloco.</li>
+            <li>Aplicar fontes serifadas em qualquer material da identidade VETORA.</li>
+            <li>Usar Sora em corpo de texto longo — comprometeria legibilidade.</li>
+            <li>Usar Inter em títulos hero — não carrega personalidade suficiente.</li>
+            <li>Aplicar efeitos: sombra, contorno, gradiente ou itálico decorativo em títulos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PARTE 3 — APLICAÇÃO
+       ========================================== -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number" style="color: #00A6A6;">09 · APLICAÇÃO</span>
+        <h2 style="color: #FFFFFF;">Cores e tipografia em conjunto</h2>
+        <p class="lead" style="margin-top: 24px; color: #B8C2CC;">Exemplos canônicos de como paleta e tipografia operam juntas em peças reais da marca.</p>
+      </div>
+
+      <div class="app-grid">
+        <!-- Mockup 1: Hero escuro -->
+        <div class="app-mockup">
+          <div class="mockup-window-bar">
+            <span class="url">vetora.com.br</span>
+          </div>
+          <div class="mockup-hero">
+            <span class="eyebrow">ESTÚDIO ESTRATÉGICO</span>
+            <h2>Estratégia, marca e tecnologia <em>na direção certa.</em></h2>
+            <p>Transformamos negócios reais em ativos digitais de valor — por meio de branding, sites e soluções com IA.</p>
+            <a href="#" class="mockup-cta">Quero evoluir minha presença digital →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="app-grid">
+        <!-- Mockup 2: Seção clara -->
+        <div class="mockup-light">
+          <div class="mockup-window-bar">
+            <span class="url">vetora.com.br / método</span>
+          </div>
+          <div class="mockup-card-section">
+            <span class="mockup-section-eyebrow">MÉTODO VETORA</span>
+            <h3>Estratégia antes de execução. Sempre.</h3>
+            <p>Um processo de cinco etapas que reduz risco, alinha expectativas e entrega ativos digitais com clareza estratégica e qualidade visual.</p>
+            <div class="mockup-feature-grid">
+              <div class="mockup-feature">
+                <div class="mockup-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08l4.24-4.24"/></svg>
+                </div>
+                <h4>Diagnóstico</h4>
+                <p>Entendemos negócio, público, oferta e percepção atual.</p>
+              </div>
+              <div class="mockup-feature">
+                <div class="mockup-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h4>Direção</h4>
+                <p>Definimos posicionamento, mensagem e proposta de valor.</p>
+              </div>
+              <div class="mockup-feature">
+                <div class="mockup-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zm20 0h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h4>Construção</h4>
+                <p>Criamos os ativos digitais com método e precisão.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="doc-footer">
+    <div class="container">
+      <div>
+        <div class="doc-footer-brand">VETORA</div>
+        <div class="doc-footer-tag">Estratégia, marca e tecnologia na direção certa.</div>
+      </div>
+      <div class="doc-footer-meta">
+        DOCUMENTO TÉCNICO · BRAND GUIDELINES<br>
+        Paleta de Cores e Tipografia · v1.0<br>
+        © 2026 VETORA · Uso interno e parceiros
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

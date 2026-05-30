@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit VETORA — Método de Branding Estratégico</title>
+  <meta name="description" content="8 módulos de frameworks e templates para construir uma marca com método, clareza e percepção de valor. Entrega via Notion. Por R$397.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kit VETORA — Método de Branding Estratégico">
+  <meta property="og:description" content="Sua marca precisa parecer tão profissional quanto o valor que você entrega.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kit.vetora.com.br">
+  <meta property="og:image" content="https://kit.vetora.com.br/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: #1E252B; background: #fff; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ===== TOKENS ===== */
+    :root {
+      --navy:    #0B1F3B;
+      --deep:    #061426;
+      --cyan:    #00A6A6;
+      --ice:     #F5F7FA;
+      --graphite:#1E252B;
+      --gray:    #D9DEE3;
+      --silver:  #B8C2CC;
+      --green:   #00A86B;
+      --w: 1100px;
+      --pad: 104px 24px;
+      --r: 4px;
+    }
+
+    /* ===== TYPE ===== */
+    h1, h2, h3, h4, h5 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: clamp(36px, 5.5vw, 60px); }
+    h2 { font-size: clamp(28px, 4vw, 44px); }
+    h3 { font-size: clamp(20px, 2.5vw, 28px); }
+    h4 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+    h5 { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+
+    .eyebrow {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    /* ===== LAYOUT ===== */
+    .wrap { max-width: var(--w); margin: 0 auto; padding: 0 24px; }
+    section { padding: var(--pad); }
+    .section-center { text-align: center; }
+    .section-center h2 { margin: 12px 0 16px; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: var(--r);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: opacity .15s, transform .15s;
+      white-space: nowrap;
+    }
+    .btn:hover { opacity: .87; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-cyan  { background: var(--cyan); color: #fff; }
+    .btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.28); }
+    .btn-lg    { padding: 20px 44px; font-size: 18px; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      transition: box-shadow .2s;
+    }
+    .site-header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.35); }
+    .header-inner {
+      max-width: var(--w);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo img  { height: 66px; width: auto; }
+    .logo-text { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+    .logo-text em { color: var(--cyan); font-style: normal; }
+    .header-btn { font-size: 14px; padding: 10px 22px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--navy);
+      color: #fff;
+      padding: 120px 24px 100px;
+      text-align: center;
+    }
+    .hero .eyebrow { margin-bottom: 24px; }
+    .hero h1 { max-width: 800px; margin: 0 auto 24px; color: #fff; }
+    .hero h1 em { color: var(--cyan); font-style: normal; }
+    .hero-sub {
+      font-size: clamp(17px, 2vw, 20px);
+      color: var(--silver);
+      max-width: 580px;
+      margin: 0 auto 48px;
+      line-height: 1.65;
+    }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-stats {
+      margin-top: 72px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; padding: 0 48px; }
+    .stat + .stat { border-left: 1px solid rgba(255,255,255,.1); }
+    .stat-n {
+      font-family: 'Sora', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--cyan);
+      display: block;
+      line-height: 1;
+    }
+    .stat-l { font-size: 13px; color: var(--silver); margin-top: 6px; }
+
+    /* ===== PROBLEMA ===== */
+    .problema { background: var(--ice); }
+    .problema .wrap { max-width: 780px; }
+    .problema h2 { color: var(--navy); margin: 12px 0 28px; }
+    .problema-lead { font-size: 18px; line-height: 1.75; color: #444; margin-bottom: 20px; }
+    .symptoms {
+      background: #fff;
+      border-left: 3px solid var(--cyan);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 8px 28px;
+      margin-top: 36px;
+    }
+    .symptom {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+    }
+    .symptom + .symptom { border-top: 1px solid var(--gray); }
+    .dot { width: 7px; height: 7px; background: var(--cyan); border-radius: 50%; margin-top: 9px; flex-shrink: 0; }
+    .symptom p { font-size: 16px; color: #333; }
+    .problema-close {
+      margin-top: 40px;
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    /* ===== PARA QUEM ===== */
+    .para-quem { background: #fff; }
+    .para-quem h2 { color: var(--navy); margin: 12px 0 12px; }
+    .pq-sub { color: #666; font-size: 18px; margin-bottom: 56px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      background: var(--ice);
+      border: 1px solid var(--gray);
+      border-radius: var(--r);
+      padding: 32px;
+    }
+    .card-ico {
+      width: 48px; height: 48px;
+      background: var(--navy);
+      border-radius: var(--r);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .card h4 { color: var(--navy); margin-bottom: 10px; }
+    .card p  { font-size: 15px; color: #555; line-height: 1.6; }
+
+    /* ===== MÓDULOS ===== */
+    .modulos { background: var(--navy); }
+    .modulos h2 { color: #fff; margin: 12px 0 16px; }
+    .modulos-sub { color: var(--silver); font-size: 18px; max-width: 600px; margin: 0 auto 60px; }
+    .mod-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .mod {
+      background: var(--deep);
+      padding: 28px 24px;
+      transition: background .2s;
+    }
+    .mod:hover { background: rgba(0,166,166,.08); }
+    .mod-n {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+    .mod-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .mod-desc { font-size: 13px; color: var(--silver); line-height: 1.55; }
+
+    /* ===== METODO ===== */
+    .metodo { background: var(--ice); }
+    .metodo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .metodo h2 { color: var(--navy); margin: 12px 0 20px; }
+    .metodo-body { font-size: 17px; line-height: 1.75; color: #444; margin-bottom: 20px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #fff; border: 1px solid var(--gray);
+      border-radius: var(--r); padding: 8px 14px;
+      font-size: 14px; color: var(--navy); font-weight: 500;
+    }
+    .metodo-card {
+      background: var(--navy);
+      border-radius: var(--r);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .metodo-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,166,166,.12) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .steps { position: relative; }
+    .step {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 15px 0;
+    }
+    .step + .step { border-top: 1px solid rgba(255,255,255,.07); }
+    .step-n {
+      width: 30px; height: 30px;
+      background: var(--cyan);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px; font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .step h5 { color: #fff; margin-bottom: 3px; }
+    .step p   { font-size: 13px; color: var(--silver); }
+
+    /* ===== COMO FUNCIONA ===== */
+    .como { background: #fff; text-align: center; }
+    .como h2 { color: var(--navy); margin: 12px 0 60px; }
+    .passos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .passos::before {
+      content: '';
+      position: absolute;
+      top: 35px;
+      left: calc(16.66% + 20px);
+      right: calc(16.66% + 20px);
+      height: 1px;
+      background: var(--cyan);
+      opacity: .25;
+    }
+    .passo { padding: 0 28px; }
+    .passo-n-wrap { display: flex; justify-content: center; margin-bottom: 24px; }
+    .passo-n {
+      width: 70px; height: 70px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-size: 24px; font-weight: 700;
+      color: var(--cyan);
+      position: relative; z-index: 1;
+    }
+    .passo h4 { font-size: 19px; color: var(--navy); margin-bottom: 12px; }
+    .passo p  { font-size: 15px; color: #555; line-height: 1.65; }
+
+    /* ===== AUTORIDADE ===== */
+    .autoridade { background: var(--ice); }
+    .aut-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .autoridade h2 { color: var(--navy); margin: 12px 0 24px; }
+    .bio { font-size: 17px; line-height: 1.75; color: #444; }
+    .bio p { margin-bottom: 16px; }
+    .bio strong { color: var(--navy); }
+    .cases { margin-top: 40px; }
+    .cases-label { font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .case { padding: 18px 0; border-top: 1px solid var(--gray); }
+    .case:last-child { border-bottom: 1px solid var(--gray); }
+    .case-name { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); }
+    .case-desc { font-size: 14px; color: #666; margin-top: 4px; }
+    .aut-highlights { display: flex; flex-direction: column; gap: 18px; }
+    .highlight {
+      background: #fff;
+      border: 1px solid var(--gray);
+      border-radius: var(--r);
+      padding: 26px;
+    }
+    .hi-icon { color: var(--cyan); margin-bottom: 10px; }
+    .highlight h4 { font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+    .highlight p  { font-size: 15px; color: #555; line-height: 1.6; }
+
+    /* ===== OFERTA ===== */
+    .oferta { background: var(--navy); text-align: center; }
+    .oferta h2 { color: #fff; margin: 12px 0 14px; }
+    .oferta-sub { color: var(--silver); font-size: 18px; max-width: 520px; margin: 0 auto 48px; }
+    .urgency { margin-bottom: 44px; }
+    .urgency-label { font-size: 13px; color: var(--silver); margin-bottom: 20px; }
+    .urgency-label strong { color: rgba(255,255,255,.7); }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cd-item { text-align: center; }
+    .cd-n {
+      display: block;
+      font-family: 'Sora', sans-serif;
+      font-size: 44px; font-weight: 700;
+      color: var(--cyan);
+      line-height: 1;
+      min-width: 72px;
+    }
+    .cd-l { font-size: 11px; color: var(--silver); text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; }
+    .cd-sep { font-family: 'Sora', sans-serif; font-size: 40px; color: rgba(255,255,255,.18); margin-top: 2px; line-height: 1; }
+    .pricing-card {
+      background: var(--deep);
+      border: 1px solid rgba(0,166,166,.3);
+      border-radius: var(--r);
+      padding: 56px 52px;
+      max-width: 580px;
+      margin: 0 auto;
+      position: relative;
+      text-align: left;
+    }
+    .badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cyan);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 22px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .p-name { font-size: 14px; color: var(--silver); margin-bottom: 14px; }
+    .p-price {
+      font-family: 'Sora', sans-serif;
+      font-size: 76px; font-weight: 700;
+      color: #fff; line-height: 1;
+      margin-bottom: 8px;
+    }
+    .p-price sup { font-size: 30px; vertical-align: super; }
+    .p-anchor { font-size: 14px; color: var(--silver); margin-bottom: 40px; line-height: 1.6; }
+    .p-list-title { font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 14px; }
+    .p-list { margin-bottom: 40px; }
+    .p-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .p-item:last-child { border-bottom: none; }
+    .p-check { color: var(--cyan); flex-shrink: 0; margin-top: 2px; }
+    .p-text { font-size: 15px; color: rgba(255,255,255,.78); }
+    .p-text strong { color: #fff; }
+    .p-cta { width: 100%; font-size: 18px; }
+    .p-footer { margin-top: 20px; font-size: 13px; color: var(--silver); text-align: center; line-height: 1.6; }
+    .p-footer strong { color: rgba(255,255,255,.55); }
+
+    /* ===== GARANTIA ===== */
+    .garantia { background: #fff; }
+    .gar-inner {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .gar-shield {
+      width: 128px; height: 128px;
+      border-radius: 50%;
+      background: var(--ice);
+      border: 2px solid var(--gray);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .garantia h2 { color: var(--navy); font-size: 28px; margin-bottom: 14px; }
+    .garantia p  { font-size: 17px; color: #444; line-height: 1.75; }
+    .garantia a  { color: var(--cyan); }
+
+    /* ===== FAQ ===== */
+    .faq { background: var(--ice); }
+    .faq h2 { color: var(--navy); margin: 12px 0 48px; }
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--gray);
+      border-radius: var(--r);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: 22px 28px;
+      cursor: pointer; user-select: none;
+    }
+    .faq-q:hover { background: var(--ice); }
+    .faq-qt { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600; color: var(--navy); }
+    .faq-icon { color: var(--cyan); flex-shrink: 0; transition: transform .2s; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 28px 24px;
+      font-size: 16px; color: #444; line-height: 1.75;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final { background: var(--navy); text-align: center; }
+    .cta-final h2 { color: #fff; margin: 12px auto 18px; max-width: 680px; }
+    .cta-sub { color: var(--silver); font-size: 18px; max-width: 460px; margin: 0 auto 48px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--deep);
+      color: var(--silver);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .foot-inner { max-width: var(--w); margin: 0 auto; }
+    .foot-logo { margin-bottom: 20px; }
+    .foot-logo img { height: 66px; margin: 0 auto; }
+    .foot-links { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
+    .foot-links a { color: var(--cyan); transition: opacity .15s; }
+    .foot-links a:hover { opacity: .75; }
+    .foot-copy { color: rgba(255,255,255,.25); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      :root { --pad: 72px 24px; }
+      .cards { grid-template-columns: 1fr; }
+      .mod-grid { grid-template-columns: repeat(2, 1fr); }
+      .metodo-inner { grid-template-columns: 1fr; gap: 48px; }
+      .aut-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 640px) {
+      :root { --pad: 60px 20px; }
+      .hero { padding: 80px 20px 68px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn { width: 100%; }
+      .hero-stats { gap: 0; }
+      .stat { padding: 0 24px; }
+      .mod-grid { grid-template-columns: 1fr; }
+      .passos { grid-template-columns: 1fr; }
+      .passos::before { display: none; }
+      .passo { padding: 0; margin-bottom: 40px; }
+      .passo:last-child { margin-bottom: 0; }
+      .pricing-card { padding: 40px 24px; }
+      .p-price { font-size: 56px; }
+      .gar-inner { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+      .gar-shield { margin: 0 auto; }
+      .header-btn { display: none; }
+      .cd-n { font-size: 32px; min-width: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ░░ HEADER ░░ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="VETORA">
+      <img src="../identidade/logo-vetora/2-Logo horizontal negativa — fundo escuro-semfundo.png"
+           alt="VETORA"
+           onerror="this.style.display='none';document.getElementById('logo-txt').style.display='block'">
+      <span id="logo-txt" class="logo-text" style="display:none">VET<em>ORA</em></span>
+    </a>
+    <a href="#oferta" class="btn btn-cyan header-btn">Quero o Kit →</a>
+  </div>
+</header>
+
+<!-- ░░ 1 — HERO ░░ -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Kit VETORA — Método de Branding</p>
+    <h1>Sua marca precisa parecer tão <em>profissional</em> quanto o valor que você entrega</h1>
+    <p class="hero-sub">Para empreendedores e profissionais técnicos que entregam mais do que comunicam — o Kit VETORA é o método para corrigir isso.</p>
+    <div class="hero-ctas">
+      <a href="#oferta" class="btn btn-cyan btn-lg">Quero o Kit VETORA — R$397 →</a>
+      <a href="#modulos" class="btn btn-ghost">Ver o que está incluído</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-n">8</span>
+        <div class="stat-l">Módulos completos</div>
+      </div>
+      <div class="stat">
+        <span class="stat-n">40+</span>
+        <div class="stat-l">Frameworks e templates</div>
+      </div>
+      <div class="stat">
+        <span class="stat-n">7 dias</span>
+        <div class="stat-l">Garantia incondicional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 2 — PROBLEMA ░░ -->
+<section class="problema">
+  <div class="wrap">
+    <p class="eyebrow">O problema</p>
+    <h2>Talvez seu negócio entregue mais valor do que sua marca comunica.</h2>
+    <p class="problema-lead">Você investe anos desenvolvendo expertise técnica. Entrega resultados reais. Mas quando chega a hora de apresentar o negócio, a marca não reflete o nível do que você faz.</p>
+    <p class="problema-lead">E o pior: você sente isso — mas não sabe exatamente o que corrigir.</p>
+    <div class="symptoms">
+      <div class="symptom"><div class="dot"></div><p>Clientes pedem desconto antes mesmo de entender o valor que você entrega</p></div>
+      <div class="symptom"><div class="dot"></div><p>Propostas somem depois do envio — sem feedback, sem explicação</p></div>
+      <div class="symptom"><div class="dot"></div><p>Concorrentes que entregam menos fecham mais — porque parecem mais profissionais</p></div>
+      <div class="symptom"><div class="dot"></div><p>Você explica o que faz em cada reunião, como se a marca não fizesse esse trabalho por você</p></div>
+    </div>
+    <p class="problema-close">O problema não é a qualidade do serviço. É a percepção.</p>
+  </div>
+</section>
+
+<!-- ░░ 3 — PARA QUEM ░░ -->
+<section class="para-quem">
+  <div class="wrap">
+    <p class="eyebrow">Para quem é</p>
+    <h2>Você está no lugar certo se...</h2>
+    <p class="pq-sub">O Kit funciona para quem vende com base em expertise — não em volume ou preço baixo.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico">
+          <svg width="22" height="22" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h4>Empreendedores e fundadores</h4>
+        <p>Que constroem negócios reais e querem uma marca à altura do que entregam. Que cansaram de explicar o que fazem em toda reunião.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico">
+          <svg width="22" height="22" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h4>Freelancers e consultores</h4>
+        <p>Que querem elevar o padrão da própria marca e cobrar mais sem precisar justificar o preço toda vez.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico">
+          <svg width="22" height="22" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h4>Profissionais técnicos</h4>
+        <p>Engenheiros, advogados, médicos, arquitetos — que têm um projeto próprio e precisam de uma marca que comunique autoridade antes da primeira conversa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 4 — MÓDULOS ░░ -->
+<section class="modulos section-center" id="modulos">
+  <div class="wrap">
+    <p class="eyebrow">O que está incluído</p>
+    <h2>8 módulos. Um método completo.</h2>
+    <p class="modulos-sub">Não é um pack de templates. É o método de branding de uma consultoria estratégica — empacotado para você aplicar sozinho.</p>
+    <div class="mod-grid">
+      <div class="mod">
+        <div class="mod-n">01</div>
+        <div class="mod-title">Diagnóstico de Marca</div>
+        <div class="mod-desc">Checklist de 30 pontos, framework de gaps e questionário de briefing estratégico.</div>
+      </div>
+      <div class="mod">
+        <div class="mod-n">02</div>
+        <div class="mod-title">Posicionamento e Estratégia</div>
+        <div class="mod-desc">Tese de marca, proposta de valor em 3 camadas, mapa de arquétipo e perfil de cliente ideal.</div>
+      </div>
+      <div class="mod">
+        <div class="mod-n">03</div>
+        <div class="mod-title">Identidade Verbal</div>
+        <div class="mod-desc">Tom de voz em 7 dimensões, banco de 30 frases-modelo e listas de vocabulário da marca.</div>
+      </div>
+      <div class="mod">
+        <div class="mod-n">04</div>
+        <div class="mod-title">Identidade Visual</div>
+        <div class="mod-desc">Guia de paleta, tipografia, checklist de direção de logo e estilo fotográfico.</div>
+      </div>
+      <div class="mod">
+        <div class="mod-n">05</div>
+        <div class="mod-title">Estrutura de Site</div>
+        <div class="mod-desc">Wireframe de 8 seções, blocos de copy prontos para adaptar e checklist UX/UI de 30 pontos.</div>
+      </div>
+      <div class="mod">
+        <div class="mod-n">06</div>
+        <div class="mod-title">Apresentação Comercial</div>
+        <div class="mod-desc">Narrativa executiva em 5 blocos e roteiro completo de pitch deck em 15 slides.</div>
+      </div>
+      <div class="mod">
+        <div class="mod-n">07</div>
+        <div class="mod-title">Biblioteca de Prompts de IA</div>
+        <div class="mod-desc">40 prompts categorizados para copy, imagens e estratégia — com instruções de qualidade.</div>
+      </div>
+      <div class="mod">
+        <div class="mod-n">08</div>
+        <div class="mod-title">Guia de Implementação</div>
+        <div class="mod-desc">Roteiro passo a passo, checklist final de qualidade e guia de priorização semanal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 5 — MÉTODO ░░ -->
+<section class="metodo">
+  <div class="wrap">
+    <div class="metodo-inner">
+      <div>
+        <p class="eyebrow">O método por trás</p>
+        <h2>Estratégia antes de estética. Sempre.</h2>
+        <p class="metodo-body">A diferença entre o Kit VETORA e qualquer outro pack de templates é o método. Cada módulo segue uma sequência lógica com critérios objetivos — não decisões de gosto.</p>
+        <p class="metodo-body">É a mesma lógica que um engenheiro aplica a um projeto técnico: diagnóstico primeiro, construção depois.</p>
+        <div class="tags">
+          <span class="tag">
+            <svg width="14" height="14" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Sequência lógica
+          </span>
+          <span class="tag">
+            <svg width="14" height="14" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Critérios objetivos
+          </span>
+          <span class="tag">
+            <svg width="14" height="14" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Exemplos reais
+          </span>
+          <span class="tag">
+            <svg width="14" height="14" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Sem jargão
+          </span>
+        </div>
+      </div>
+      <div class="metodo-card">
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div><h5>Diagnóstico</h5><p>Identifique onde a marca está e onde precisa chegar</p></div></div>
+          <div class="step"><div class="step-n">2</div><div><h5>Direção</h5><p>Defina posicionamento, arquétipo e identidade verbal</p></div></div>
+          <div class="step"><div class="step-n">3</div><div><h5>Construção</h5><p>Aplique identidade visual, site e apresentação</p></div></div>
+          <div class="step"><div class="step-n">4</div><div><h5>Entrega</h5><p>Publique com os checklists de qualidade</p></div></div>
+          <div class="step"><div class="step-n">5</div><div><h5>Evolução</h5><p>Melhore com dados — a marca cresce com o negócio</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 6 — COMO FUNCIONA ░░ -->
+<section class="como">
+  <div class="wrap">
+    <p class="eyebrow">Como funciona</p>
+    <h2>Simples de usar. Poderoso de aplicar.</h2>
+    <div class="passos">
+      <div class="passo">
+        <div class="passo-n-wrap"><div class="passo-n">1</div></div>
+        <h4>Compre e acesse</h4>
+        <p>Após a compra, você recebe por e-mail o link para duplicar o Kit no seu Notion — em um clique, tudo organizado no seu espaço.</p>
+      </div>
+      <div class="passo">
+        <div class="passo-n-wrap"><div class="passo-n">2</div></div>
+        <h4>Siga o método</h4>
+        <p>Comece pelo Módulo 1 e siga a sequência. Cada módulo tem instruções claras, exemplos preenchidos e campos para adaptar.</p>
+      </div>
+      <div class="passo">
+        <div class="passo-n-wrap"><div class="passo-n">3</div></div>
+        <h4>Aplique e publique</h4>
+        <p>Use o Guia de Implementação para colocar tudo no ar — do site à proposta comercial. Com os checklists, você sabe quando está pronto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 7 — AUTORIDADE ░░ -->
+<section class="autoridade">
+  <div class="wrap">
+    <div class="aut-inner">
+      <div>
+        <p class="eyebrow">Quem está por trás</p>
+        <h2>Branding com rigor técnico</h2>
+        <div class="bio">
+          <p>Fernando Branco é <strong>Engenheiro Mecânico e Coordenador de Engenharia Industrial</strong> — com mais de uma década em manufatura de alto desempenho, sistemas complexos e execução com critério.</p>
+          <p>A VETORA nasceu da combinação incomum entre rigor técnico e visão estratégica de marca: aplicar a mesma precisão de um projeto de engenharia às decisões de identidade e posicionamento.</p>
+          <p>Não é achismo. É método.</p>
+        </div>
+        <div class="cases">
+          <div class="cases-label">Projetos de referência</div>
+          <div class="case">
+            <div class="case-name">Autec Automação</div>
+            <div class="case-desc">Posicionamento e identidade para empresa de automação industrial — mercado B2B técnico</div>
+          </div>
+          <div class="case">
+            <div class="case-name">Rancho 517</div>
+            <div class="case-desc">Branding para espaço de eventos — de regional para percepção premium</div>
+          </div>
+          <div class="case">
+            <div class="case-name">FRBranco Personalizados</div>
+            <div class="case-desc">Marca afetiva de papelaria artesanal com identidade digital coerente</div>
+          </div>
+        </div>
+      </div>
+      <div class="aut-highlights">
+        <div class="highlight">
+          <div class="hi-icon">
+            <svg width="26" height="26" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+          </div>
+          <h4>Método com critérios objetivos</h4>
+          <p>Cada decisão do Kit tem um critério verificável — não uma preferência. Você sabe quando está certo.</p>
+        </div>
+        <div class="highlight">
+          <div class="hi-icon">
+            <svg width="26" height="26" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h4>Sequência que poupa tempo</h4>
+          <p>Você não começa pelo visual. Começa pelo diagnóstico. Isso evita retrabalho e garante coerência do início.</p>
+        </div>
+        <div class="highlight">
+          <div class="hi-icon">
+            <svg width="26" height="26" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <h4>Aplicável sem equipe</h4>
+          <p>Feito para solopreneurs com tempo escasso. Modular, progressivo, sem dependências externas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 8 — OFERTA ░░ -->
+<section class="oferta section-center" id="oferta">
+  <div class="wrap">
+    <p class="eyebrow">Oferta de lançamento</p>
+    <h2>Dê direção à sua marca.</h2>
+    <p class="oferta-sub">Acesso completo aos 8 módulos, frameworks, templates e checklists — por um investimento único.</p>
+
+    <div class="urgency">
+      <p class="urgency-label"><strong>Esta oferta encerra em:</strong></p>
+      <div class="countdown">
+        <div class="cd-item">
+          <span class="cd-n" id="cd-d">07</span>
+          <span class="cd-l">dias</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-item">
+          <span class="cd-n" id="cd-h">00</span>
+          <span class="cd-l">horas</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-item">
+          <span class="cd-n" id="cd-m">00</span>
+          <span class="cd-l">min</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-item">
+          <span class="cd-n" id="cd-s">00</span>
+          <span class="cd-l">seg</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <div class="badge">Kit VETORA Completo</div>
+      <div class="p-name">Investimento único</div>
+      <div class="p-price"><sup>R$</sup>397</div>
+      <p class="p-anchor">Em perspectiva: uma sessão de consultoria estratégica custaria R$897. O Kit entrega o mesmo método — aplicável por você, quantas vezes precisar.</p>
+      <div class="p-list-title">O que está incluído</div>
+      <div class="p-list">
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 1</strong> — Diagnóstico de Marca (checklist 30 pontos + questionário)</div>
+        </div>
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 2</strong> — Posicionamento e Estratégia (tese + proposta de valor + arquétipo)</div>
+        </div>
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 3</strong> — Identidade Verbal (tom de voz + banco de 30 frases)</div>
+        </div>
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 4</strong> — Identidade Visual (paleta + tipografia + checklist de logo)</div>
+        </div>
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 5</strong> — Estrutura de Site (wireframe + copy + checklist UX/UI)</div>
+        </div>
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 6</strong> — Apresentação Comercial (narrativa + pitch deck 15 slides)</div>
+        </div>
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 7</strong> — 40 Prompts de IA (copy, imagem, estratégia, revisão)</div>
+        </div>
+        <div class="p-item">
+          <svg class="p-check" width="16" height="16" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="p-text"><strong>Módulo 8</strong> — Guia de Implementação (roteiro semanal + checklist final)</div>
+        </div>
+      </div>
+      <!-- Substitua KIWIFY_URL_AQUI pela URL do produto no Kiwify -->
+      <a href="KIWIFY_URL_AQUI" class="btn btn-cyan p-cta" rel="noopener">Quero o Kit VETORA →</a>
+      <p class="p-footer">Entrega imediata via Notion &nbsp;·&nbsp; Pix e cartão &nbsp;·&nbsp; <strong>7 dias de garantia</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 9 — GARANTIA ░░ -->
+<section class="garantia">
+  <div class="wrap">
+    <div class="gar-inner">
+      <div class="gar-shield" aria-hidden="true">
+        <svg width="52" height="52" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div>
+        <h2>Garantia incondicional de 7 dias</h2>
+        <p>Se em até 7 dias você sentir que o Kit não é para você, basta enviar um e-mail para <a href="mailto:contato@vetora.com.br">contato@vetora.com.br</a> com o assunto "Reembolso" e o valor é devolvido integralmente. Sem perguntas, sem burocracia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 10 — FAQ ░░ -->
+<section class="faq section-center">
+  <div class="wrap">
+    <p class="eyebrow">Dúvidas</p>
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-qt">Preciso saber design para usar o Kit?</span>
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Não. O Kit é um sistema de frameworks e decisões estratégicas — não um tutorial de Illustrator. Você vai aplicar os conceitos em ferramentas como Canva, Notion ou Google Docs, mas design não é requisito.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-qt">Para que tipo de negócio funciona?</span>
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Para qualquer negócio que vende com base em expertise, reputação ou qualidade — não em volume ou preço baixo. Consultores, freelancers, negócios de serviço, profissionais liberais e empreendedores técnicos. Se você compete por valor, este Kit é para você.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-qt">Como funciona a entrega?</span>
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Após a confirmação do pagamento, você recebe por e-mail um link para duplicar o Kit completo no seu Notion. Em um clique, todos os 8 módulos ficam organizados no seu espaço — prontos para editar. Sem download, sem instalação.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-qt">Posso usar os templates em projetos de clientes?</span>
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Sim. A licença permite aplicar o método e os frameworks em projetos próprios e de clientes. O que não é permitido é revender ou redistribuir o Kit como produto.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-qt">Quanto tempo leva para completar?</span>
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">O Kit completo pode ser aplicado em 4 semanas com 4–6 horas por semana — ideal para quem tem outras atividades em paralelo. O Módulo 8 tem um guia de priorização que mostra o que fazer primeiro para ter resultado mais rápido.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-qt">O conteúdo é atualizado?</span>
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Sim. Como o Kit é entregue via Notion, atualizações de conteúdo ficam disponíveis automaticamente. Quem compra hoje tem acesso às melhorias futuras sem pagar nada a mais.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 11 — CTA FINAL ░░ -->
+<section class="cta-final">
+  <div class="wrap">
+    <p class="eyebrow">Pronto para começar?</p>
+    <h2>Não é sobre ter mais arquivos. É sobre ter método.</h2>
+    <p class="cta-sub">Construa sua marca com a mesma precisão de um projeto de engenharia.</p>
+    <a href="#oferta" class="btn btn-cyan btn-lg">Quero o Kit VETORA — R$397 →</a>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-logo">
+      <img src="../identidade/logo-vetora/4-Logo horizontal monocromática branca-semfundo.png"
+           alt="VETORA"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="foot-links">
+      <a href="mailto:contato@vetora.com.br">contato@vetora.com.br</a>
+      <a href="https://vetora.com.br">vetora.com.br</a>
+    </div>
+    <p class="foot-copy">© 2026 VETORA &nbsp;·&nbsp; Estratégia, marca e tecnologia na direção certa.</p>
+  </div>
+</footer>
+
+<script>
+  // Header scroll shadow
+  var header = document.getElementById('site-header');
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = this.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Countdown — 7 days from first visit, persisted in localStorage
+  (function () {
+    var KEY = 'vk_end_ts';
+    var stored = localStorage.getItem(KEY);
+    var end = stored ? parseInt(stored, 10) : Date.now() + 7 * 24 * 3600 * 1000;
+    if (!stored) localStorage.setItem(KEY, end);
+
+    var dEl = document.getElementById('cd-d');
+    var hEl = document.getElementById('cd-h');
+    var mEl = document.getElementById('cd-m');
+    var sEl = document.getElementById('cd-s');
+
+    function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+
+    function tick() {
+      var diff = end - Date.now();
+      if (diff < 0) diff = 0;
+      dEl.textContent = pad(Math.floor(diff / 86400000));
+      hEl.textContent = pad(Math.floor(diff % 86400000 / 3600000));
+      mEl.textContent = pad(Math.floor(diff % 3600000  / 60000));
+      sEl.textContent = pad(Math.floor(diff % 60000    / 1000));
+      if (diff > 0) setTimeout(tick, 1000);
+    }
+    tick();
+  }());
+</script>
+
+</body>
+</html>
