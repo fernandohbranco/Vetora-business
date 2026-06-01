@@ -116,6 +116,8 @@ O catálogo de skills externas prontas pra instalar está em `templates/skills/c
 
 Scripts externos ficam em `scripts/`. A pasta começa vazia — cada skill que precisa de script guia o setup.
 
+**Repositório GitHub:** `https://github.com/fernandohbranco/Vetora-business.git` (branch `main`)
+
 Pré-requisitos para as skills que geram imagem ou publicam em redes sociais:
 - **Node.js 20+**
 - **Playwright** (`npm install playwright && npx playwright install chromium`) — para renderizar carrosséis em PNG

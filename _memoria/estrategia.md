@@ -19,7 +19,7 @@ Lançar o Kit VETORA Completo (R$397) e validar com 30 vendas no primeiro mês (
 
 **Roteiro em 4 sprints — estado atual:**
 1. ✅ **Sprint 1** — 8 módulos completos em `marketing/kit-vetora/modulos/` + start-here
-2. ✅ **Sprint 2** — Landing page codificada em `site/index.html` (HTML/CSS/JS puro, 11 seções)
+2. ✅ **Sprint 2** — Landing page otimizada em `marketing/landingpages/kit-vetora-2026-05-31/index.html` (12 seções, copy aprovado, /ux aplicado)
 3. 🔲 **Sprint 3** — Configurar Kiwify + substituir `KIWIFY_URL_AQUI` na landing page + lead magnet PDF + deploy
 4. 🔲 **Sprint 4** — Lançamento: 7 posts LinkedIn + 3 e-mails + janela de urgência
 

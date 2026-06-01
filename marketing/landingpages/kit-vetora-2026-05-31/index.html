@@ -4,15 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kit VETORA — Método de Branding Estratégico</title>
-  <meta name="description" content="8 módulos de frameworks e templates para construir uma marca com método, clareza e percepção de valor. Entrega via Notion. Por R$397.">
+  <meta name="description" content="Você sabe exatamente o que entrega. O mercado ainda não percebeu. 8 módulos com frameworks e critérios objetivos para construir uma marca à altura do que você entrega. Por R$397.">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kit.vetora.com.br">
+  <link rel="icon" type="image/png" href="../../../identidade/logo-vetora/12-Favicon simplificado colorido-semfundo.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Kit VETORA — Método de Branding Estratégico">
-  <meta property="og:description" content="Sua marca precisa parecer tão profissional quanto o valor que você entrega.">
+  <meta property="og:description" content="Você sabe exatamente o que entrega. O mercado ainda não percebeu.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kit.vetora.com.br">
   <meta property="og:image" content="https://kit.vetora.com.br/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kit VETORA — Método de Branding Estratégico">
+  <meta name="twitter:description" content="Você sabe exatamente o que entrega. O mercado ainda não percebeu. 8 módulos para construir uma marca com método — R$397.">
+  <meta name="twitter:image" content="https://kit.vetora.com.br/og-image.png">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kit VETORA",
+    "description": "Método completo de branding estratégico em 8 módulos — diagnóstico, posicionamento, identidade verbal, visual, site, apresentação, IA e implementação.",
+    "brand": { "@type": "Brand", "name": "VETORA" },
+    "offers": {
+      "@type": "Offer",
+      "price": "397.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,8 +89,12 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--cyan);
+      color: var(--cyan); /* padrão: fundos escuros */
     }
+    /* WCAG AA fix — ciano 3.1:1 sobre fundo claro fica abaixo do AA para <24px */
+    .problema .eyebrow, .agravamento .eyebrow, .para-quem .eyebrow,
+    .metodo .eyebrow, .como .eyebrow, .autoridade .eyebrow,
+    .garantia .eyebrow, .faq .eyebrow { color: var(--navy); }
 
     /* ===== LAYOUT ===== */
     .wrap { max-width: var(--w); margin: 0 auto; padding: 0 24px; }
@@ -128,12 +159,12 @@
       text-align: center;
     }
     .hero .eyebrow { margin-bottom: 24px; }
-    .hero h1 { max-width: 800px; margin: 0 auto 24px; color: #fff; }
+    .hero h1 { max-width: 820px; margin: 0 auto 24px; color: #fff; }
     .hero h1 em { color: var(--cyan); font-style: normal; }
     .hero-sub {
       font-size: clamp(17px, 2vw, 20px);
       color: var(--silver);
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto 48px;
       line-height: 1.65;
     }
@@ -146,7 +177,7 @@
       gap: 0;
       flex-wrap: wrap;
     }
-    .stat { text-align: center; padding: 0 48px; }
+    .stat { text-align: center; padding: 0 40px; }
     .stat + .stat { border-left: 1px solid rgba(255,255,255,.1); }
     .stat-n {
       font-family: 'Sora', sans-serif;
@@ -188,13 +219,27 @@
       letter-spacing: -0.01em;
     }
 
+    /* ===== AGRAVAMENTO ===== */
+    .agravamento { background: #fff; }
+    .agravamento .wrap { max-width: 780px; }
+    .agravamento h2 { color: var(--navy); margin: 12px 0 28px; }
+    .agravamento-body { font-size: 18px; line-height: 1.75; color: #444; margin-bottom: 20px; }
+    .agravamento-close {
+      margin-top: 40px;
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
     /* ===== PARA QUEM ===== */
-    .para-quem { background: #fff; }
+    .para-quem { background: var(--ice); }
     .para-quem h2 { color: var(--navy); margin: 12px 0 12px; }
     .pq-sub { color: #666; font-size: 18px; margin-bottom: 56px; }
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .card {
-      background: var(--ice);
+      background: #fff;
       border: 1px solid var(--gray);
       border-radius: var(--r);
       padding: 32px;
@@ -208,6 +253,14 @@
     }
     .card h4 { color: var(--navy); margin-bottom: 10px; }
     .card p  { font-size: 15px; color: #555; line-height: 1.6; }
+    .pq-negative {
+      margin-top: 40px;
+      font-size: 15px;
+      color: #888;
+      text-align: center;
+      border-top: 1px solid var(--gray);
+      padding-top: 28px;
+    }
 
     /* ===== MÓDULOS ===== */
     .modulos { background: var(--navy); }
@@ -227,7 +280,7 @@
       padding: 28px 24px;
       transition: background .2s;
     }
-    .mod:hover { background: rgba(0,166,166,.08); }
+    .mod:hover { background: rgba(0,166,166,.15); }
     .mod-n {
       font-family: 'Sora', sans-serif;
       font-size: 11px;
@@ -326,6 +379,7 @@
     }
     .passo h4 { font-size: 19px; color: var(--navy); margin-bottom: 12px; }
     .passo p  { font-size: 15px; color: #555; line-height: 1.65; }
+    .passo-result { font-size: 13px; color: var(--cyan); margin-top: 10px; font-weight: 500; }
 
     /* ===== AUTORIDADE ===== */
     .autoridade { background: var(--ice); }
@@ -335,7 +389,7 @@
     .bio p { margin-bottom: 16px; }
     .bio strong { color: var(--navy); }
     .cases { margin-top: 40px; }
-    .cases-label { font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .cases-label { font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--navy); margin-bottom: 16px; }
     .case { padding: 18px 0; border-top: 1px solid var(--gray); }
     .case:last-child { border-bottom: 1px solid var(--gray); }
     .case-name { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); }
@@ -350,14 +404,17 @@
     .hi-icon { color: var(--cyan); margin-bottom: 10px; }
     .highlight h4 { font-size: 17px; color: var(--navy); margin-bottom: 8px; }
     .highlight p  { font-size: 15px; color: #555; line-height: 1.6; }
+    .highlight a  { color: var(--cyan); }
 
     /* ===== OFERTA ===== */
     .oferta { background: var(--navy); text-align: center; }
     .oferta h2 { color: #fff; margin: 12px 0 14px; }
-    .oferta-sub { color: var(--silver); font-size: 18px; max-width: 520px; margin: 0 auto 48px; }
+    .oferta-sub { color: var(--silver); font-size: 18px; max-width: 520px; margin: 0 auto 20px; }
+    .oferta-social { font-size: 14px; color: rgba(255,255,255,.42); margin-bottom: 44px; }
     .urgency { margin-bottom: 44px; }
-    .urgency-label { font-size: 13px; color: var(--silver); margin-bottom: 20px; }
-    .urgency-label strong { color: rgba(255,255,255,.7); }
+    .urgency-label { font-size: 13px; color: var(--silver); margin-bottom: 16px; }
+    .urgency-label strong { color: rgba(255,255,255,.75); }
+    .urgency-context { font-size: 12px; color: var(--silver); opacity: .6; margin-top: 12px; }
     .countdown {
       display: flex;
       justify-content: center;
@@ -424,6 +481,7 @@
     .p-cta { width: 100%; font-size: 18px; }
     .p-footer { margin-top: 20px; font-size: 13px; color: var(--silver); text-align: center; line-height: 1.6; }
     .p-footer strong { color: rgba(255,255,255,.55); }
+    .p-upsell { color: var(--cyan); display: inline-block; margin-top: 10px; font-size: 13px; }
 
     /* ===== GARANTIA ===== */
     .garantia { background: #fff; }
@@ -443,9 +501,11 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
+    .garantia .eyebrow { margin-bottom: 8px; }
     .garantia h2 { color: var(--navy); font-size: 28px; margin-bottom: 14px; }
     .garantia p  { font-size: 17px; color: #444; line-height: 1.75; }
     .garantia a  { color: var(--cyan); }
+    .gar-preamble { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 12px; }
 
     /* ===== FAQ ===== */
     .faq { background: var(--ice); }
@@ -468,16 +528,21 @@
     .faq-icon { color: var(--cyan); flex-shrink: 0; transition: transform .2s; }
     .faq-item.open .faq-icon { transform: rotate(180deg); }
     .faq-a {
-      display: none;
-      padding: 0 28px 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+      padding: 0 28px;
       font-size: 16px; color: #444; line-height: 1.75;
     }
-    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 24px; }
 
     /* ===== CTA FINAL ===== */
     .cta-final { background: var(--navy); text-align: center; }
     .cta-final h2 { color: #fff; margin: 12px auto 18px; max-width: 680px; }
     .cta-sub { color: var(--silver); font-size: 18px; max-width: 460px; margin: 0 auto 48px; }
+    .cta-gar { margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.38); }
+    .cta-alt { margin-top: 24px; font-size: 15px; color: var(--silver); }
+    .cta-alt a { color: var(--cyan); }
 
     /* ===== FOOTER ===== */
     footer {
@@ -492,7 +557,7 @@
     .foot-logo { margin-bottom: 20px; }
     .foot-logo img { height: 66px; margin: 0 auto; }
     .foot-links { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
-    .foot-links a { color: var(--cyan); transition: opacity .15s; }
+    .foot-links a { color: var(--cyan); transition: opacity .15s; font-size: 14px; }
     .foot-links a:hover { opacity: .75; }
     .foot-copy { color: rgba(255,255,255,.25); }
 
@@ -509,8 +574,9 @@
       .hero { padding: 80px 20px 68px; }
       .hero-ctas { flex-direction: column; align-items: stretch; }
       .hero-ctas .btn { width: 100%; }
-      .hero-stats { gap: 0; }
-      .stat { padding: 0 24px; }
+      .hero-stats { flex-direction: column; gap: 0; align-items: center; }
+      .stat { padding: 14px 0; border-left: none !important; border-top: 1px solid rgba(255,255,255,.1); width: 100%; }
+      .stat:first-child { border-top: none; }
       .mod-grid { grid-template-columns: 1fr; }
       .passos { grid-template-columns: 1fr; }
       .passos::before { display: none; }
@@ -531,7 +597,7 @@
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a href="#" class="logo" aria-label="VETORA">
-      <img src="../identidade/logo-vetora/2-Logo horizontal negativa — fundo escuro-semfundo.png"
+      <img src="../../../identidade/logo-vetora/2-Logo horizontal negativa — fundo escuro-semfundo.png"
            alt="VETORA"
            onerror="this.style.display='none';document.getElementById('logo-txt').style.display='block'">
       <span id="logo-txt" class="logo-text" style="display:none">VET<em>ORA</em></span>
@@ -544,11 +610,11 @@
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">Kit VETORA — Método de Branding</p>
-    <h1>Sua marca precisa parecer tão <em>profissional</em> quanto o valor que você entrega</h1>
-    <p class="hero-sub">Para empreendedores e profissionais técnicos que entregam mais do que comunicam — o Kit VETORA é o método para corrigir isso.</p>
+    <h1>Você sabe exatamente o que entrega. <em>O mercado ainda não percebeu.</em></h1>
+    <p class="hero-sub">8 módulos com frameworks, critérios objetivos e checklists de qualidade — a lógica de um projeto de engenharia aplicada à construção da sua marca.</p>
     <div class="hero-ctas">
       <a href="#oferta" class="btn btn-cyan btn-lg">Quero o Kit VETORA — R$397 →</a>
-      <a href="#modulos" class="btn btn-ghost">Ver o que está incluído</a>
+      <a href="#modulos" class="btn btn-ghost">Ver os 8 módulos</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
@@ -557,11 +623,15 @@
       </div>
       <div class="stat">
         <span class="stat-n">40+</span>
-        <div class="stat-l">Frameworks e templates</div>
+        <div class="stat-l">Prompts de IA</div>
       </div>
       <div class="stat">
         <span class="stat-n">7 dias</span>
         <div class="stat-l">Garantia incondicional</div>
+      </div>
+      <div class="stat">
+        <span class="stat-n">R$397</span>
+        <div class="stat-l">Investimento único</div>
       </div>
     </div>
   </div>
@@ -570,7 +640,7 @@
 <!-- ░░ 2 — PROBLEMA ░░ -->
 <section class="problema">
   <div class="wrap">
-    <p class="eyebrow">O problema</p>
+    <p class="eyebrow">O diagnóstico</p>
     <h2>Talvez seu negócio entregue mais valor do que sua marca comunica.</h2>
     <p class="problema-lead">Você investe anos desenvolvendo expertise técnica. Entrega resultados reais. Mas quando chega a hora de apresentar o negócio, a marca não reflete o nível do que você faz.</p>
     <p class="problema-lead">E o pior: você sente isso — mas não sabe exatamente o que corrigir.</p>
@@ -579,12 +649,24 @@
       <div class="symptom"><div class="dot"></div><p>Propostas somem depois do envio — sem feedback, sem explicação</p></div>
       <div class="symptom"><div class="dot"></div><p>Concorrentes que entregam menos fecham mais — porque parecem mais profissionais</p></div>
       <div class="symptom"><div class="dot"></div><p>Você explica o que faz em cada reunião, como se a marca não fizesse esse trabalho por você</p></div>
+      <div class="symptom"><div class="dot"></div><p>Cobra menos do que deveria porque a marca não sustenta o ticket que seu trabalho merece</p></div>
     </div>
-    <p class="problema-close">O problema não é a qualidade do serviço. É a percepção.</p>
+    <p class="problema-close">O problema não é a qualidade do serviço. É a percepção. E percepção vira reputação — de mercado, de preço, de posicionamento.</p>
   </div>
 </section>
 
-<!-- ░░ 3 — PARA QUEM ░░ -->
+<!-- ░░ 3 — AGRAVAMENTO ░░ -->
+<section class="agravamento" id="agravamento">
+  <div class="wrap">
+    <p class="eyebrow">O custo de não corrigir</p>
+    <h2>Com o tempo, percepção vira posicionamento — e posicionamento vira preço.</h2>
+    <p class="agravamento-body">Cada reunião onde você precisa justificar o valor do que faz reforça, para o cliente, que esse valor é negociável. Cada proposta que some sem resposta comunica que sua marca não fechou o caso antes da conversa começar.</p>
+    <p class="agravamento-body">Não é sobre o cliente estar errado. É sobre o mercado categorizar o que não entende. E o que não tem método visível, o mercado categoriza como commodity — independente de quanto você entrega.</p>
+    <p class="agravamento-close">O Kit não é sobre ter uma identidade bonita. É sobre parar de perder negócios para a percepção errada.</p>
+  </div>
+</section>
+
+<!-- ░░ 4 — PARA QUEM ░░ -->
 <section class="para-quem">
   <div class="wrap">
     <p class="eyebrow">Para quem é</p>
@@ -598,7 +680,7 @@
           </svg>
         </div>
         <h4>Empreendedores e fundadores</h4>
-        <p>Que constroem negócios reais e querem uma marca à altura do que entregam. Que cansaram de explicar o que fazem em toda reunião.</p>
+        <p>Que cansaram de explicar o que fazem em toda reunião — e querem que a marca faça esse trabalho antes da primeira conversa.</p>
       </div>
       <div class="card">
         <div class="card-ico">
@@ -608,7 +690,7 @@
           </svg>
         </div>
         <h4>Freelancers e consultores</h4>
-        <p>Que querem elevar o padrão da própria marca e cobrar mais sem precisar justificar o preço toda vez.</p>
+        <p>Que querem cobrar mais sem precisar justificar o preço toda vez que enviam uma proposta. A marca que sustenta o ticket vem antes da negociação.</p>
       </div>
       <div class="card">
         <div class="card-ico">
@@ -617,13 +699,14 @@
           </svg>
         </div>
         <h4>Profissionais técnicos</h4>
-        <p>Engenheiros, advogados, médicos, arquitetos — que têm um projeto próprio e precisam de uma marca que comunique autoridade antes da primeira conversa.</p>
+        <p>Engenheiros, arquitetos, advogados, médicos — que têm credencial e entrega de alto nível, e precisam de uma marca que comunique autoridade antes da primeira conversa.</p>
       </div>
     </div>
+    <p class="pq-negative">Este Kit não é para quem busca um logo bonito ou templates genéricos de redes sociais. É para quem compete por valor, não por preço.</p>
   </div>
 </section>
 
-<!-- ░░ 4 — MÓDULOS ░░ -->
+<!-- ░░ 5 — MÓDULOS ░░ -->
 <section class="modulos section-center" id="modulos">
   <div class="wrap">
     <p class="eyebrow">O que está incluído</p>
@@ -633,56 +716,57 @@
       <div class="mod">
         <div class="mod-n">01</div>
         <div class="mod-title">Diagnóstico de Marca</div>
-        <div class="mod-desc">Checklist de 30 pontos, framework de gaps e questionário de briefing estratégico.</div>
+        <div class="mod-desc">Identifique exatamente onde sua marca está desalinhada — antes de investir em qualquer identidade visual.</div>
       </div>
       <div class="mod">
         <div class="mod-n">02</div>
         <div class="mod-title">Posicionamento e Estratégia</div>
-        <div class="mod-desc">Tese de marca, proposta de valor em 3 camadas, mapa de arquétipo e perfil de cliente ideal.</div>
+        <div class="mod-desc">Defina em qual categoria você compete e por que seu cliente ideal deve te escolher — com critérios objetivos, não intuição.</div>
       </div>
       <div class="mod">
         <div class="mod-n">03</div>
         <div class="mod-title">Identidade Verbal</div>
-        <div class="mod-desc">Tom de voz em 7 dimensões, banco de 30 frases-modelo e listas de vocabulário da marca.</div>
+        <div class="mod-desc">Construa como sua marca fala: o tom que transmite autoridade no setor onde você atua.</div>
       </div>
       <div class="mod">
         <div class="mod-n">04</div>
         <div class="mod-title">Identidade Visual</div>
-        <div class="mod-desc">Guia de paleta, tipografia, checklist de direção de logo e estilo fotográfico.</div>
+        <div class="mod-desc">Diretrizes para uma identidade visual que sustenta o ticket do seu serviço — sem precisar de um designer para cada decisão.</div>
       </div>
       <div class="mod">
         <div class="mod-n">05</div>
         <div class="mod-title">Estrutura de Site</div>
-        <div class="mod-desc">Wireframe de 8 seções, blocos de copy prontos para adaptar e checklist UX/UI de 30 pontos.</div>
+        <div class="mod-desc">Blueprint completo do site: do wireframe ao copy de cada seção, pronto para adaptar e publicar.</div>
       </div>
       <div class="mod">
         <div class="mod-n">06</div>
         <div class="mod-title">Apresentação Comercial</div>
-        <div class="mod-desc">Narrativa executiva em 5 blocos e roteiro completo de pitch deck em 15 slides.</div>
+        <div class="mod-desc">A narrativa executiva que fecha o gap entre o que você entrega e o que o cliente entende.</div>
       </div>
       <div class="mod">
         <div class="mod-n">07</div>
         <div class="mod-title">Biblioteca de Prompts de IA</div>
-        <div class="mod-desc">40 prompts categorizados para copy, imagens e estratégia — com instruções de qualidade.</div>
+        <div class="mod-desc">40 prompts calibrados para copy, visual e estratégia — para quem usa IA com método, não no improviso.</div>
       </div>
       <div class="mod">
         <div class="mod-n">08</div>
         <div class="mod-title">Guia de Implementação</div>
-        <div class="mod-desc">Roteiro passo a passo, checklist final de qualidade e guia de priorização semanal.</div>
+        <div class="mod-desc">Roteiro de 4 semanas com prioridades claras — para quem tem pouco tempo e precisa de resultado na sequência certa.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ░░ 5 — MÉTODO ░░ -->
+<!-- ░░ 6 — MÉTODO ░░ -->
 <section class="metodo">
   <div class="wrap">
     <div class="metodo-inner">
       <div>
-        <p class="eyebrow">O método por trás</p>
+        <p class="eyebrow">A lógica por trás</p>
         <h2>Estratégia antes de estética. Sempre.</h2>
         <p class="metodo-body">A diferença entre o Kit VETORA e qualquer outro pack de templates é o método. Cada módulo segue uma sequência lógica com critérios objetivos — não decisões de gosto.</p>
         <p class="metodo-body">É a mesma lógica que um engenheiro aplica a um projeto técnico: diagnóstico primeiro, construção depois.</p>
+        <p class="metodo-body">Cada módulo tem critérios de qualidade verificáveis. Você sabe quando terminou porque existe um padrão de saída definido — não uma sensação de que ficou bom.</p>
         <div class="tags">
           <span class="tag">
             <svg width="14" height="14" fill="none" stroke="#00A6A6" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -715,56 +799,60 @@
   </div>
 </section>
 
-<!-- ░░ 6 — COMO FUNCIONA ░░ -->
+<!-- ░░ 7 — COMO FUNCIONA ░░ -->
 <section class="como">
   <div class="wrap">
-    <p class="eyebrow">Como funciona</p>
+    <p class="eyebrow">Em prática</p>
     <h2>Simples de usar. Poderoso de aplicar.</h2>
     <div class="passos">
       <div class="passo">
         <div class="passo-n-wrap"><div class="passo-n">1</div></div>
-        <h4>Compre e acesse</h4>
-        <p>Após a compra, você recebe por e-mail o link para duplicar o Kit no seu Notion — em um clique, tudo organizado no seu espaço.</p>
+        <h4>Acesse em 1 clique</h4>
+        <p>Após a compra, você recebe por e-mail o link para duplicar o Kit no seu Notion. Tudo organizado, sem download, sem instalação.</p>
+        <p class="passo-result">Pronto para começar em menos de 2 minutos.</p>
       </div>
       <div class="passo">
         <div class="passo-n-wrap"><div class="passo-n">2</div></div>
-        <h4>Siga o método</h4>
-        <p>Comece pelo Módulo 1 e siga a sequência. Cada módulo tem instruções claras, exemplos preenchidos e campos para adaptar.</p>
+        <h4>Siga a sequência</h4>
+        <p>Comece pelo Módulo 1 e avance em ordem. Cada módulo tem exemplos preenchidos e campos para adaptar ao seu negócio.</p>
+        <p class="passo-result">A sequência é a metodologia — não pule etapas.</p>
       </div>
       <div class="passo">
         <div class="passo-n-wrap"><div class="passo-n">3</div></div>
-        <h4>Aplique e publique</h4>
-        <p>Use o Guia de Implementação para colocar tudo no ar — do site à proposta comercial. Com os checklists, você sabe quando está pronto.</p>
+        <h4>Lance com critério</h4>
+        <p>Use o Guia de Implementação para colocar tudo no ar. Os checklists de saída dizem exatamente quando cada módulo está pronto.</p>
+        <p class="passo-result">Você termina com padrão verificado — não no achismo.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ░░ 7 — AUTORIDADE ░░ -->
+<!-- ░░ 8 — AUTORIDADE ░░ -->
 <section class="autoridade">
   <div class="wrap">
     <div class="aut-inner">
       <div>
         <p class="eyebrow">Quem está por trás</p>
-        <h2>Branding com rigor técnico</h2>
+        <h2>Construído por quem entende os dois lados: o técnico e o estratégico.</h2>
         <div class="bio">
-          <p>Fernando Branco é <strong>Engenheiro Mecânico e Coordenador de Engenharia Industrial</strong> — com mais de uma década em manufatura de alto desempenho, sistemas complexos e execução com critério.</p>
+          <p>Fernando Branco é <strong>Engenheiro Mecânico e Coordenador de Engenharia Industrial na Docol</strong> — fabricante líder em metais sanitários. Mais de uma década em manufatura de alto desempenho, sistemas complexos e execução com critério.</p>
           <p>A VETORA nasceu da combinação incomum entre rigor técnico e visão estratégica de marca: aplicar a mesma precisão de um projeto de engenharia às decisões de identidade e posicionamento.</p>
           <p>Não é achismo. É método.</p>
         </div>
         <div class="cases">
           <div class="cases-label">Projetos de referência</div>
+          <!-- TODO Sprint 3: inserir foto profissional do Fernando Branco — tons frios, fundo neutro, formato portrait 400×500px -->
           <div class="case">
             <div class="case-name">Autec Automação</div>
-            <div class="case-desc">Posicionamento e identidade para empresa de automação industrial — mercado B2B técnico</div>
+            <div class="case-desc">Posicionamento e identidade para empresa de automação industrial B2B — marca alinhada com o padrão de credibilidade que o mercado técnico exige antes de contratar.</div>
           </div>
           <div class="case">
             <div class="case-name">Rancho 517</div>
-            <div class="case-desc">Branding para espaço de eventos — de regional para percepção premium</div>
+            <div class="case-desc">Branding que elevou a percepção de um espaço de eventos regional para competir com o segmento premium — sem mudar o produto, apenas a apresentação.</div>
           </div>
           <div class="case">
             <div class="case-name">FRBranco Personalizados</div>
-            <div class="case-desc">Marca afetiva de papelaria artesanal com identidade digital coerente</div>
+            <div class="case-desc">Identidade digital coerente que sustenta o valor emocional de um produto artesanal sem perder autenticidade.</div>
           </div>
         </div>
       </div>
@@ -784,7 +872,7 @@
               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
-          <h4>Sequência que poupa tempo</h4>
+          <h4>Sequência que elimina retrabalho</h4>
           <p>Você não começa pelo visual. Começa pelo diagnóstico. Isso evita retrabalho e garante coerência do início.</p>
         </div>
         <div class="highlight">
@@ -796,20 +884,31 @@
           <h4>Aplicável sem equipe</h4>
           <p>Feito para solopreneurs com tempo escasso. Modular, progressivo, sem dependências externas.</p>
         </div>
+        <div class="highlight">
+          <div class="hi-icon">
+            <svg width="26" height="26" fill="none" stroke="#00A6A6" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <h4>Quer acompanhamento?</h4>
+          <!-- Substitua KIWIFY_URL_897_AQUI pela URL do produto Kit + consultoria no Kiwify (Sprint 3) -->
+          <p>Depois do Kit, há o próximo passo natural: <a href="KIWIFY_URL_897_AQUI">Kit + 1h de consultoria estratégica por R$897 →</a></p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ░░ 8 — OFERTA ░░ -->
+<!-- ░░ 9 — OFERTA ░░ -->
 <section class="oferta section-center" id="oferta">
   <div class="wrap">
     <p class="eyebrow">Oferta de lançamento</p>
-    <h2>Dê direção à sua marca.</h2>
-    <p class="oferta-sub">Acesso completo aos 8 módulos, frameworks, templates e checklists — por um investimento único.</p>
+    <h2>O método completo. Uma vez. Para sempre.</h2>
+    <p class="oferta-sub">Acesso imediato a todos os 8 módulos — frameworks, checklists e prompts de IA inclusos.</p>
+    <p class="oferta-social">Método aplicado nos projetos Autec, Rancho 517 e FRBranco — antes de virar Kit.</p>
 
     <div class="urgency">
-      <p class="urgency-label"><strong>Esta oferta encerra em:</strong></p>
+      <p class="urgency-label"><strong>Oferta de lançamento — encerra em:</strong></p>
       <div class="countdown">
         <div class="cd-item">
           <span class="cd-n" id="cd-d">07</span>
@@ -831,13 +930,14 @@
           <span class="cd-l">seg</span>
         </div>
       </div>
+      <p class="urgency-context">Após esse período, o Kit retorna ao preço padrão.</p>
     </div>
 
     <div class="pricing-card">
       <div class="badge">Kit VETORA Completo</div>
       <div class="p-name">Investimento único</div>
       <div class="p-price"><sup>R$</sup>397</div>
-      <p class="p-anchor">Em perspectiva: uma sessão de consultoria estratégica custaria R$897. O Kit entrega o mesmo método — aplicável por você, quantas vezes precisar.</p>
+      <p class="p-anchor">Em perspectiva: uma sessão de consultoria estratégica custaria R$897. O Kit entrega o mesmo sistema de decisão — aplicável por você, quantas vezes precisar, em qualquer projeto.</p>
       <div class="p-list-title">O que está incluído</div>
       <div class="p-list">
         <div class="p-item">
@@ -873,14 +973,18 @@
           <div class="p-text"><strong>Módulo 8</strong> — Guia de Implementação (roteiro semanal + checklist final)</div>
         </div>
       </div>
-      <!-- Substitua KIWIFY_URL_AQUI pela URL do produto no Kiwify -->
+      <!-- Substitua KIWIFY_URL_AQUI pela URL do produto no Kiwify (Sprint 3) -->
       <a href="KIWIFY_URL_AQUI" class="btn btn-cyan p-cta" rel="noopener">Quero o Kit VETORA →</a>
-      <p class="p-footer">Entrega imediata via Notion &nbsp;·&nbsp; Pix e cartão &nbsp;·&nbsp; <strong>7 dias de garantia</strong></p>
+      <p class="p-footer">
+        Entrega imediata via Notion &nbsp;·&nbsp; Pix e cartão &nbsp;·&nbsp; <strong>7 dias de garantia</strong><br>
+        <!-- Substitua KIWIFY_URL_897_AQUI pela URL do produto Kit + consultoria no Kiwify (Sprint 3) -->
+        <a href="KIWIFY_URL_897_AQUI" class="p-upsell">Quer acompanhamento? Kit + 1h de consultoria por R$897 →</a>
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ░░ 9 — GARANTIA ░░ -->
+<!-- ░░ 10 — GARANTIA ░░ -->
 <section class="garantia">
   <div class="wrap">
     <div class="gar-inner">
@@ -891,14 +995,16 @@
         </svg>
       </div>
       <div>
-        <h2>Garantia incondicional de 7 dias</h2>
+        <p class="eyebrow">Sem risco</p>
+        <h2>Garantia incondicional de 7 dias.</h2>
+        <p class="gar-preamble">Compramos antes de provar. Você não.</p>
         <p>Se em até 7 dias você sentir que o Kit não é para você, basta enviar um e-mail para <a href="mailto:contato@vetora.com.br">contato@vetora.com.br</a> com o assunto "Reembolso" e o valor é devolvido integralmente. Sem perguntas, sem burocracia.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ░░ 10 — FAQ ░░ -->
+<!-- ░░ 11 — FAQ ░░ -->
 <section class="faq section-center">
   <div class="wrap">
     <p class="eyebrow">Dúvidas</p>
@@ -906,23 +1012,23 @@
     <div class="faq-list">
 
       <div class="faq-item">
-        <div class="faq-q">
+        <div class="faq-q" role="button" aria-expanded="false">
           <span class="faq-qt">Preciso saber design para usar o Kit?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a">Não. O Kit é um sistema de frameworks e decisões estratégicas — não um tutorial de Illustrator. Você vai aplicar os conceitos em ferramentas como Canva, Notion ou Google Docs, mas design não é requisito.</div>
+        <div class="faq-a">Não. O Kit é um sistema de decisão estratégica — você define o posicionamento, o tom de voz, as diretrizes visuais. O design é consequência, não pré-requisito. Os módulos têm critérios objetivos, não tarefas que exigem habilidade técnica de design.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">
+        <div class="faq-q" role="button" aria-expanded="false">
           <span class="faq-qt">Para que tipo de negócio funciona?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a">Para qualquer negócio que vende com base em expertise, reputação ou qualidade — não em volume ou preço baixo. Consultores, freelancers, negócios de serviço, profissionais liberais e empreendedores técnicos. Se você compete por valor, este Kit é para você.</div>
+        <div class="faq-a">Para qualquer negócio que compete por valor e diferenciação — consultores, freelancers, empreendedores, profissionais liberais e técnicos. Se você vende volume ou compete exclusivamente por preço, este não é o Kit para você.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">
+        <div class="faq-q" role="button" aria-expanded="false">
           <span class="faq-qt">Como funciona a entrega?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
@@ -930,7 +1036,7 @@
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">
+        <div class="faq-q" role="button" aria-expanded="false">
           <span class="faq-qt">Posso usar os templates em projetos de clientes?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
@@ -938,7 +1044,7 @@
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">
+        <div class="faq-q" role="button" aria-expanded="false">
           <span class="faq-qt">Quanto tempo leva para completar?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
@@ -946,24 +1052,34 @@
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">
+        <div class="faq-q" role="button" aria-expanded="false">
           <span class="faq-qt">O conteúdo é atualizado?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a">Sim. Como o Kit é entregue via Notion, atualizações de conteúdo ficam disponíveis automaticamente. Quem compra hoje tem acesso às melhorias futuras sem pagar nada a mais.</div>
+        <div class="faq-a">Sim. Como o Kit é entregue via Notion, atualizações de conteúdo ficam disponíveis automaticamente. Quem compra durante o lançamento garante o menor preço e acesso a todas as versões futuras sem custo adicional.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" role="button" aria-expanded="false">
+          <span class="faq-qt">Já tentei outros templates e não funcionou. O que é diferente aqui?</span>
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">A diferença é o método antes do template. Outros packs entregam arquivos para preencher. O Kit VETORA entrega um sistema de decisão — você sabe por que cada escolha é feita, não apenas o que preencher. Sem diagnóstico feito, qualquer template é só estética sem direção.</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ░░ 11 — CTA FINAL ░░ -->
+<!-- ░░ 12 — CTA FINAL ░░ -->
 <section class="cta-final">
   <div class="wrap">
     <p class="eyebrow">Pronto para começar?</p>
     <h2>Não é sobre ter mais arquivos. É sobre ter método.</h2>
-    <p class="cta-sub">Construa sua marca com a mesma precisão de um projeto de engenharia.</p>
+    <p class="cta-sub">A janela de lançamento está aberta. Acesse agora e garanta o preço de entrada.</p>
     <a href="#oferta" class="btn btn-cyan btn-lg">Quero o Kit VETORA — R$397 →</a>
+    <p class="cta-gar">7 dias de garantia incondicional — sem perguntas.</p>
+    <p class="cta-alt">Prefere acompanhamento? <a href="KIWIFY_URL_897_AQUI">Kit + 1h de consultoria por R$897 →</a></p>
   </div>
 </section>
 
@@ -971,7 +1087,7 @@
 <footer>
   <div class="foot-inner">
     <div class="foot-logo">
-      <img src="../identidade/logo-vetora/4-Logo horizontal monocromática branca-semfundo.png"
+      <img src="../../../identidade/logo-vetora/4-Logo horizontal monocromática branca-semfundo.png"
            alt="VETORA"
            onerror="this.style.display='none'">
     </div>
@@ -990,17 +1106,23 @@
     header.classList.toggle('scrolled', window.scrollY > 8);
   }, { passive: true });
 
-  // FAQ accordion
+  // FAQ accordion — max-height transition para animação suave
   document.querySelectorAll('.faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var item = this.closest('.faq-item');
       var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (i) {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
-  // Countdown — 7 days from first visit, persisted in localStorage
+  // Countdown — 7 dias a partir da primeira visita, persistido em localStorage
   (function () {
     var KEY = 'vk_end_ts';
     var stored = localStorage.getItem(KEY);
@@ -1024,6 +1146,26 @@
       if (diff > 0) setTimeout(tick, 1000);
     }
     tick();
+  }());
+
+  // Scroll reveal — seções abaixo do fold entram com fade + translateY
+  (function () {
+    var sections = document.querySelectorAll(
+      '.agravamento, .para-quem, .modulos, .metodo, .como, .autoridade, .oferta, .garantia, .faq, .cta-final'
+    );
+    var style = document.createElement('style');
+    style.textContent = '.rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}.rv-done{opacity:1 !important;transform:none !important}';
+    document.head.appendChild(style);
+    sections.forEach(function (el) { el.classList.add('rv'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('rv-done');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    sections.forEach(function (el) { io.observe(el); });
   }());
 </script>
 

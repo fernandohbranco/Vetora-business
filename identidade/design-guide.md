@@ -1,6 +1,6 @@
 # Identidade visual
 
-> Como a marca VETORA aparece em tudo que o MazyOS gera.
+> Como a marca VETORA aparece em tudo que o VetoraOS gera.
 > As skills de conteúdo, carrossel e post leem esse arquivo antes de criar qualquer visual.
 
 ---
