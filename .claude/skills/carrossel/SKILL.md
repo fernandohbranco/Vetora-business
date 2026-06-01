@@ -19,7 +19,7 @@ Skill central de criação de conteúdo visual. Pega um tema → entrega HTMLs e
 - **Tom de voz:** `_memoria/preferencias.md`
 - **Playwright:** pra renderizar HTML em PNG (`npx playwright screenshot` ou via `render.js`)
 - **OpenAI API (opcional):** pra gerar fotos realistas — só se o cliente tiver chave configurada
-- **Outputs vão em:** `marketing/conteudo/<tipo>-<tema>-<YYYY-MM-DD>/`
+- **Outputs vão em:** `marketing/conteudo/<YYYY-MM-DD>-<tipo>-<tema>/`
 
 ---
 
