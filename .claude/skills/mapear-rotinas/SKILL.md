@@ -21,11 +21,16 @@ Fazer 3 perguntas, uma por vez:
 2. "Pra cada uma delas, qual o input típico? (ex: 'um link de notícia', 'um arquivo de planilha', 'um nome de cliente')"
 3. "E o que você espera de output? (ex: '5 slides em PNG', 'um email pronto pra enviar', 'um PDF resumindo')"
 
-### Passo 2 — Conferir catálogo
+### Passo 2 — Conferir skills existentes
 
-Ler `templates/skills/catalogo.md` pra ver se alguma das tarefas mencionadas já é coberta por uma skill nativa do Claude Code ou validada pelo VetoraOS. Se sim, sugerir a skill existente em vez de criar uma nova:
+Verificar em duas fontes antes de propor uma skill nova:
 
-> "A tarefa X já é resolvida pela skill `/<nome>` que vem nativa. Quer ativar ela em vez de criar uma nova?"
+1. Ler `.claude/skills/AGENTS.md` pra ver se a tarefa já é coberta por uma skill ativa no VetoraOS
+2. Ler `templates/skills/catalogo.md` pra ver skills nativas do Claude Code ou validadas
+
+Se a tarefa já tiver cobertura, sugerir a skill existente:
+
+> "A tarefa X já é resolvida pela skill `/<nome>`. Quer usar ela em vez de criar uma nova?"
 
 ### Passo 3 — Proposta de skills
 
@@ -48,12 +53,19 @@ Pra cada skill aprovada:
 
 1. Criar pasta `.claude/skills/<nome>/`
 2. Criar `SKILL.md` com:
-   - Frontmatter: `name`, `description` (descreve quando deve ser invocada)
-   - Workflow estruturado em fases ou passos
-   - Lista de dependências (arquivos de contexto, ferramentas externas)
+   - Frontmatter: `name`, `description` (descreve quando deve ser invocada — inclui frases de gatilho)
+   - Contexto automático via `!`command`` para injetar `_memoria/empresa.md` e `preferencias.md`
+   - Workflow estruturado em fases ou passos numerados
    - Regras claras (o que sempre fazer, o que nunca fazer)
-3. Se a skill precisar de templates ou exemplos, criar dentro da pasta da skill
-4. Calibrar o tom e regras conforme `_memoria/preferencias.md` e `_memoria/empresa.md`
+   - Seção "Skills relacionadas" listando quais skills essa interage
+3. Criar `outputs.md` documentando o que a skill produz:
+   - Diretório de saída (ou "inline" se só gerar texto no chat)
+   - Arquivos gerados e quem os consome
+4. Se a skill precisar de templates ou exemplos, criar dentro da pasta da skill
+5. Calibrar o tom e regras conforme `_memoria/preferencias.md` e `_memoria/empresa.md`
+6. Registrar a nova skill em `.claude/skills/AGENTS.md`:
+   - Adicionar linha na tabela da camada correta (C1, C2 ou C3)
+   - Adicionar no grafo de dependências se chamar ou for chamada por outra skill
 
 ### Passo 5 — Resumo
 

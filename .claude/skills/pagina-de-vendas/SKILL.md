@@ -38,6 +38,13 @@ Fazer a primeira pergunta:
 
 Salvar em `marketing/landingpages/` igualmente (ou dentro da pasta do cliente se existir).
 
+**Design system check:**
+Verificar se `identidade/design-system/MASTER.md` existe:
+- **Se sim:** carregar como base de estilo, cores e tipografia para toda a página. Informar em 1 linha e seguir.
+- **Se não:** oferecer ao usuário — "Não encontrei um design system salvo. Posso gerar um agora com `/ui-ux-pro-max` antes do briefing, ou seguir com o `design-guide.md` existente. O que prefere?" — se recusar, continuar com `design-guide.md`. Se aceitar, rodar `/ui-ux-pro-max` e depois voltar aqui.
+
+Se MASTER.md existir, usá-lo também como contexto adicional para a avaliação `/ux` no Passo 7b.
+
 ---
 
 ### Passo 2 — Briefing do produto (uma pergunta por vez)

@@ -9,11 +9,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 O VetoraOS é um sistema operacional de negócio baseado em arquivos. Não tem código de aplicação — é composto por memória, identidade, skills e outputs.
 
 ```
-_memoria/       cérebro do negócio (empresa, preferências, estratégia)
+_memoria/       cérebro do negócio (empresa, preferências, estratégia — apenas os 3 arquivos core)
 identidade/     identidade visual (design-guide.md, logo, fontes)
+site/           landing pages e páginas web publicáveis (ex: site/kit-vetora/)
+marketing/      saídas persistentes de marketing (módulos, conteúdo, SEO, campanhas, anúncios)
 dados/          drop zone de entrada (CSVs, PDFs, planilhas — input temporário)
-marketing/      saídas persistentes de marketing (conteúdo, SEO, campanhas, anúncios)
-site/           landing pages e páginas web do projeto
 saidas/         saídas pontuais (análises, emails, relatórios avulsos)
 scripts/        utilitários Node.js/Python que skills chamam (render, publicação social)
 templates/      templates de skills e catálogo de skills externas disponíveis

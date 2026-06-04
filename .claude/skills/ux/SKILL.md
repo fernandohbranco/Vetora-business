@@ -21,11 +21,16 @@ Pode ser chamado diretamente pelo usuário ou invocado internamente por skills v
 Ao ser chamado, ler os arquivos abaixo do **projeto atual** (não hardcodado para a VETORA):
 
 ```
-1. identidade/design-guide.md       → sistema visual: paleta, tipografia, logo, restrições
-2. _memoria/empresa.md              → negócio, público, posicionamento
-3. _memoria/preferencias.md         → tom, estilo, o que evitar
-4. _memoria/estrategia.md           → foco atual, produto em destaque
+1. identidade/design-guide.md                → sistema visual: paleta, tipografia, logo, restrições
+2. identidade/design-system/MASTER.md        → design system gerado pelo /ui-ux-pro-max (se existir)
+3. _memoria/empresa.md                       → negócio, público, posicionamento
+4. _memoria/preferencias.md                  → tom, estilo, o que evitar
+5. _memoria/estrategia.md                    → foco atual, produto em destaque
 ```
+
+Se `identidade/design-system/MASTER.md` existir: usá-lo como critério adicional de avaliação.
+Quando o output violar o design system (cor fora da paleta, fonte não prevista, estilo inconsistente),
+adicionar como ⚠️ no relatório com referência ao sistema: `[fora do design system: X]`.
 
 Se existir pasta de cliente ativa (ex: `clientes/<nome>/`), ler também:
 - `clientes/<nome>/CLAUDE.md`
@@ -214,9 +219,13 @@ Formato de notificação inline:
 ## Regras
 
 - Sempre ler `identidade/design-guide.md` antes de avaliar qualquer conteúdo — as restrições do projeto (paleta, tipografia, logo) sobrescrevem defaults genéricos
+- Se `identidade/design-system/MASTER.md` existir: usá-lo como critério complementar de consistência sistêmica
 - Aplicar melhorias diretamente, nunca apenas listar e aguardar — agir e informar
 - Nunca inventar contexto de negócio — se os arquivos de memória não existirem, perguntar antes de assumir
 - Para carrossel e post: testar mentalmente se o conteúdo comunica em 3 segundos (tempo de atenção em feed)
 - Para landing page: testar mentalmente em 375px antes de qualquer outra avaliação
 - O padrão de referência é sempre "um designer sênior nodaria ao ver isso?" — não "está tecnicamente correto"
 - Nunca usar emojis decorativos nos outputs gerados (só nos scores da tabela de review)
+- Se a avaliação revelar que o projeto não tem design system persistido e o conteúdo poderia se beneficiar de um,
+  sugerir ao final: "Quer criar um design system com `/ui-ux-pro-max`? Avaliações futuras ficam mais precisas e
+  o output mais consistente entre peças."

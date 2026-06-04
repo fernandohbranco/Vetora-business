@@ -17,6 +17,7 @@ Curto e direto. O objetivo é carregar contexto e devolver uma síntese de uma f
    - `_memoria/preferencias.md`
    - `_memoria/estrategia.md`
    - `identidade/design-guide.md` (só pra saber se está preenchido ou em branco)
+   - `identidade/AGENTS.md`
 
 2. Se algum dos três primeiros estiver em branco (placeholder), responder:
    > "Vi que `_memoria/<arquivo>.md` ainda não foi preenchido. Quer rodar `/instalar` agora?"

@@ -139,8 +139,11 @@ Ao terminar de renderizar os PNGs, gerar **automaticamente** a legenda do post e
 
 1. Ler `_memoria/preferencias.md` e `_memoria/empresa.md`
 2. Ler `identidade/design-guide.md` pra cores, fontes e logo
-3. Identificar o tipo de conteúdo (1, 2 ou 3)
-4. Definir o tema e o ângulo
+3. **Design system check:** verificar se `identidade/design-system/MASTER.md` existe
+   - Se sim: carregar como contexto de design (paleta, tipografia, efeitos definidos) antes de criar qualquer visual
+   - Se não: oferecer ao usuário — "Não encontrei um design system salvo. Quer que eu gere um com `/ui-ux-pro-max` antes? Isso garante consistência visual entre peças." — se recusar, continuar com `design-guide.md` como base
+4. Identificar o tipo de conteúdo (1, 2 ou 3)
+5. Definir o tema e o ângulo
 
 ### Passo 2 — Texto
 
