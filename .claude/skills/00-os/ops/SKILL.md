@@ -32,50 +32,23 @@ Se for vago, fazer UMA pergunta:
 
 Com o objetivo em mãos, identificar a skill (ou sequência) mais adequada:
 
-**Criar conteúdo visual (post, carrossel, stories)**
-→ `/carrossel`
+**Criar conteúdo visual (post, carrossel, stories para Instagram/LinkedIn)**
+→ `/social-carousel-builder`
 
-**Criar conteúdo completo (blog + carrossel + legendas)**
-→ `/publicar-tema` — encadeia `/carrossel` automaticamente
-
-**Publicar o conteúdo criado (Instagram + Facebook)**
+**Publicar conteúdo já criado (Instagram + Facebook + site)**
 → `/aprovar-post <slug>`
 
-**Criar página de vendas ou landing page**
-→ `/pagina-de-vendas` — encadeia `/ui-ux-pro-max` e `/ux` automaticamente
+**Criar página de vendas ou landing page completa (copy + HTML)**
+→ `/landing-page-cro-vetora` — encadeia `/ui-ux-pro-max` automaticamente
 
-**Escrever textos de marketing (headline, tagline, CTA, descrição de serviço)**
-→ `/copywriting`
+**Escrever textos de marketing (headline, tagline, CTA, descrição, email, proposta de valor)**
+→ `/vetora-copywriter`
 
-**Aparecer no Google (SEO, palavras-chave, estratégia)**
-→ `/seo`
-
-**Criar campanha de Google Ads**
-→ `/anuncio-google` — recomendado rodar `/seo` antes para ter pesquisa de palavras-chave
-
-**Ver como estão os anúncios (performance)**
-→ `/relatorio-ads`
-
-**Configurar medição do site (GA4, GTM, eventos, conversões)**
-→ `/analytics`
-
-**Testar duas versões (headline, CTA, layout, anúncio)**
-→ `/ab-teste`
-
-**Responder avaliação no Google Meu Negócio**
-→ `/responder-avaliacoes`
-
-**Redigir email profissional**
-→ `/email-profissional`
-
-**Analisar um arquivo de dados (CSV, planilha, relatório)**
-→ `/analisar-dados`
-
-**Criar ou melhorar identidade visual completa**
+**Criar ou melhorar identidade visual completa (design system, paleta, tipografia)**
 → `/ui-ux-pro-max`
 
-**Revisar qualidade visual de algo já criado**
-→ `/ux`
+**Auditoria técnica de software (testes, segurança, CI/CD, performance)**
+→ `/qa-expert`
 
 **Sincronizar trabalho com o GitHub**
 → `/salvar`
@@ -83,22 +56,21 @@ Com o objetivo em mãos, identificar a skill (ou sequência) mais adequada:
 **Carregar o contexto do negócio no início da sessão**
 → `/abrir`
 
-**Descobrir o que pode ser automatizado**
-→ `/mapear-rotinas`
+**Atualizar os arquivos de contexto do projeto**
+→ `/atualizar`
 
 ### Passo 3 — Propor plano para objetivos compostos
 
 Se o objetivo exigir múltiplas skills em sequência, mostrar o plano antes de executar:
 
-Exemplo — "quero crescer no Google e conseguir mais clientes":
+Exemplo — "quero lançar o Kit VETORA e gerar vendas":
 
 ```
-Plano de ação — 4 etapas:
+Plano de ação — 3 etapas:
 
-1. /seo         → mapear palavras-chave e montar estratégia de conteúdo
-2. /publicar-tema → criar artigo de blog + carrossel com os temas mapeados
-3. /anuncio-google → montar campanha paga com os termos de maior conversão
-4. /analytics   → configurar tracking pra medir cada resultado
+1. /landing-page-cro-vetora → criar a página de vendas com estratégia e copy completos
+2. /social-carousel-builder → criar carrosséis de lançamento para Instagram/LinkedIn
+3. /vetora-copywriter       → redigir sequência de emails de lançamento
 
 Quer que eu comece pelo passo 1 agora?
 ```
@@ -110,7 +82,7 @@ Confirmar com o usuário qual skill ou etapa iniciar, depois disparar.
 ## Regras
 
 - Nunca executar mais de uma skill por vez sem confirmar com o usuário
-- Se uma skill depender de output de outra (ex: `/anuncio-google` usa saída do `/seo`), explicar a dependência antes
+- Se uma skill depender de output de outra (ex: `/landing-page-cro-vetora` usa `/ui-ux-pro-max` antes), explicar a dependência antes
 - Se o usuário tiver múltiplas prioridades, perguntar qual vem primeiro — não adivinhar
 - Sempre mostrar o plano antes de executar em workflows com 3+ steps
 - Para ver o mapa completo de skills disponíveis, consultar `.claude/skills/AGENTS.md`

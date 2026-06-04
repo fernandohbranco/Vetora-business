@@ -23,6 +23,30 @@ Skills locais ficam em `.claude/skills/` (específicas do projeto). Skills globa
 
 ---
 
+## Arquitetura Operacional VETORA
+
+O VetoraOS opera sob o Método VETORA: Diagnóstico → Direção → Construção → Entrega → Evolução.
+
+As skills em `.claude/skills/` estão organizadas por fase do método:
+
+- **00-nucleo/** — identidade da marca, método operacional, sistema de design. Consultadas por todas as outras.
+- **00-os/** — skills de infraestrutura do OS: abrir sessão, atualizar contexto, instalar, salvar, ops (orquestrador), aprovar e publicar posts.
+- **01-diagnostico/** — análise de cliente, presença digital, mapeamento de gaps.
+- **02-direcao/** — posicionamento de marca, arquitetura de site, framework de landing page.
+- **03-construcao/** — copy, design system gerador, dev handoff, conteúdo de redes.
+- **04-entrega-qa/** — checklists de qualidade, revisões técnicas e de UX.
+- **05-comercial/** — propostas, conteúdo de autoridade no LinkedIn.
+- **_archived/** — skills aposentadas em quarentena de 60 dias.
+
+**Distinção importante:**
+- `site/kit-vetora/` e `marketing/kit-vetora/` são **outputs/produtos**.
+- `.claude/skills/` são **procedimentos internos** que produzem ou apoiam a criação desses outputs.
+- Não misturar os dois conceitos.
+
+Toda skill de criação de conteúdo consulta `vetora-brand-os` antes de produzir qualquer coisa.
+
+---
+
 ## Contexto do negócio
 
 No início de toda conversa, ler os seguintes arquivos (quando existirem e estiverem preenchidos):

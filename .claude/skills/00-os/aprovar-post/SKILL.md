@@ -5,12 +5,12 @@ description: >
   carrossel pro public folder do site, faz commit e push (Netlify/Vercel deploya), aguarda
   o deploy, e posta o carrossel no Instagram + Facebook via Meta Graph API. Use quando o
   usuário disser "aprovar post X", "publicar o post do tema Y", "/aprovar-post X", ou quando
-  quiser disparar a publicação automática de um conteúdo já criado pela skill /publicar-tema.
+  quiser disparar a publicação automática de um conteúdo já criado pelo /social-carousel-builder.
 ---
 
 # /aprovar-post — Pipeline de aprovação e publicação automática
 
-Faz a ponte entre o conteúdo aprovado (blog + carrossel + legendas, criado por `/publicar-tema`)
+Faz a ponte entre o conteúdo aprovado (carrossel + legendas, criado por `/social-carousel-builder`)
 e a publicação real no feed (site + Instagram + Facebook).
 
 ## Quando NÃO usar

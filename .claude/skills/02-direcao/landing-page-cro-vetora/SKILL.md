@@ -1,13 +1,15 @@
 ---
-name: pagina-de-vendas
+name: landing-page-cro-vetora
 description: >
-  Cria uma página de vendas de alta conversão completa — da estratégia de copy até o HTML pronto pro deploy.
-  Passa por dois checkpoints de aprovação antes de gerar qualquer arquivo.
-  Use quando o usuário disser "criar página de vendas", "landing page", "sales page", "/pagina-de-vendas"
-  ou quando precisar estruturar a argumentação de venda de um produto ou serviço.
+  Cria uma landing page ou página de vendas de alta conversão completa com o método VETORA —
+  da estratégia de copy até o HTML pronto para deploy. Dois checkpoints de aprovação antes de
+  gerar qualquer arquivo. Antes de criar, consulta vetora-brand-os para padrão de marca e
+  ui-ux-pro-max para sistema de design visual.
+  Use quando o usuário disser "criar página de vendas", "landing page", "sales page",
+  "página de captura", "quero uma LP", "/landing-page-cro-vetora" ou "/pagina-de-vendas".
 ---
 
-# /pagina-de-vendas — Página de Vendas de Alta Conversão
+# /landing-page-cro-vetora — Landing Page de Alta Conversão VETORA
 
 Cria uma sales page completa em 8 passos: briefing → estratégia → copy → HTML. Dois checkpoints obrigatórios antes de gerar arquivo.
 

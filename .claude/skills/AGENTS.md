@@ -1,145 +1,170 @@
-# VetoraOS — Rede de Agentes
+# VetoraOS — Mapa de Skills v2
 
-Mapa de todos os agentes (skills) ativos, suas responsabilidades, o que consomem, o que produzem e como se relacionam entre si.
-
----
-
-## Arquitetura em 3 Camadas
-
-```
-CAMADA 1 — Contexto (state agents)
-  Leem e escrevem o estado do negócio (_memoria/ + identidade/).
-  Nunca criam conteúdo final.
-
-CAMADA 2 — Especialistas (domain agents)
-  Cada um domina uma única área.
-  Operam de forma independente ou são chamados por Camada 3.
-
-CAMADA 3 — Orquestradores (workflow agents)
-  Coordenam múltiplos especialistas para entregar workflows compostos.
-  Nunca replicam a lógica de um especialista — apenas o chamam.
-```
+Documentação da arquitetura de skills do VetoraOS. Organizado pelo Método VETORA: Diagnóstico → Direção → Construção → Entrega → Evolução.
 
 ---
 
-## Camada 1 — Contexto
+## Arquitetura em 7 Camadas
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    00-NUCLEO                            │
+│   vetora-brand-os · vetora-method · vetora-design-system│
+│   (consultadas por TODAS as skills antes de criar)      │
+└────────────────────────┬────────────────────────────────┘
+                         │
+┌────────────────────────▼────────────────────────────────┐
+│                     00-OS                               │
+│   abrir · atualizar · instalar · salvar                 │
+│   ops · aprovar-post                                    │
+│   (infraestrutura do sistema operacional)               │
+└──┬──────────┬──────────┬──────────┬───────────┬─────────┘
+   │          │          │          │           │
+   ▼          ▼          ▼          ▼           ▼
+01-DIAG   02-DIRECAO  03-CONSTR  04-QA     05-COMERCIAL
+```
+
+---
+
+## 00-NUCLEO — Identidade e Método
+
+Consultadas por TODAS as skills antes de produzir qualquer output.
+
+| Skill | Input | Output | Consultada por |
+|---|---|---|---|
+| `vetora-brand-os` | `_memoria/preferencias.md` | Contexto de identidade verbal | Todas as skills de criação |
+| `vetora-method` | — | Mapa de fases + skill por fase | Todas as skills de projeto |
+| `vetora-design-system` | `identidade/design-guide.md` | Contexto de design visual | Todas as skills visuais |
+
+---
+
+## 00-OS — Infraestrutura do Sistema
 
 | Skill | Input | Output | Chama |
-|-------|-------|--------|-------|
-| `/abrir` | `_memoria/*` + `identidade/design-guide.md` | Relatório de sessão (inline) | — |
-| `/atualizar` | Workspace inteiro + `_memoria/*` | `_memoria/*` reconciliados | — |
-| `/instalar` | Entrevista com usuário | `_memoria/*` + `identidade/design-guide.md` + complemento em `CLAUDE.md` | — |
-| `/salvar` | git status | Commit + push no GitHub | — |
+|---|---|---|---|
+| `abrir` | `_memoria/*` + `identidade/design-guide.md` | Contexto de sessão carregado | — |
+| `atualizar` | Workspace inteiro + `_memoria/*` | `_memoria/*` reconciliados | — |
+| `instalar` | Entrevista com usuário | `_memoria/*` + `identidade/design-guide.md` preenchidos | — |
+| `salvar` | git status | Commit + push no GitHub | — |
+| `ops` | Pedido em linguagem natural + `estrategia.md` | Roteamento para skill(s) certa(s) | Qualquer skill |
+| `aprovar-post` | Slug do post + Meta API config | Post publicado no site + Instagram + Facebook | — |
 
 ---
 
-## Camada 2 — Especialistas
+## 01-DIAGNOSTICO — Fase 1 do Método VETORA
 
 | Skill | Input | Output | Chama |
-|-------|-------|--------|-------|
-| `/ux` | Arquivo visual (HTML/PNG) + `design-guide.md` | Relatório de auditoria UX (inline, 9 dimensões) | — |
-| `/ui-ux-pro-max` | `empresa.md` + `preferencias.md` + `design-guide.md` | `identidade/design-system/MASTER.md` | — |
-| `/carrossel` | Tema + `design-guide.md` + `design-system` (opcional) | `marketing/conteudo/<tema>/` (HTML + PNG + legenda.md) | `/ux` |
-| `/seo` | `empresa.md` + WebSearch | `marketing/seo/` (8 arquivos) | — |
-| `/anuncio-google` | `empresa.md` + `marketing/seo/01-pesquisa-demanda.md` | `marketing/campanhas/google-ads-<data>/campaign.csv` | — |
-| `/relatorio-ads` | CSVs exportados das plataformas + `empresa.md` | `marketing/campanhas/relatorios/<data>-relatorio.md` | — |
-| `/copywriting` | Brief do usuário + `empresa.md` + `preferencias.md` | Copy (inline ou arquivo) | — |
-| `/analytics` | `empresa.md` + stack do site | Plano de tracking + snippets (inline) | — |
-| `/ab-teste` | Hipótese + `empresa.md` | Documento do teste (inline) | — |
-| `/email-profissional` | Contexto do email + `preferencias.md` | Rascunho do email (inline) | — |
-| `/responder-avaliacoes` | Texto da avaliação + `preferencias.md` | Resposta pronta (inline) | — |
-| `/analisar-dados` | Arquivo CSV/XLSX/JSON/TXT | Resumo executivo (inline) | — |
-| `/qa-expert` | Projeto no workspace | `QA_AUDIT_REPORT.md` na raiz do projeto | — |
+|---|---|---|---|
+| `client-diagnosis` | Entrevista estruturada com usuário | `_memoria/clientes/<nome>/diagnostico.md` | — |
+| `digital-presence-audit` | URL do site + redes + GMB | Relatório de auditoria com gaps priorizados | `vetora-brand-os`, `vetora-design-system` |
 
 ---
 
-## Camada 3 — Orquestradores
+## 02-DIRECAO — Fase 2 do Método VETORA
 
 | Skill | Input | Output | Chama |
-|-------|-------|--------|-------|
-| `/pagina-de-vendas` | Brief + `empresa.md` + `design-system` (opcional) | `marketing/landingpages/<nome>/index.html` + `preview.png` | `/ui-ux-pro-max` (se não houver MASTER.md) + `/ux` |
-| `/publicar-tema` | Tema + `estrategia.md` + `marketing/seo/*` | `site/.../blog/<slug>.md` (draft) + `marketing/conteudo/<tema>/` | `/carrossel` |
-| `/aprovar-post` | Slug do post | Post publicado + PNGs em `public/` + post no Instagram/Facebook | git push + Meta Graph API |
-| `/mapear-rotinas` | Entrevista + `templates/skills/catalogo.md` | `.claude/skills/<nova>/SKILL.md` + `outputs.md` | Cria novas skills |
-| `/novo-projeto` | Nome do projeto + `empresa.md` | `<projeto>/CLAUDE.md` | — |
-| `/ops` | Pedido em linguagem natural + `estrategia.md` | Roteamento para skill(s) certa(s) + execução | Qualquer skill |
+|---|---|---|---|
+| `brand-positioning-architect` | `diagnostico.md` + entrevista | `_memoria/clientes/<nome>/posicionamento.md` | `vetora-brand-os`, `vetora-method` |
+| `site-architecture-vetora` | `posicionamento.md` + briefing | `_memoria/clientes/<nome>/arquitetura-site.md` | `vetora-brand-os` |
+| `landing-page-cro-vetora` | Brief + `posicionamento.md` | `marketing/landingpages/<nome>/index.html` | `vetora-brand-os`, `vetora-design-system`, `ui-ux-pro-max` |
 
 ---
 
-## Grafo de dependências
+## 03-CONSTRUCAO — Fase 3 do Método VETORA
+
+| Skill | Input | Output | Chama |
+|---|---|---|---|
+| `vetora-copywriter` | Brief + `posicionamento.md` + `preferencias.md` | Copy (inline ou arquivo) | `vetora-brand-os` |
+| `social-carousel-builder` | Tema + `design-guide.md` | `marketing/conteudo/<tema>/` (HTML + PNG + legenda.md) | `vetora-brand-os`, `vetora-design-system` |
+| `ui-ux-pro-max` | Briefing de identidade | `identidade/design-system/MASTER.md` | — |
+| `claude-code-handoff` | `arquitetura-site.md` + design aprovado | `CLAUDE.md` do projeto + tokens + `.env.example` + checklist | `vetora-brand-os`, `vetora-design-system` |
+
+---
+
+## 04-ENTREGA-QA — Fase 4 do Método VETORA
+
+| Skill | Input | Output | Chama |
+|---|---|---|---|
+| `vetora-qa-checklist` | Material a revisar (site, LP, carrossel, proposta) | Relatório de aprovação por criticidade | `vetora-brand-os`, `vetora-design-system` |
+| `web-qa-technical-vetora` | URL ou código do site | Relatório técnico (performance, SEO, acessibilidade) | `qa-expert` |
+| `ux-review-vetora` | HTML/URL/PNG a revisar | Relatório UX (9 dimensões, pontuação) | `vetora-design-system` |
+| `qa-expert` | Código do projeto + CI config | Relatório técnico completo (testes, segurança, CI/CD) | — |
+
+---
+
+## 05-COMERCIAL — Fase 5 do Método VETORA
+
+| Skill | Input | Output | Chama |
+|---|---|---|---|
+| `proposal-builder-vetora` | `diagnostico.md` + briefing de escopo | `saidas/propostas/<nome>-<data>.md` | `vetora-brand-os`, `vetora-method` |
+| `linkedin-fhb-authority` | Tema ou insight do Fernando | Post LinkedIn pronto para publicar | `vetora-brand-os` |
+
+---
+
+## Grafo de Dependências
 
 ```
-_memoria/ + identidade/
-  └─ lido por: TODAS as skills antes de agir
+vetora-brand-os ◄──────────────────── (todas as skills de criação)
+vetora-method ◄──────────────────────  brand-positioning-architect
+                                        proposal-builder-vetora
+vetora-design-system ◄───────────────  social-carousel-builder
+                                        landing-page-cro-vetora
+                                        ux-review-vetora
+                                        digital-presence-audit
 
-/abrir ──────────────────────────────── [C1]
-/atualizar ──────────────────────────── [C1]
-/instalar ───────────────────────────── [C1]
-/salvar ─────────────────────────────── [C1]
+FLUXO PRINCIPAL — Projeto de cliente:
+client-diagnosis
+  └→ brand-positioning-architect
+       └→ site-architecture-vetora
+            └→ vetora-copywriter
+            └→ landing-page-cro-vetora
+                 └→ vetora-qa-checklist
+                 └→ web-qa-technical-vetora
+                 └→ ux-review-vetora
 
-/seo ────────────────────────────────── [C2]
-  └→ outputs: marketing/seo/
-       ├─ lido por: /anuncio-google
-       └─ lido por: /publicar-tema
+FLUXO — Conteúdo social:
+social-carousel-builder
+  └→ aprovar-post (publicação no Instagram + Facebook)
 
-/ui-ux-pro-max ──────────────────────── [C2]
-  └→ output: identidade/design-system/MASTER.md
-       ├─ lido por: /carrossel
-       ├─ lido por: /pagina-de-vendas
-       └─ lido por: /ux
-
-/carrossel ──────────────────────────── [C2]
-  ├─ chama: /ux (revisão inline)
-  └→ output: marketing/conteudo/<tema>/
-       └─ lido por: /aprovar-post
-
-/ux ─────────────────────────────────── [C2]
-/copywriting ────────────────────────── [C2]
-/analytics ──────────────────────────── [C2]
-/ab-teste ───────────────────────────── [C2]
-/anuncio-google ─────────────────────── [C2]
-/relatorio-ads ──────────────────────── [C2]
-/email-profissional ─────────────────── [C2]
-/responder-avaliacoes ───────────────── [C2]
-/analisar-dados ─────────────────────── [C2]
-/qa-expert ──────────────────────────── [C2]
-  └→ output: QA_AUDIT_REPORT.md (raiz do projeto)
-
-/pagina-de-vendas ───────────────────── [C3]
-  ├─ chama (se necessário): /ui-ux-pro-max
-  └─ chama: /ux
-
-/publicar-tema ──────────────────────── [C3]
-  └─ chama: /carrossel
-
-/aprovar-post ───────────────────────── [C3]
-  └─ usa output de: /carrossel + git push + Meta API
-
-/ops ────────────────────────────────── [C3]
-  └─ roteia para: qualquer skill
-
-/mapear-rotinas ─────────────────────── [C3]
-  └─ cria: novas skills → atualiza este arquivo
+FLUXO — Comercial:
+client-diagnosis
+  └→ proposal-builder-vetora
+linkedin-fhb-authority (independente, alimenta autoridade contínua)
 ```
 
 ---
 
-## Biblioteca de extensão (clones/)
+## Mapa por Fase do Método
 
-Skills disponíveis para incorporação futura. Para adotar: copiar SKILL.md para `.claude/skills/<nome>/`, adaptar para ler `_memoria/` em vez de `.agents/product-marketing.md`, criar `outputs.md` e registrar neste arquivo.
-
-| Pasta | Skills disponíveis | Prioridade |
-|-------|-------------------|------------|
-| `clones/marketing-skills/` | marketing-plan, customer-research, pricing, competitor-profiling, launch, cro, cold-email, emails, social, video, ads, revops, sales-enablement, referrals | Média |
-| `clones/design-ui-skills/` | mcp-builder, frontend-design, canvas-design, theme-factory, brand-guidelines, webapp-testing | Média |
+| Fase | Skills | Entregável principal |
+|---|---|---|
+| 1 — Diagnóstico | `client-diagnosis`, `digital-presence-audit` | `diagnostico.md` aprovado |
+| 2 — Direção | `brand-positioning-architect`, `site-architecture-vetora`, `landing-page-cro-vetora` | `posicionamento.md` + `arquitetura-site.md` aprovados |
+| 3 — Construção | `vetora-copywriter`, `social-carousel-builder`, `ui-ux-pro-max`, `claude-code-handoff` | Assets finais (HTML, PNGs, copy) |
+| 4 — Entrega/QA | `vetora-qa-checklist`, `web-qa-technical-vetora`, `ux-review-vetora` | Checklist de aprovação 100% |
+| 5 — Evolução | `proposal-builder-vetora`, `linkedin-fhb-authority` | Proposta + conteúdo de autoridade |
 
 ---
 
 ## Como adicionar uma skill nova
 
-1. Criar pasta `.claude/skills/<nome>/`
-2. Criar `SKILL.md` com frontmatter YAML (`name`, `description`) e workflow estruturado
-3. Criar `outputs.md` documentando o que a skill produz (mesmo que só inline)
-4. Adicionar linha neste arquivo na tabela da camada correta
-5. Adicionar no grafo de dependências se a skill chamar ou for chamada por outra
-6. Atualizar seção "Grafo de dependências simplificado" em `CLAUDE.md` se for Camada 3
+1. Identificar a fase do método onde a skill se encaixa
+2. Criar a pasta em `.claude/skills/<fase>/<nome-da-skill>/`
+3. Criar `SKILL.md` seguindo o template padrão (ver Seção 5 do `VetoraOS_Plano_de_Migracao.md`)
+4. Atualizar este `AGENTS.md` com a nova skill na tabela e no grafo de dependências
+5. Se a skill consultar outras, adicionar referências no campo `Chama`
+6. Testar em uma sessão real antes de marcar como ativa
+
+---
+
+## Skills arquivadas (_archived/)
+
+Quarentena de 60 dias. Podem voltar se houver demanda real.
+
+**`_archived/`:** ab-teste · analisar-dados · anuncio-google · mapear-rotinas · relatorio-ads · responder-avaliacoes
+
+**`_archived/_fundidas/`:** analytics · email-profissional · novo-projeto · publicar-tema · seo · ux
+
+---
+
+*Atualizado em: 2026-06-03 — VetoraOS v2*

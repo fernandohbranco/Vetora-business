@@ -1,14 +1,15 @@
 ﻿---
-name: carrossel
+name: social-carousel-builder
 description: >
-  Cria carrosséis e posts visuais pra Instagram, TikTok, LinkedIn com a identidade visual da marca.
+  Cria carrosséis e posts visuais para Instagram, TikTok e LinkedIn com a identidade visual VETORA.
   Gera HTML estilizado + renderiza em PNG 1080x1350 via Playwright, com legenda pronta no final.
   Suporta carrossel texto puro, carrossel com foto IA (gerada via OpenAI) e post único.
-  Use quando o usuário pedir "carrossel", "post", "conteúdo pro instagram", "criar imagem",
-  "gerar foto", "post educativo", ou /carrossel.
+  Antes de criar, consulta vetora-brand-os para padrão de marca e identidade/design-guide.md para estilo.
+  Use quando o usuário disser "carrossel", "post", "conteúdo pro instagram", "criar imagem",
+  "gerar foto", "post educativo", "conteúdo visual", "/social-carousel-builder" ou "/carrossel".
 ---
 
-# /carrossel — Carrossel e posts visuais
+# /social-carousel-builder — Carrossel e posts visuais VETORA
 
 Skill central de criação de conteúdo visual. Pega um tema → entrega HTMLs estilizados + PNGs prontos pra postar + legenda no padrão da marca.
 
@@ -50,7 +51,7 @@ Se o tipo não estiver claro, perguntar:
 
 ## Estilo visual base
 
-O VetoraOS tem um estilo próprio — editorial, calmo, premium. Sem clip-art, sem emoji decorativo, sem gradiente arco-íris, sem template genérico de IA. `identidade/design-guide.md` sobrescreve esses padrões; quando o design-guide for vago ou estiver em branco, usar o que tá aqui (não parar pra pedir `/instalar` — o `/carrossel` funciona com defaults bons).
+O VetoraOS tem um estilo próprio — editorial, calmo, premium. Sem clip-art, sem emoji decorativo, sem gradiente arco-íris, sem template genérico de IA. `identidade/design-guide.md` sobrescreve esses padrões; quando o design-guide for vago ou estiver em branco, usar o que tá aqui (não parar pra pedir `/instalar` — o `/social-carousel-builder` funciona com defaults bons).
 
 ### Tipografia padrão
 
@@ -257,9 +258,7 @@ marketing/conteudo/<tipo>-<tema>-<YYYY-MM-DD>/
 
 Depois de criar o conteúdo visual, perguntar:
 
-> "Esse conteúdo dá pra virar artigo no blog também. Quer que eu crie a versão blog pra SEO?"
-
-Se sim, chamar `/publicar-tema` com o mesmo tema.
+> "Esse conteúdo está pronto para publicar. Quer que eu chame `/aprovar-post` para publicar agora no Instagram + Facebook?"
 
 ---
 
