@@ -7,21 +7,37 @@ Construção e lançamento do **Kit VETORA** — primeiro produto digital da VET
 ## Decisões estratégicas tomadas
 
 - **Preço tier principal:** R$397
-- **Entrega:** Notion (template público — link de duplicação)
+- **Entrega:** ~~Notion~~ → **Cakto ou Kirvano** (área de membros real, acesso controlado por comprador)
+- **Checkout:** ~~Kiwify~~ → **Cakto ou Kirvano** (nativas do mercado BR, sem custo fixo)
 - **Domínio:** kit.vetora.com.br (subdomain)
-- **Lead magnet:** "Mini-diagnóstico de marca em 10 perguntas" (PDF)
-- **Lançamento:** Janela de urgência de 7 dias
+- **Lead magnet:** "Mini-diagnóstico de marca em 10 perguntas" (a criar — Sprint 03)
+- **Urgência:** ~~countdown localStorage~~ → **data fixa real** de encerramento do preço de lançamento
 - **Tudo virtual até estar 100% pronto** — publicação só quando o fluxo completo estiver validado
+
+## Diagnóstico realizado (jun/2026)
+
+Diagnóstico completo em `saidas/diagnostico-kit-vetora-2026-06.md`. Resultado: produto forte, estratégia de lançamento com gaps críticos. Go-live condicionado à conclusão de 6 sprints pré-lançamento.
 
 ## Prioridade principal
 
 Lançar o Kit VETORA Completo (R$397) e validar com 30 vendas no primeiro mês (~R$11.910 + 30 leads qualificados para consultoria de ticket alto).
 
-**Roteiro em 4 sprints — estado atual:**
-1. ✅ **Sprint 1** — 8 módulos completos em `marketing/kit-vetora/modulos/` + start-here
-2. ✅ **Sprint 2** — Landing page otimizada em `marketing/landingpages/kit-vetora-2026-05-31/index.html` (12 seções, copy aprovado, /ux aplicado)
-3. 🔲 **Sprint 3** — Configurar Kiwify + substituir `KIWIFY_URL_AQUI` na landing page + lead magnet PDF + deploy
-4. 🔲 **Sprint 4** — Lançamento: 7 posts LinkedIn + 3 e-mails + janela de urgência
+**Novo roteiro — 9 sprints em `sprints/index.md`:**
+
+**Pré-lançamento (obrigatório antes do go-live):**
+1. 🔲 **Sprint 01** — Landing page com nível visual premium + copy de outcomes
+2. 🔲 **Sprint 02** — Proof social: cases com resultado mensurável
+3. 🔲 **Sprint 03** — Lead magnet: mini-diagnóstico 10 perguntas
+4. 🔲 **Sprint 04** — Sequência de emails pós-captura (3-5 emails)
+5. 🔲 **Sprint 05** — Plataforma de entrega: migrar para Cakto ou Kirvano
+6. 🔲 **Sprint 06** — Urgência real: data fixa de encerramento do preço
+
+**Lançamento:**
+7. 🔲 **Sprint 07** — Go-live: 7 posts LinkedIn + 3 emails + ativação de rede
+
+**Pós-lançamento:**
+8. 🔲 **Sprint 08** — Upsell: email automático D+7 para consultoria de 1h
+9. 🔲 **Sprint 09** — Mapeamento de concorrência para segundo ciclo
 
 ## O que pode esperar
 
