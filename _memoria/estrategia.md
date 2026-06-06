@@ -1,10 +1,32 @@
 # Estratégia
 
-## Fase
+## Fase atual (jun/2026)
 
-Construção e lançamento do **Kit VETORA** — primeiro produto digital da VETORA. Execução incremental (Fernando é CLT em tempo integral). Prioridade: mínima operação manual após lançado.
+**Profissionalização da VETORA para consultoria de alto ticket.** Kit VETORA pausado temporariamente. Foco em construir presença que atraia clientes de consultoria de alto ticket (R$3-10k/projeto).
 
-## Decisões estratégicas tomadas
+**ICP definido:** Profissionais liberais (médicos, advogados, consultores) — o especialista invisível.
+
+### O que foi construído (jun/2026):
+- `saidas/pesquisa-mercado-2026-06.md` — pesquisa de mercado completa (competidores, keywords, ICP)
+- `identidade/manifesto.md` — manifesto de marca escrito
+- `identidade/branding-book.md` — branding book compilado
+- `site/vetora/` — site institucional em HTML (versão legada — substituída)
+- `site/vetora-next/` — **site institucional em Next.js 14 + Tailwind + Framer Motion** (versão atual). Stack: Next.js 14, Tailwind CSS, Framer Motion. Homepage completa com Hero, Problema, Serviços (bento grid), Método, Para Quem, Cases e CTA Final. Animações clip-path, cursor personalizado, canvas dot grid, scroll-driven timeline. Deploy pendente no Vercel.
+
+### Próximos passos imediatos:
+- Páginas internas: `/metodo`, `/servicos`, `/cases`, `/contato`
+- Blog: migrar artigo HTML para MDX, rota `/blog/[slug]`
+- Configurar formulário de contato no Formspree
+- Deploy no Vercel + domínio vetora.com.br
+- LinkedIn: publicar manifesto e primeiro artigo como posts
+
+---
+
+## Kit VETORA — em pausa
+
+Retomar após tração inicial com consultoria. Decisões tomadas permanecem válidas.
+
+## Decisões estratégicas tomadas (Kit VETORA)
 
 - **Preço tier principal:** R$397
 - **Entrega:** ~~Notion~~ → **Cakto ou Kirvano** (área de membros real, acesso controlado por comprador)

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VETORA — Estratégia, marca e tecnologia na direção certa</title>
+  <meta name="description" content="Estúdio estratégico de branding, sites e IA. Corrigimos o desalinhamento entre o que você entrega e o que o mercado consegue perceber. Com método, não com posts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vetora.com.br">
+  <link rel="icon" type="image/png" href="../../identidade/logo-vetora/12-Favicon simplificado colorido-semfundo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VETORA — Estratégia, marca e tecnologia na direção certa">
+  <meta property="og:description" content="Estúdio estratégico de branding, sites e IA. Para profissionais que são bons no que fazem e precisam que o mercado saiba disso.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vetora.com.br">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "VETORA",
+    "description": "Estúdio estratégico de branding, sites, apresentações e soluções com IA.",
+    "url": "https://vetora.com.br",
+    "founder": { "@type": "Person", "name": "Fernando Henrique Branco" },
+    "areaServed": "BR",
+    "serviceType": ["Branding Estratégico", "Sites Institucionais", "Identidade Visual", "IA Aplicada"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Shared Design System -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== O PROBLEMA ===== */
+    .problema { background: var(--ice); }
+    .problema-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .problema-text h2 { color: var(--navy); margin: 16px 0 20px; }
+    .problema-text p { color: #4a5568; line-height: 1.75; margin-bottom: 16px; }
+    .problema-text p strong { color: var(--navy); }
+    .problema-cards { display: flex; flex-direction: column; gap: 16px; }
+    .problema-card {
+      background: #fff;
+      border: 1px solid var(--gray);
+      border-radius: 6px;
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.25s var(--ease-out);
+    }
+    .problema-card:hover {
+      border-color: rgba(0,166,166,0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .problema-card-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--r);
+      background: rgba(0,166,166,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .problema-card-icon svg { width: 18px; height: 18px; stroke: var(--cyan); fill: none; stroke-width: 1.8; }
+    .problema-card h4 { color: var(--navy); margin-bottom: 4px; font-size: 15px; }
+    .problema-card p { font-size: 14px; color: #6b7280; line-height: 1.5; }
+
+    @media (max-width: 768px) {
+      .problema-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ===== O QUE FAZEMOS ===== */
+    .oque { background: #fff; }
+    .oque-intro { max-width: 680px; margin: 0 auto 64px; text-align: center; }
+    .oque-intro h2 { color: var(--navy); margin: 16px 0 20px; }
+    .oque-intro p { color: #4a5568; font-size: 17px; line-height: 1.7; }
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .servico-card {
+      background: var(--ice);
+      border: 1px solid var(--gray);
+      border-radius: 6px;
+      padding: 28px;
+    }
+    .servico-card:hover { border-color: var(--cyan); }
+    .servico-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--r);
+      background: rgba(11,31,59,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .servico-icon svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 1.8; }
+    .servico-card h4 { color: var(--navy); margin-bottom: 8px; }
+    .servico-card p { font-size: 14px; color: #6b7280; line-height: 1.6; }
+
+    @media (max-width: 900px) { .servicos-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .servicos-grid { grid-template-columns: 1fr; } }
+
+    /* ===== MÉTODO (homepage) ===== */
+    .metodo { background: var(--navy); }
+    .metodo-intro { max-width: 600px; margin: 0 auto 64px; text-align: center; }
+    .metodo-intro h2 { color: #fff; margin: 16px 0 20px; }
+    .metodo-intro p { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.7; }
+    .metodo-steps {
+      display: flex;
+      gap: 0;
+      position: relative;
+    }
+    .metodo-steps::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: calc(10% + 20px);
+      right: calc(10% + 20px);
+      height: 1px;
+      background: rgba(0,166,166,0.3);
+    }
+    .metodo-step {
+      flex: 1;
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--cyan);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      position: relative; z-index: 1;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+    }
+    .metodo-step:hover .step-num {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 4px rgba(0,166,166,0.2);
+    }
+    .metodo-step h4 { color: #fff; margin-bottom: 8px; font-size: 15px; }
+    .metodo-step p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+    .metodo-cta { text-align: center; margin-top: 56px; }
+
+    @media (max-width: 768px) {
+      .metodo-steps { flex-direction: column; gap: 32px; }
+      .metodo-steps::before { display: none; }
+      .metodo-step { text-align: left; display: flex; gap: 20px; align-items: flex-start; }
+      .step-num { flex-shrink: 0; margin: 0; }
+    }
+
+    /* ===== PARA QUEM ===== */
+    .para-quem { background: var(--ice); }
+    .para-quem-intro { max-width: 600px; margin: 0 auto 56px; text-align: center; }
+    .para-quem-intro h2 { color: var(--navy); margin: 16px 0 20px; }
+    .para-quem-intro p { color: #4a5568; font-size: 17px; line-height: 1.7; }
+    .perfis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .perfil-card {
+      background: #fff;
+      border: 1px solid var(--gray);
+      border-radius: 6px;
+      padding: 28px;
+      transition: border-color 0.2s, box-shadow 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .perfil-card:hover {
+      border-color: rgba(0,166,166,0.4);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      transform: translateY(-3px);
+    }
+    .perfil-tag {
+      display: inline-block;
+      font-family: 'Sora', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(0,166,166,0.08);
+      padding: 4px 10px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .perfil-card h4 { color: var(--navy); margin-bottom: 10px; font-size: 16px; }
+    .perfil-card p { font-size: 14px; color: #6b7280; line-height: 1.6; }
+
+    @media (max-width: 900px) { .perfis-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .perfis-grid { grid-template-columns: 1fr; } }
+
+    /* ===== MANIFESTO QUOTE (cinematográfico) ===== */
+    .manifesto-quote { background: var(--graphite); overflow: hidden; }
+    .manifesto-inner {
+      max-width: 840px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .manifesto-inner::before {
+      content: '\201C';
+      position: absolute;
+      font-family: 'Sora', sans-serif;
+      font-size: 320px;
+      line-height: 0.85;
+      color: rgba(255,255,255,0.03);
+      top: -40px; left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      user-select: none;
+    }
+    .manifesto-inner blockquote {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(26px, 4vw, 52px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .manifesto-inner blockquote em {
+      font-style: normal;
+      color: var(--cyan);
+      text-shadow: 0 0 48px rgba(0,166,166,0.4);
+    }
+    .manifesto-inner cite {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      font-style: normal;
+      font-family: 'Sora', sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .manifesto-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      font-family: 'Sora', sans-serif;
+      font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .manifesto-link:hover { color: var(--cyan); }
+    .manifesto-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ===== CASES ===== */
+    .cases { background: #fff; }
+    .cases-intro { max-width: 600px; margin: 0 auto 56px; text-align: center; }
+    .cases-intro h2 { color: var(--navy); margin: 16px 0 20px; }
+    .cases-intro p { color: #4a5568; font-size: 17px; }
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+    .case-card {
+      border: 1px solid var(--gray);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .case-card:hover { border-color: var(--cyan); }
+    .case-visual {
+      height: 200px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .case-visual::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(0,166,166,0.09);
+      transition: transform 0.4s var(--ease-out), opacity 0.3s;
+    }
+    .case-card:hover .case-visual::after {
+      transform: scale(1.3);
+      opacity: 0.6;
+    }
+    .case-visual-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px; font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      position: relative; z-index: 1;
+    }
+    .case-body { padding: 24px; background: #fff; }
+    .case-industry {
+      font-family: 'Sora', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 8px;
+    }
+    .case-body h4 { color: var(--navy); margin-bottom: 8px; }
+    .case-body p { font-size: 14px; color: #6b7280; line-height: 1.55; }
+    .cases-cta { text-align: center; }
+
+    @media (max-width: 900px) { .cases-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .cases-grid { grid-template-columns: 1fr; } }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final { background: var(--navy); }
+    .cta-inner h2 { color: #fff; margin: 16px 0 20px; }
+    .cta-inner p { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.7; margin-bottom: 40px; }
+
+    /* ===== KIT BANNER ===== */
+    .kit-banner-section { background: var(--navy); padding: 24px; }
+    .kit-banner {
+      background: rgba(0,166,166,0.08);
+      border: 1px solid rgba(0,166,166,0.2);
+      border-radius: 6px;
+      padding: 16px 24px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: var(--w);
+      margin: 0 auto;
+      flex-wrap: wrap;
+      transition: border-color 0.2s;
+    }
+    .kit-banner:hover { border-color: rgba(0,166,166,0.4); }
+    .kit-banner-text { font-size: 14px; color: rgba(255,255,255,0.72); }
+    .kit-banner-text strong { color: #fff; font-family: 'Sora', sans-serif; }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="../../identidade/logo-vetora/2-Logo horizontal negativa — fundo escuro-semfundo.png" alt="VETORA">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="metodo.html">Método</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="cases.html">Cases</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contato.html" class="btn btn-primary nav-cta">Falar com a VETORA</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="eyebrow">Estúdio Estratégico</p>
+      <h1>
+        <span class="reveal-line" style="--delay:0.1s">Profissionais bons no que fazem</span><br>
+        <span class="reveal-line" style="--delay:0.22s">raramente perdem para <em>incompetência</em>.</span><br>
+        <span class="reveal-line" style="--delay:0.34s">Perdem para <em>invisibilidade</em>.</span>
+      </h1>
+      <p class="hero-lead">
+        Construímos a presença que traduz o que você entrega em percepção de mercado.
+        Com diagnóstico, método e tecnologia — não com posts.
+      </p>
+      <div class="hero-actions">
+        <a href="metodo.html" class="btn btn-primary">Conheça o método</a>
+        <a href="contato.html" class="btn btn-outline">Falar com a VETORA</a>
+      </div>
+      <div class="hero-divider"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KIT BANNER ===== -->
+<div class="kit-banner-section">
+  <div class="kit-banner">
+    <p class="kit-banner-text">
+      <strong>Kit VETORA</strong> — o método em 8 módulos para quem quer construir sozinho.
+      Templates, frameworks e biblioteca de prompts de IA incluídos.
+    </p>
+    <a href="https://kit.vetora.com.br" class="btn btn-primary" style="white-space: nowrap;">Conhecer o Kit</a>
+  </div>
+</div>
+
+<!-- ===== O PROBLEMA ===== -->
+<section class="problema">
+  <div class="wrap">
+    <div class="problema-grid">
+      <div class="problema-text reveal-left">
+        <p class="eyebrow eyebrow--dark">O problema que vemos</p>
+        <h2>O mercado não contrata o mais competente. Contrata o mais <em style="font-style:normal;color:var(--cyan)">percebido</em>.</h2>
+        <p>Existe um desalinhamento silencioso em negócios de pessoas competentes: o que você entrega e o que o mercado consegue perceber raramente estão no mesmo nível.</p>
+        <p>Isso não é falta de qualidade no trabalho. É falta de <strong>direção estratégica</strong> na comunicação.</p>
+        <p>Corrigir esse desalinhamento — com método, não com improvisação — é o que fazemos.</p>
+      </div>
+      <div class="problema-cards reveal-stagger">
+        <div class="problema-card">
+          <div class="problema-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <h4>Seu nível de entrega não é percebido antes da proposta</h4>
+            <p>Prospects chegam sem contexto e você precisa se justificar a cada reunião.</p>
+          </div>
+        </div>
+        <div class="problema-card">
+          <div class="problema-card-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <h4>Cobra menos do que poderia porque o mercado não dimensiona o que você vale</h4>
+            <p>O preço que você consegue cobrar é limitado pela percepção, não pela qualidade.</p>
+          </div>
+        </div>
+        <div class="problema-card">
+          <div class="problema-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h4>Perde negócios para quem é mais visível, não mais qualificado</h4>
+            <p>Colegas com menos experiência fecham mais porque aparecem melhor no mercado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== O QUE FAZEMOS ===== -->
+<section class="oque">
+  <div class="wrap">
+    <div class="oque-intro reveal">
+      <p class="eyebrow eyebrow--dark">O que fazemos</p>
+      <h2>Estratégia, marca e tecnologia<br>na direção certa</h2>
+      <p>Não somos uma agência criativa. Trabalhamos com diagnóstico e método — do posicionamento à presença digital — para que o mercado perceba o que você já entrega.</p>
+    </div>
+    <div class="servicos-grid reveal-stagger">
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4l-7 7-4-4-7 7"/></svg>
+        </div>
+        <h4>Branding Estratégico</h4>
+        <p>Posicionamento, arquétipo, identidade verbal e plataforma de marca. A estratégia que fundamenta tudo.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>Sites e Landing Pages</h4>
+        <p>Copy estratégico, UX/UI e SEO. Sites que comunicam o nível do que você entrega antes da primeira conversa.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <h4>Identidade Visual</h4>
+        <p>Direção criativa, paleta de cores, conceito de logo e guia de uso — com coerência estratégica.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+        </div>
+        <h4>Apresentações Comerciais</h4>
+        <p>Narrativa executiva, pitch deck e propostas com a estrutura que gera percepção de valor antes da negociação.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h4>IA Aplicada</h4>
+        <p>Prompts estratégicos, automações e sistemas com IA integrada ao processo de trabalho — não como tendência, mas como ativo real.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h4>Conteúdo e Presença Digital</h4>
+        <p>LinkedIn, conteúdo de autoridade e calendário editorial — com posicionamento consistente, não apenas volume.</p>
+      </div>
+    </div>
+    <div class="text-center mt-24 reveal">
+      <a href="servicos.html" class="btn btn-navy">Ver todos os serviços</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MÉTODO ===== -->
+<section class="metodo noise-dark">
+  <div class="wrap">
+    <div class="metodo-intro reveal">
+      <p class="eyebrow">Método VETORA</p>
+      <h2>Processo antes de execução. Direção antes de construção.</h2>
+      <p>Construir marca sem diagnóstico é decorar uma casa com estrutura errada. Cada projeto VETORA segue cinco etapas — na ordem certa.</p>
+    </div>
+    <div class="metodo-steps reveal-stagger">
+      <div class="metodo-step">
+        <div class="step-num">01</div>
+        <h4>Diagnóstico</h4>
+        <p>Mapeamento do estado atual, percepção do mercado e gaps estratégicos.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="step-num">02</div>
+        <h4>Direção</h4>
+        <p>Posicionamento, arquétipo, proposta de valor e estratégia de marca.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="step-num">03</div>
+        <h4>Construção</h4>
+        <p>Execução: identidade visual, copy, site, conteúdo e presença digital.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="step-num">04</div>
+        <h4>Entrega</h4>
+        <p>Implementação com revisão técnica, UX e publicação dos ativos.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="step-num">05</div>
+        <h4>Evolução</h4>
+        <p>Monitoramento, ajustes e expansão da presença ao longo do tempo.</p>
+      </div>
+    </div>
+    <div class="metodo-cta reveal">
+      <a href="metodo.html" class="btn btn-outline">Entender o método completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARA QUEM ===== -->
+<section class="para-quem">
+  <div class="wrap">
+    <div class="para-quem-intro reveal">
+      <p class="eyebrow eyebrow--dark">Para quem</p>
+      <h2>Para quem é excelente no que faz e invisível para quem precisaria contratá-lo</h2>
+      <p>A VETORA não atende todo mundo. Trabalhamos com profissionais e empresas onde o desalinhamento entre competência e percepção é o problema real a resolver.</p>
+    </div>
+    <div class="perfis-grid reveal-stagger">
+      <div class="perfil-card">
+        <span class="perfil-tag">Profissional Liberal</span>
+        <h4>Médicos, advogados e consultores</h4>
+        <p>Excelente tecnicamente, com reputação consolidada na rede próxima — mas sem presença que atraia os clientes certos além da indicação.</p>
+      </div>
+      <div class="perfil-card">
+        <span class="perfil-tag">Consultor Independente</span>
+        <h4>Especialistas e analistas sênior</h4>
+        <p>Conhecimento de alto valor, mas proposta que não transmite esse nível antes da reunião. Perde para agências maiores na percepção.</p>
+      </div>
+      <div class="perfil-card">
+        <span class="perfil-tag">Empresa Técnica</span>
+        <h4>Indústria, engenharia e B2B</h4>
+        <p>Produto ou serviço de qualidade acima do que o marketing comunica. Equipe técnica, mas sem visão estratégica de marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANIFESTO QUOTE ===== -->
+<section class="manifesto-quote compact noise-dark">
+  <div class="wrap">
+    <div class="manifesto-inner reveal">
+      <blockquote>
+        "Não é sobre aparecer mais.<br>É sobre ser <em>percebido melhor</em>."
+      </blockquote>
+      <cite>— Manifesto VETORA</cite>
+      <br>
+      <a href="manifesto.html" class="manifesto-link">
+        Ler o manifesto completo
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CASES ===== -->
+<section class="cases">
+  <div class="wrap">
+    <div class="cases-intro reveal">
+      <p class="eyebrow eyebrow--dark">Cases</p>
+      <h2>Trabalhos recentes</h2>
+      <p>Cada projeto começa com um problema estratégico — não com uma identidade visual.</p>
+    </div>
+    <div class="cases-grid reveal-stagger">
+      <div class="case-card">
+        <div class="case-visual">
+          <span class="case-visual-label">Automação Industrial</span>
+        </div>
+        <div class="case-body">
+          <p class="case-industry">Engenharia B2B</p>
+          <h4>Autec — Posicionamento estratégico</h4>
+          <p>Empresa técnica com produto de alto valor e comunicação genérica. Diagnóstico, posicionamento e identidade que refletem o nível da entrega.</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-visual">
+          <span class="case-visual-label">Espaço de Eventos</span>
+        </div>
+        <div class="case-body">
+          <p class="case-industry">Negócio Local</p>
+          <h4>Rancho 517 — Identidade e site</h4>
+          <p>Reputação consolidada localmente, mas presença digital que não refletia a experiência real do espaço.</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-visual" style="background: var(--graphite)">
+          <span class="case-visual-label">Marca Própria</span>
+        </div>
+        <div class="case-body">
+          <p class="case-industry">Meta-Case</p>
+          <h4>VETORA — Como construímos nossa própria marca</h4>
+          <p>O processo completo de diagnóstico, posicionamento e construção que aplicamos antes de oferecer ao mercado.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cases-cta reveal">
+      <a href="cases.html" class="btn btn-navy">Ver todos os cases</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final noise-dark">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Pronto para corrigir o desalinhamento?</h2>
+      <p>A conversa começa com um diagnóstico honesto. Entendemos o problema antes de sugerir qualquer solução — e só trabalhamos com projetos onde há fit real.</p>
+      <div class="cta-actions">
+        <a href="contato.html" class="btn btn-primary">Iniciar diagnóstico</a>
+        <a href="servicos.html" class="btn btn-outline">Ver serviços e investimento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../../identidade/logo-vetora/4-Logo horizontal monocromática branca-semfundo.png" alt="VETORA">
+      <p>Estúdio estratégico de branding, sites, apresentações e soluções com IA.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Estúdio</h5>
+      <ul>
+        <li><a href="metodo.html">Método VETORA</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="cases.html">Cases</a></li>
+        <li><a href="manifesto.html">Manifesto</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Conteúdo</h5>
+      <ul>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="https://kit.vetora.com.br">Kit VETORA</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Contato</h5>
+      <ul>
+        <li><a href="contato.html">Iniciar projeto</a></li>
+        <li><a href="https://linkedin.com/in/fernandohbranco" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 VETORA. Todos os direitos reservados.</p>
+    <p>Estratégia, marca e tecnologia na direção certa.</p>
+  </div>
+</footer>
+
+<script src="motion.js" defer></script>
+</body>
+</html>

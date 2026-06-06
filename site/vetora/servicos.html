@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços — VETORA Estúdio Estratégico</title>
+  <meta name="description" content="Branding estratégico, sites institucionais, identidade visual, apresentações comerciais e IA aplicada. Conheça os serviços da VETORA e como funcionam.">
+  <link rel="icon" type="image/png" href="../../identidade/logo-vetora/12-Favicon simplificado colorido-semfundo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    h2 { font-size: clamp(24px,3vw,38px); }
+    h3 { font-size: clamp(18px,2vw,24px); }
+
+    /* ===== SERVIÇOS LISTA ===== */
+    .servicos-list { background: #fff; }
+    .servico-item {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center; padding: 80px 0;
+      border-bottom: 1px solid var(--gray);
+    }
+    .servico-item:last-child { border-bottom: none; }
+    .servico-item:nth-child(even) { direction: rtl; }
+    .servico-item:nth-child(even) > * { direction: ltr; }
+    .servico-content h2 { color: var(--navy); margin: 16px 0 16px; }
+    .servico-content > p { color: #4a5568; line-height: 1.75; margin-bottom: 24px; }
+    .servico-includes h5 {
+      font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--silver); margin-bottom: 12px;
+    }
+    .servico-includes ul { display: flex; flex-direction: column; gap: 8px; }
+    .servico-includes li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 14px; color: #4a5568;
+    }
+    .servico-includes li::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%; background: var(--cyan);
+      margin-top: 7px; flex-shrink: 0;
+    }
+    .servico-visual {
+      background: var(--navy); border-radius: 8px;
+      min-height: 280px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .servico-visual::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px; width: 240px; height: 240px;
+      border-radius: 50%; background: rgba(0,166,166,0.08);
+      transition: transform 0.5s var(--ease-out);
+    }
+    .servico-item:hover .servico-visual::before {
+      transform: scale(1.25);
+    }
+    .servico-visual-inner { position: relative; z-index: 1; text-align: center; padding: 40px; }
+    .servico-visual-icon { margin-bottom: 16px; }
+    .servico-visual-icon svg { width: 48px; height: 48px; stroke: var(--cyan); fill: none; stroke-width: 1.5; }
+    .servico-visual-label {
+      font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.4); letter-spacing: 0.15em; text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .servico-item { grid-template-columns: 1fr; gap: 40px; direction: ltr !important; }
+    }
+
+    /* ===== COMO FUNCIONA ===== */
+    .como-funciona { background: var(--ice); }
+    .como-intro { max-width: 600px; margin: 0 auto 56px; text-align: center; }
+    .como-intro h2 { color: var(--navy); margin: 16px 0 20px; }
+    .como-intro p { color: #4a5568; font-size: 17px; line-height: 1.7; }
+    .como-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .como-step {
+      background: #fff; border: 1px solid var(--gray);
+      border-radius: 6px; padding: 28px 24px; text-align: center;
+      transition: border-color 0.2s, box-shadow 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .como-step:hover {
+      border-color: rgba(0,166,166,0.4);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      transform: translateY(-3px);
+    }
+    .como-step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--cyan); color: #fff;
+      font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .como-step h4 { color: var(--navy); margin-bottom: 8px; font-size: 15px; }
+    .como-step p { font-size: 13px; color: #6b7280; line-height: 1.6; }
+
+    @media (max-width: 768px) { .como-steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .como-steps { grid-template-columns: 1fr; } }
+
+    /* ===== INVESTIMENTO ===== */
+    .investimento { background: var(--graphite); }
+    .inv-intro { max-width: 600px; margin: 0 auto 56px; text-align: center; }
+    .inv-intro h2 { color: #fff; margin: 16px 0 20px; }
+    .inv-intro p { color: rgba(255,255,255,0.6); font-size: 17px; line-height: 1.7; }
+    .inv-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .inv-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 6px; padding: 32px;
+    }
+    .inv-card h4 { color: #fff; margin-bottom: 8px; }
+    .inv-card .price {
+      font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 700;
+      color: var(--cyan); margin-bottom: 16px; letter-spacing: -0.02em;
+    }
+    .inv-card .price span { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 400; }
+    .inv-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 20px; }
+    .inv-card ul { display: flex; flex-direction: column; gap: 8px; }
+    .inv-card li { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; gap: 8px; }
+    .inv-card li::before { content: '—'; color: var(--cyan); flex-shrink: 0; }
+
+    @media (max-width: 768px) { .inv-cards { grid-template-columns: 1fr; } }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final { background: var(--navy); }
+    .cta-inner h2 { color: #fff; margin: 16px 0 20px; }
+    .cta-inner p { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.7; margin-bottom: 40px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="../../identidade/logo-vetora/2-Logo horizontal negativa — fundo escuro-semfundo.png" alt="VETORA"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="metodo.html">Método</a>
+      <a href="servicos.html" class="active">Serviços</a>
+      <a href="cases.html">Cases</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contato.html" class="btn btn-primary nav-cta">Falar com a VETORA</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-inner">
+      <p class="eyebrow reveal-fade">Serviços</p>
+      <h1 class="reveal">O que a VETORA entrega — e como entrega</h1>
+      <p class="reveal">Cada serviço começa com diagnóstico e segue o Método VETORA. Não trabalhamos com execução desconectada de estratégia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS DETALHADOS -->
+<section class="servicos-list">
+  <div class="wrap">
+    <div class="servico-item reveal">
+      <div class="servico-content">
+        <p class="eyebrow eyebrow--dark">01</p>
+        <h2>Branding Estratégico</h2>
+        <p>O ponto de partida de qualquer projeto sólido. Antes do logo, do site ou de qualquer peça — definimos a estratégia de marca que orienta toda a execução posterior.</p>
+        <div class="servico-includes">
+          <h5>Inclui</h5>
+          <ul>
+            <li>Diagnóstico de marca e análise competitiva</li>
+            <li>Posicionamento e proposta de valor</li>
+            <li>Arquétipo e essência de marca</li>
+            <li>Identidade verbal: tom de voz, frases-chave e restrições</li>
+            <li>Plataforma de marca documentada</li>
+            <li>Guia de aplicação da identidade</li>
+          </ul>
+        </div>
+      </div>
+      <div class="servico-visual">
+        <div class="servico-visual-inner">
+          <div class="servico-visual-icon"><svg viewBox="0 0 24 24"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4l-7 7-4-4-7 7"/></svg></div>
+          <p class="servico-visual-label">Branding Estratégico</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="servico-item reveal">
+      <div class="servico-content">
+        <p class="eyebrow eyebrow--dark">02</p>
+        <h2>Sites Institucionais e Landing Pages</h2>
+        <p>O site é o ativo digital mais duradouro. Construímos com copy estratégico, UX orientado à percepção de valor e SEO — não com templates genéricos.</p>
+        <div class="servico-includes">
+          <h5>Inclui</h5>
+          <ul>
+            <li>Arquitetura de informação e estrutura de páginas</li>
+            <li>Copy estratégico por seção</li>
+            <li>Design e desenvolvimento front-end</li>
+            <li>SEO on-page e meta tags</li>
+            <li>Mobile-first e WCAG AA</li>
+            <li>Deploy e configuração de domínio</li>
+          </ul>
+        </div>
+      </div>
+      <div class="servico-visual">
+        <div class="servico-visual-inner">
+          <div class="servico-visual-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <p class="servico-visual-label">Sites e Landing Pages</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="servico-item reveal">
+      <div class="servico-content">
+        <p class="eyebrow eyebrow--dark">03</p>
+        <h2>Identidade Visual</h2>
+        <p>Visual que deriva da estratégia — não o contrário. Direção criativa, conceito de logo, paleta e tipografia com coerência de propósito.</p>
+        <div class="servico-includes">
+          <h5>Inclui</h5>
+          <ul>
+            <li>Conceito criativo fundamentado na estratégia</li>
+            <li>Desenvolvimento de logo (variações de uso)</li>
+            <li>Paleta de cores com valores técnicos</li>
+            <li>Tipografia e escala tipográfica</li>
+            <li>Guia de identidade visual</li>
+            <li>Arquivos prontos para uso digital e impresso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="servico-visual">
+        <div class="servico-visual-inner">
+          <div class="servico-visual-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+          <p class="servico-visual-label">Identidade Visual</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="servico-item reveal">
+      <div class="servico-content">
+        <p class="eyebrow eyebrow--dark">04</p>
+        <h2>Apresentações Comerciais</h2>
+        <p>A proposta que você envia é a sua marca antes da reunião. Narrativa executiva, pitch deck e apresentações com estrutura que cria percepção de valor antes da negociação.</p>
+        <div class="servico-includes">
+          <h5>Inclui</h5>
+          <ul>
+            <li>Estrutura narrativa da apresentação</li>
+            <li>Copy estratégico por slide</li>
+            <li>Design aplicando a identidade visual</li>
+            <li>Template editável para uso autônomo</li>
+            <li>Revisão de clareza e impacto</li>
+          </ul>
+        </div>
+      </div>
+      <div class="servico-visual">
+        <div class="servico-visual-inner">
+          <div class="servico-visual-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <p class="servico-visual-label">Apresentações</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="servico-item reveal">
+      <div class="servico-content">
+        <p class="eyebrow eyebrow--dark">05</p>
+        <h2>IA Aplicada ao Negócio</h2>
+        <p>IA como ativo estratégico — não como tendência. Prompts estruturados, automações e sistemas que aceleram o processo de construção e gestão da marca.</p>
+        <div class="servico-includes">
+          <h5>Inclui</h5>
+          <ul>
+            <li>Biblioteca de prompts personalizados para a marca</li>
+            <li>Sistemas de criação de conteúdo com IA</li>
+            <li>Automações de fluxo de trabalho</li>
+            <li>Treinamento prático de uso</li>
+            <li>Documentação dos sistemas criados</li>
+          </ul>
+        </div>
+      </div>
+      <div class="servico-visual">
+        <div class="servico-visual-inner">
+          <div class="servico-visual-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="servico-visual-label">IA Aplicada</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como-funciona">
+  <div class="wrap">
+    <div class="como-intro reveal">
+      <p class="eyebrow eyebrow--dark">Como funciona</p>
+      <h2>Do primeiro contato à entrega</h2>
+      <p>A VETORA é um estúdio enxuto. Cada projeto passa por um processo claro, sem burocracia.</p>
+    </div>
+    <div class="como-steps reveal-stagger">
+      <div class="como-step">
+        <div class="como-step-num">1</div>
+        <h4>Conversa inicial</h4>
+        <p>Entendemos o contexto, os objetivos e se há fit real para trabalharmos juntos.</p>
+      </div>
+      <div class="como-step">
+        <div class="como-step-num">2</div>
+        <h4>Diagnóstico</h4>
+        <p>Mapeamos o estado atual da marca e identificamos os gaps estratégicos.</p>
+      </div>
+      <div class="como-step">
+        <div class="como-step-num">3</div>
+        <h4>Proposta</h4>
+        <p>Apresentamos escopo, investimento e cronograma com clareza — sem surpresas.</p>
+      </div>
+      <div class="como-step">
+        <div class="como-step-num">4</div>
+        <h4>Execução e entrega</h4>
+        <p>Seguimos o Método VETORA: diagnóstico → direção → construção → entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIMENTO -->
+<section class="investimento noise-dark">
+  <div class="wrap">
+    <div class="inv-intro reveal">
+      <p class="eyebrow">Investimento</p>
+      <h2>Referências de investimento</h2>
+      <p>Cada projeto é cotado individualmente após o diagnóstico. Os valores abaixo são referências para orientar expectativa.</p>
+    </div>
+    <div class="inv-cards reveal-stagger">
+      <div class="inv-card">
+        <h4>Estratégia de Marca</h4>
+        <p class="price">R$4.500 <span>/ projeto</span></p>
+        <p>Diagnóstico completo + plataforma de marca + identidade verbal.</p>
+        <ul>
+          <li>Diagnóstico de marca e competidores</li>
+          <li>Posicionamento e proposta de valor</li>
+          <li>Arquétipo e identidade verbal</li>
+          <li>Guia de aplicação</li>
+        </ul>
+      </div>
+      <div class="inv-card">
+        <h4>Marca + Presença Digital</h4>
+        <p class="price">R$9.500 <span>/ projeto</span></p>
+        <p>Estratégia de marca + identidade visual + site institucional.</p>
+        <ul>
+          <li>Tudo do projeto de Estratégia</li>
+          <li>Identidade visual completa</li>
+          <li>Site institucional com copy</li>
+          <li>SEO on-page e deploy</li>
+        </ul>
+      </div>
+      <div class="inv-card">
+        <h4>Projeto Completo</h4>
+        <p class="price">A partir de <span>R$15.000</span></p>
+        <p>Marca completa: estratégia, visual, site, apresentações e IA.</p>
+        <ul>
+          <li>Tudo dos projetos anteriores</li>
+          <li>Apresentações comerciais</li>
+          <li>Biblioteca de prompts de IA</li>
+          <li>Acompanhamento pós-entrega</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final noise-dark">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>A conversa começa com um diagnóstico honesto</h2>
+      <p>Sem compromisso. Entendemos o seu contexto, identificamos os gaps e só propomos projeto onde há fit real.</p>
+      <div class="cta-actions">
+        <a href="contato.html" class="btn btn-primary">Iniciar diagnóstico</a>
+        <a href="cases.html" class="btn btn-outline">Ver casos de clientes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><img src="../../identidade/logo-vetora/4-Logo horizontal monocromática branca-semfundo.png" alt="VETORA"><p>Estúdio estratégico de branding, sites, apresentações e soluções com IA.</p></div>
+    <div class="footer-links"><h5>Estúdio</h5><ul><li><a href="metodo.html">Método VETORA</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="cases.html">Cases</a></li><li><a href="manifesto.html">Manifesto</a></li></ul></div>
+    <div class="footer-links"><h5>Conteúdo</h5><ul><li><a href="blog/index.html">Blog</a></li><li><a href="https://kit.vetora.com.br">Kit VETORA</a></li></ul></div>
+    <div class="footer-links"><h5>Contato</h5><ul><li><a href="contato.html">Iniciar projeto</a></li><li><a href="https://linkedin.com/in/fernandohbranco" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 VETORA. Todos os direitos reservados.</p>
+    <p>Estratégia, marca e tecnologia na direção certa.</p>
+  </div>
+</footer>
+
+<script src="motion.js" defer></script>
+</body>
+</html>

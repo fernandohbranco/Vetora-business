@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — VETORA | Estratégia, marca e tecnologia</title>
+  <meta name="description" content="Artigos sobre branding estratégico, posicionamento de marca pessoal, IA aplicada e estratégia digital para profissionais liberais e empresas técnicas.">
+  <link rel="canonical" href="https://vetora.com.br/blog">
+  <link rel="icon" type="image/png" href="../../../identidade/logo-vetora/12-Favicon simplificado colorido-semfundo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    h2 { font-size: clamp(22px,3vw,36px); }
+    h3 { font-size: clamp(18px,2vw,24px); }
+
+    /* ===== CATEGORIAS ===== */
+    .categorias { background: var(--ice); padding: 32px 0; }
+    .cat-list { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cat-tag {
+      font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 100px;
+      border: 1.5px solid var(--gray); color: #4a5568; background: #fff;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .cat-tag:hover, .cat-tag.active { border-color: var(--navy); color: var(--navy); background: var(--ice); }
+
+    /* ===== FEATURED ===== */
+    .featured { background: #fff; }
+    .featured-label { margin-bottom: 40px; }
+    .featured-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center;
+      background: var(--navy); border-radius: 8px;
+      overflow: hidden; margin-bottom: 48px;
+      transition: box-shadow 0.3s var(--ease-out);
+    }
+    .featured-card:hover { box-shadow: 0 20px 60px rgba(11,31,59,0.3); }
+    .featured-content { padding: 48px; }
+    .featured-category {
+      font-family: 'Sora', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 16px;
+    }
+    .featured-content h2 { color: #fff; margin-bottom: 16px; }
+    .featured-content p { color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 24px; }
+    .featured-meta { font-size: 12px; color: rgba(255,255,255,0.35); }
+    .featured-visual {
+      min-height: 280px; background: var(--graphite);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .featured-visual::before {
+      content: ''; position: absolute;
+      top: -40px; right: -40px; width: 200px; height: 200px;
+      border-radius: 50%; background: rgba(0,166,166,0.1);
+    }
+    .featured-visual-text {
+      font-family: 'Sora', sans-serif; font-size: 64px; font-weight: 700;
+      color: rgba(255,255,255,0.06); letter-spacing: -0.04em;
+      user-select: none; position: relative; z-index: 1;
+    }
+    .read-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600;
+      color: var(--cyan); letter-spacing: 0.04em;
+      transition: gap 0.2s;
+    }
+    .read-link:hover { gap: 12px; }
+    .read-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 160px; }
+    }
+
+    /* ===== ARTIGOS ===== */
+    .artigos { background: var(--ice); }
+    .artigos-intro { margin-bottom: 48px; }
+    .artigos-intro h2 { color: var(--navy); margin-bottom: 12px; }
+    .artigos-intro p { color: #4a5568; }
+    .artigos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .artigo-card {
+      background: #fff; border: 1px solid var(--gray);
+      border-radius: 6px; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+    }
+    .artigo-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+    .artigo-visual {
+      height: 140px; background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .artigo-visual-num {
+      font-family: 'Sora', sans-serif; font-size: 48px; font-weight: 700;
+      color: rgba(255,255,255,0.06); user-select: none;
+    }
+    .artigo-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .artigo-cat {
+      font-family: 'Sora', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 10px;
+    }
+    .artigo-body h3 { color: var(--navy); margin-bottom: 10px; font-size: 17px; line-height: 1.3; }
+    .artigo-body p { font-size: 14px; color: #6b7280; line-height: 1.6; flex: 1; margin-bottom: 20px; }
+    .artigo-footer { display: flex; justify-content: space-between; align-items: center; }
+    .artigo-date { font-size: 12px; color: var(--silver); }
+    .artigo-link { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 600; color: var(--cyan); letter-spacing: 0.04em; }
+
+    @media (max-width: 900px) { .artigos-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .artigos-grid { grid-template-columns: 1fr; } }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter { background: var(--graphite); padding: 80px 0; }
+    .newsletter-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+    .newsletter-inner .eyebrow { margin-bottom: 16px; }
+    .newsletter-inner h2 { color: #fff; margin-bottom: 16px; }
+    .newsletter-inner p { color: rgba(255,255,255,0.55); margin-bottom: 32px; }
+    .newsletter-form { display: flex; gap: 12px; }
+    .newsletter-form input {
+      flex: 1; font-family: 'Inter', sans-serif; font-size: 15px;
+      padding: 14px 18px; border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.07); color: #fff;
+      border-radius: var(--r); outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .newsletter-form input:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0,166,166,0.1); }
+    @media (max-width: 560px) { .newsletter-form { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../../../identidade/logo-vetora/2-Logo horizontal negativa — fundo escuro-semfundo.png" alt="VETORA"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../metodo.html">Método</a>
+      <a href="../servicos.html">Serviços</a>
+      <a href="../cases.html">Cases</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../contato.html" class="btn btn-primary nav-cta">Falar com a VETORA</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-inner">
+      <p class="eyebrow reveal-fade">Blog</p>
+      <h1 class="reveal">Estratégia de marca para quem pensa antes de executar.</h1>
+      <p class="reveal">Artigos sobre posicionamento, branding estratégico, IA aplicada e presença digital — sem buzzwords e sem fórmulas prontas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIAS -->
+<div class="categorias">
+  <div class="wrap">
+    <div class="cat-list">
+      <span class="cat-tag active">Todos</span>
+      <span class="cat-tag">Estratégia de marca</span>
+      <span class="cat-tag">Profissionais liberais</span>
+      <span class="cat-tag">IA aplicada</span>
+      <span class="cat-tag">Posicionamento</span>
+      <span class="cat-tag">Identidade visual</span>
+    </div>
+  </div>
+</div>
+
+<!-- DESTAQUE -->
+<section class="featured">
+  <div class="wrap">
+    <p class="featured-label eyebrow eyebrow--dark reveal-fade">Artigo em destaque</p>
+    <div class="featured-card reveal">
+      <div class="featured-content">
+        <p class="featured-category">Estratégia de marca</p>
+        <h2>Por que profissionais brilhantes perdem clientes para os mediocres mais visíveis</h2>
+        <p>O desalinhamento entre competência real e percepção de mercado é o problema central de quem é excelente no que faz mas invisível para quem precisaria contratá-lo.</p>
+        <p class="featured-meta">Fernando Branco · Junho 2026 · 8 min de leitura</p>
+        <br>
+        <a href="por-que-profissionais-brilhantes-perdem-clientes.html" class="read-link">
+          Ler artigo
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="featured-visual">
+        <span class="featured-visual-text">01</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIGOS -->
+<section class="artigos">
+  <div class="wrap">
+    <div class="artigos-intro reveal">
+      <h2>Todos os artigos</h2>
+      <p>Conteúdo estratégico — sem frequência forçada. Cada artigo é publicado quando tem algo relevante para dizer.</p>
+    </div>
+    <div class="artigos-grid reveal-stagger">
+      <div class="artigo-card">
+        <div class="artigo-visual"><span class="artigo-visual-num">01</span></div>
+        <div class="artigo-body">
+          <p class="artigo-cat">Estratégia de marca</p>
+          <h3>Por que profissionais brilhantes perdem clientes para os mediocres mais visíveis</h3>
+          <p>O desalinhamento entre competência e percepção é o problema central de quem é invisível para o mercado certo.</p>
+          <div class="artigo-footer">
+            <span class="artigo-date">Jun 2026 · 8 min</span>
+            <a href="por-que-profissionais-brilhantes-perdem-clientes.html" class="artigo-link">Ler →</a>
+          </div>
+        </div>
+      </div>
+      <div class="artigo-card">
+        <div class="artigo-visual"><span class="artigo-visual-num">02</span></div>
+        <div class="artigo-body">
+          <p class="artigo-cat">Posicionamento</p>
+          <h3>Identidade visual ou estratégia de marca: o que vem primeiro?</h3>
+          <p>A maioria das empresas começa pelo logo. Isso não é errado — é a ordem errada. O que a estratégia resolve que o design não consegue.</p>
+          <div class="artigo-footer">
+            <span class="artigo-date">Em breve</span>
+            <span class="artigo-link" style="color:var(--silver)">Em breve</span>
+          </div>
+        </div>
+      </div>
+      <div class="artigo-card">
+        <div class="artigo-visual"><span class="artigo-visual-num">03</span></div>
+        <div class="artigo-body">
+          <p class="artigo-cat">Profissionais liberais</p>
+          <h3>Branding para médicos: como construir autoridade sem infringir o CFM</h3>
+          <p>O médico que comunica sua especialidade com estratégia atrai o paciente certo — dentro das normas do Conselho.</p>
+          <div class="artigo-footer">
+            <span class="artigo-date">Em breve</span>
+            <span class="artigo-link" style="color:var(--silver)">Em breve</span>
+          </div>
+        </div>
+      </div>
+      <div class="artigo-card">
+        <div class="artigo-visual"><span class="artigo-visual-num">04</span></div>
+        <div class="artigo-body">
+          <p class="artigo-cat">Profissionais liberais</p>
+          <h3>Personal branding para advogados: autoridade dentro dos limites da OAB</h3>
+          <p>A diferença entre publicidade vedada e conteúdo de autoridade — e como construir presença estratégica sem cruzar a linha.</p>
+          <div class="artigo-footer">
+            <span class="artigo-date">Em breve</span>
+            <span class="artigo-link" style="color:var(--silver)">Em breve</span>
+          </div>
+        </div>
+      </div>
+      <div class="artigo-card">
+        <div class="artigo-visual"><span class="artigo-visual-num">05</span></div>
+        <div class="artigo-body">
+          <p class="artigo-cat">IA aplicada</p>
+          <h3>Como usar IA para construir sua marca pessoal sem perder autenticidade</h3>
+          <p>IA não inventa posicionamento. Ela acelera a execução de uma estratégia já definida. Aprenda a diferença antes de delegar o que não se delega.</p>
+          <div class="artigo-footer">
+            <span class="artigo-date">Em breve</span>
+            <span class="artigo-link" style="color:var(--silver)">Em breve</span>
+          </div>
+        </div>
+      </div>
+      <div class="artigo-card">
+        <div class="artigo-visual"><span class="artigo-visual-num">06</span></div>
+        <div class="artigo-body">
+          <p class="artigo-cat">Posicionamento</p>
+          <h3>5 fases para construir uma marca profissional que gera clientes de alto ticket</h3>
+          <p>O Método VETORA aplicado ao posicionamento de profissionais liberais e consultores independentes.</p>
+          <div class="artigo-footer">
+            <span class="artigo-date">Em breve</span>
+            <span class="artigo-link" style="color:var(--silver)">Em breve</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter noise-dark">
+  <div class="wrap">
+    <div class="newsletter-inner reveal">
+      <p class="eyebrow">Newsletter</p>
+      <h2>Estratégia, não frequência.</h2>
+      <p>Receba novos artigos quando publicados — sem spam e sem cadência forçada. Só quando houver algo relevante para dizer.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <input type="email" name="email" placeholder="seu@email.com" required>
+        <button type="submit" class="btn btn-primary">Inscrever</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><img src="../../../identidade/logo-vetora/4-Logo horizontal monocromática branca-semfundo.png" alt="VETORA"><p>Estúdio estratégico de branding, sites, apresentações e soluções com IA.</p></div>
+    <div class="footer-links"><h5>Estúdio</h5><ul><li><a href="../metodo.html">Método VETORA</a></li><li><a href="../servicos.html">Serviços</a></li><li><a href="../cases.html">Cases</a></li><li><a href="../manifesto.html">Manifesto</a></li></ul></div>
+    <div class="footer-links"><h5>Conteúdo</h5><ul><li><a href="index.html">Blog</a></li><li><a href="https://kit.vetora.com.br">Kit VETORA</a></li></ul></div>
+    <div class="footer-links"><h5>Contato</h5><ul><li><a href="../contato.html">Iniciar projeto</a></li><li><a href="https://linkedin.com/in/fernandohbranco" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 VETORA. Todos os direitos reservados.</p>
+    <p>Estratégia, marca e tecnologia na direção certa.</p>
+  </div>
+</footer>
+
+<script src="../motion.js" defer></script>
+</body>
+</html>
