@@ -50,7 +50,7 @@ export function ParaQuem() {
       <div className="wrap">
         <div className="text-center mb-14">
           <motion.p
-            className="text-eyebrow text-navy/50 mb-4"
+            className="text-eyebrow-dark mb-4"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, ease: EASE }}
           >

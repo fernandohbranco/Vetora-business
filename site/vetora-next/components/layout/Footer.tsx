@@ -61,9 +61,6 @@ export function Footer() {
           <p className="text-[11px] text-silver/25">
             © {new Date().getFullYear()} VETORA. Todos os direitos reservados.
           </p>
-          <p className="text-[11px] text-silver/25">
-            Estratégia, marca e tecnologia na direção certa.
-          </p>
         </div>
       </div>
     </footer>

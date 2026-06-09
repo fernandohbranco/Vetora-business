@@ -33,21 +33,9 @@ const config: Config = {
       borderRadius: {
         card: "6px",
       },
-      keyframes: {
-        "orb-a": {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "33%":       { transform: "translate(40px, -30px) scale(1.05)" },
-          "66%":       { transform: "translate(-25px, 20px) scale(0.97)" },
-        },
-        "orb-b": {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "40%":       { transform: "translate(-35px, 25px) scale(1.08)" },
-          "70%":       { transform: "translate(30px, -20px) scale(0.95)" },
-        },
-      },
       animation: {
-        "orb-a": "orb-a 8s ease-in-out infinite",
-        "orb-b": "orb-b 11s ease-in-out infinite reverse",
+        "orb-a": "orb-a 10s ease-in-out infinite",
+        "orb-b": "orb-b 14s ease-in-out infinite reverse",
       },
     },
   },

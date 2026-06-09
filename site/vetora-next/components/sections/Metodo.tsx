@@ -46,7 +46,7 @@ export function Metodo() {
   const lineH = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="bg-graphite section" ref={ref}>
+    <section id="metodo" className="bg-graphite section" ref={ref}>
       <div className="wrap">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 

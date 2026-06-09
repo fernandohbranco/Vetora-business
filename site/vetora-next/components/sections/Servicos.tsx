@@ -55,11 +55,11 @@ export function Servicos() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-ice section" ref={ref}>
+    <section id="servicos" className="bg-ice section" ref={ref}>
       <div className="wrap">
         <div className="mb-14">
           <motion.p
-            className="text-eyebrow text-navy/60 mb-4"
+            className="text-eyebrow-dark mb-4"
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, ease: EASE }}
           >

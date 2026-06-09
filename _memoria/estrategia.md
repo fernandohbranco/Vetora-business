@@ -11,13 +11,17 @@
 - `identidade/manifesto.md` — manifesto de marca escrito
 - `identidade/branding-book.md` — branding book compilado
 - `site/vetora/` — site institucional em HTML (versão legada — substituída)
-- `site/vetora-next/` — **site institucional em Next.js 14 + Tailwind + Framer Motion** (versão atual). Stack: Next.js 14, Tailwind CSS, Framer Motion. Homepage completa com Hero, Problema, Serviços (bento grid), Método, Para Quem, Cases e CTA Final. Animações clip-path, cursor personalizado, canvas dot grid, scroll-driven timeline. Deploy pendente no Vercel.
+- `site/vetora-next/` — **site institucional em Next.js 14 + Tailwind + Framer Motion** (versão atual). Stack: Next.js 14, Tailwind CSS, Framer Motion. Homepage completa com Hero, Problema, Serviços (bento grid), Método, Para Quem, Cases e CTA Final. Animações clip-path, cursor personalizado, canvas dot grid, scroll-driven timeline. **Live em https://vetora-business.vercel.app/** (URL temporária até compra do domínio `vetora.com.br`).
+- `produtos/kit-vetora/` — produto Kit VETORA (movido de `site/kit-vetora/` para pasta dedicada `produtos/`)
 
 ### Próximos passos imediatos:
+- **Domínio:** comprar `vetora.com.br` e configurar em Vercel → Settings → Domains (projeto vetora-business)
+- **Animação de fundo do site:** dois experimentos em andamento — escolher um antes de finalizar o Hero
+  - `sprints/sprint-animacao-a-canvas-vetorial.md` — campo vetorial scroll-driven em Canvas 2D
+  - `sprints/sprint-animacao-b-video-scrubbing.md` — vídeo gerado no Kling AI, scrubado via scroll
 - Páginas internas: `/metodo`, `/servicos`, `/cases`, `/contato`
 - Blog: migrar artigo HTML para MDX, rota `/blog/[slug]`
 - Configurar formulário de contato no Formspree
-- Deploy no Vercel + domínio vetora.com.br
 - LinkedIn: publicar manifesto e primeiro artigo como posts
 
 ---
@@ -44,22 +48,7 @@ Diagnóstico completo em `saidas/diagnostico-kit-vetora-2026-06.md`. Resultado: 
 
 Lançar o Kit VETORA Completo (R$397) e validar com 30 vendas no primeiro mês (~R$11.910 + 30 leads qualificados para consultoria de ticket alto).
 
-**Novo roteiro — 9 sprints em `sprints/index.md`:**
-
-**Pré-lançamento (obrigatório antes do go-live):**
-1. 🔲 **Sprint 01** — Landing page com nível visual premium + copy de outcomes
-2. 🔲 **Sprint 02** — Proof social: cases com resultado mensurável
-3. 🔲 **Sprint 03** — Lead magnet: mini-diagnóstico 10 perguntas
-4. 🔲 **Sprint 04** — Sequência de emails pós-captura (3-5 emails)
-5. 🔲 **Sprint 05** — Plataforma de entrega: migrar para Cakto ou Kirvano
-6. 🔲 **Sprint 06** — Urgência real: data fixa de encerramento do preço
-
-**Lançamento:**
-7. 🔲 **Sprint 07** — Go-live: 7 posts LinkedIn + 3 emails + ativação de rede
-
-**Pós-lançamento:**
-8. 🔲 **Sprint 08** — Upsell: email automático D+7 para consultoria de 1h
-9. 🔲 **Sprint 09** — Mapeamento de concorrência para segundo ciclo
+**Roteiro de sprints do Kit VETORA:** planejamento anterior (9 sprints) foi removido — retomar quando o Kit sair da pausa.
 
 ## O que pode esperar
 

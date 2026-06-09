@@ -31,8 +31,19 @@ export const metadata: Metadata = {
     siteName: "VETORA",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "VETORA — Estratégia, marca e tecnologia na direção certa",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png"],
+  },
   metadataBase: new URL("https://vetora.com.br"),
 };
 

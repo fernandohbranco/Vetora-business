@@ -1,109 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import Link from "next/link";
-
-/* ─── Canvas: grid de pontos que reage ao mouse ──────────────────── */
-function DotGrid() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let w = 0, h = 0;
-    let mouseX = -9999, mouseY = -9999;
-    let raf: number;
-    let paused = false;
-
-    const SPACING = 38;
-    const MAX_DIST = 110;
-
-    const resize = () => {
-      w = canvas.offsetWidth;
-      h = canvas.offsetHeight;
-      canvas.width  = w * window.devicePixelRatio;
-      canvas.height = h * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const onMouse = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-    };
-
-    const draw = () => {
-      if (paused) return;
-      ctx.clearRect(0, 0, w, h);
-      const cols = Math.ceil(w / SPACING) + 1;
-      const rows = Math.ceil(h / SPACING) + 1;
-      const ox = (w % SPACING) / 2;
-      const oy = (h % SPACING) / 2;
-
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          const x = ox + col * SPACING;
-          const y = oy + row * SPACING;
-          const dx = x - mouseX;
-          const dy = y - mouseY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const p = Math.max(0, 1 - dist / MAX_DIST);
-
-          const opacity = 0.1 + p * 0.55;
-          const radius  = 1.1 + p * 1.8;
-          const shift = p * 5;
-          const norm = dist || 1;
-          const px = x + (dx / norm) * -shift;
-          const py = y + (dy / norm) * -shift;
-
-          const r = Math.round(184 + p * (0   - 184));
-          const g = Math.round(194 + p * (166 - 194));
-          const b = Math.round(204 + p * (166 - 204));
-
-          ctx.beginPath();
-          ctx.arc(px, py, radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${r},${g},${b},${opacity})`;
-          ctx.fill();
-        }
-      }
-      raf = requestAnimationFrame(draw);
-    };
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        paused = false;
-        raf = requestAnimationFrame(draw);
-      } else {
-        paused = true;
-        cancelAnimationFrame(raf);
-      }
-    }, { threshold: 0 });
-
-    resize();
-    observer.observe(canvas);
-    window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", onMouse);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", onMouse);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      aria-hidden="true"
-    />
-  );
-}
+import { VectorField } from "@/components/animations/VectorField";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -123,31 +23,20 @@ const clipReveal = {
   }),
 };
 
-/* ─── Hero ───────────────────────────────────────────────────────── */
-export function Hero() {
+export function HeroCanvas() {
+  const { scrollYProgress } = useScroll();
+
   return (
     <section
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-deep grain"
       aria-label="Hero"
     >
-      <DotGrid />
+      {/* Campo vetorial scroll-driven — substitui o DotGrid */}
+      <VectorField scrollProgress={scrollYProgress} />
 
-      {/* Orbs de luz */}
-      <div
-        className="absolute -left-48 top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none animate-orb-a"
-        style={{ background: "radial-gradient(circle, rgba(0,166,166,0.08) 0%, transparent 65%)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -right-32 top-1/3 w-[500px] h-[500px] rounded-full pointer-events-none animate-orb-b"
-        style={{ background: "radial-gradient(circle, rgba(11,31,59,0.15) 0%, transparent 65%)" }}
-        aria-hidden="true"
-      />
-
-      {/* Conteúdo — centralizado verticalmente, tudo acima do fold */}
+      {/* Conteúdo */}
       <div className="wrap relative z-10 pt-28 pb-16">
 
-        {/* Eyebrow */}
         <motion.p
           className="text-eyebrow mb-7"
           variants={fadeUp} initial="hidden" animate="visible" custom={0.1}
@@ -155,7 +44,6 @@ export function Hero() {
           Estúdio estratégico de branding
         </motion.p>
 
-        {/* Headline — 2 linhas, display */}
         <h1 className="max-w-[700px] mb-7">
           <motion.span
             className="block text-h1 text-white"
@@ -172,7 +60,6 @@ export function Hero() {
           </motion.span>
         </h1>
 
-        {/* Sub-headline */}
         <motion.p
           className="text-lead text-silver/60 max-w-[480px] mb-10"
           variants={fadeUp} initial="hidden" animate="visible" custom={0.55}
@@ -181,7 +68,6 @@ export function Hero() {
           com estratégia, branding e tecnologia.
         </motion.p>
 
-        {/* CTAs — acima do fold */}
         <motion.div
           className="flex flex-col sm:flex-row gap-3 items-start"
           variants={fadeUp} initial="hidden" animate="visible" custom={0.68}
@@ -194,7 +80,6 @@ export function Hero() {
           </MagneticButton>
         </motion.div>
 
-        {/* Divisor + Stats */}
         <motion.div
           className="mt-16 pt-8 border-t border-white/8 flex flex-wrap gap-10"
           variants={fadeUp} initial="hidden" animate="visible" custom={0.82}
@@ -231,7 +116,7 @@ export function Hero() {
   );
 }
 
-/* ─── Botão magnético ────────────────────────────────────────────── */
+/* ─── Botão magnético (idêntico ao Hero original) ───────────────────── */
 function MagneticButton({
   href, children, primary = false,
 }: {

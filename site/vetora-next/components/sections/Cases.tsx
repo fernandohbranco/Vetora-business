@@ -35,12 +35,12 @@ export function Cases() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-ice pt-[96px] pb-[64px]" ref={ref}>
+    <section id="cases" className="bg-ice pt-[96px] pb-[64px]" ref={ref}>
       <div className="wrap">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <motion.p
-              className="text-eyebrow text-navy/50 mb-4"
+              className="text-eyebrow-dark mb-4"
               initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, ease: EASE }}
             >

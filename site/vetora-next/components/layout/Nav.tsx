@@ -6,10 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const links = [
-  { href: "/metodo",    label: "Método"   },
-  { href: "/servicos",  label: "Serviços" },
-  { href: "/cases",     label: "Cases"    },
-  { href: "/blog",      label: "Blog"     },
+  { href: "/#metodo",    label: "Método"   },
+  { href: "/#servicos",  label: "Serviços" },
+  { href: "/#cases",     label: "Cases"    },
+  { href: "/blog",       label: "Blog"     },
 ];
 
 export function Nav() {

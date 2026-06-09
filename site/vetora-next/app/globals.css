@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Google Fonts ─────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap');
-
 /* ─── Base ─────────────────────────────────────────────────────── */
 @layer base {
   *, *::before, *::after { box-sizing: border-box; }
@@ -17,11 +14,12 @@
 
   body {
     @apply bg-deep text-silver font-sans;
-    cursor: none; /* custom cursor ativo */
   }
 
-  /* Esconde cursor padrão em elementos interativos */
-  a, button, [role="button"] { cursor: none; }
+  /* Cursor customizado apenas em dispositivos com mouse preciso */
+  @media (pointer: fine) {
+    body, a, button, [role="button"] { cursor: none; }
+  }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold text-white;
@@ -130,5 +128,38 @@
   /* Borda técnica */
   .border-tech {
     border: 1px solid rgba(184, 194, 204, 0.12);
+  }
+
+  /* Eyebrow para fundos claros (ice/white) */
+  .text-eyebrow-dark {
+    font-family: var(--font-sora, "Sora", sans-serif);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(11, 31, 59, 0.45);
+  }
+}
+
+/* ─── Orb keyframes ─────────────────────────────────────────────── */
+@keyframes orb-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(40px, -30px) scale(1.05); }
+  66%       { transform: translate(-25px, 20px) scale(0.97); }
+}
+
+@keyframes orb-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(-35px, 25px) scale(1.08); }
+  70%       { transform: translate(30px, -20px) scale(0.95); }
+}
+
+/* ─── Acessibilidade: respeita preferência de movimento reduzido ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
