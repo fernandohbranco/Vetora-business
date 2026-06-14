@@ -2,7 +2,7 @@
 
 ## Fase atual (jun/2026)
 
-**Profissionalização da VETORA para consultoria de alto ticket.** Kit VETORA pausado temporariamente. Foco em construir presença que atraia clientes de consultoria de alto ticket (R$3-10k/projeto).
+**Construção do funil de produto low ticket + Kit VETORA como upsell.** Foco em lançar o Diagnóstico de Autoridade (R$37) como entrada do funil, com o Kit VETORA (R$397) como upsell principal. Consultoria de alto ticket é o destino final — o funil gera leads qualificados para ela.
 
 **ICP definido:** Profissionais liberais (médicos, advogados, consultores) — o especialista invisível.
 
@@ -10,19 +10,24 @@
 - `saidas/pesquisa-mercado-2026-06.md` — pesquisa de mercado completa (competidores, keywords, ICP)
 - `identidade/manifesto.md` — manifesto de marca escrito
 - `identidade/branding-book.md` — branding book compilado
-- `site/vetora/` — site institucional em HTML (versão legada — substituída)
-- `site/vetora-next/` — **site institucional em Next.js 14 + Tailwind + Framer Motion** (versão atual). Stack: Next.js 14, Tailwind CSS, Framer Motion. Homepage completa com Hero, Problema, Serviços (bento grid), Método, Para Quem, Cases e CTA Final. Animações clip-path, cursor personalizado, canvas dot grid, scroll-driven timeline. **Live em https://vetora-business.vercel.app/** (URL temporária até compra do domínio `vetora.com.br`).
-- `produtos/kit-vetora/` — produto Kit VETORA (movido de `site/kit-vetora/` para pasta dedicada `produtos/`)
+- `site/vetora-site/` — **site institucional reconstruído do zero em Next.js + Tailwind CSS v4 + shadcn/ui** (jun/2026). Projeto limpo, sem código legado. Sprints de site em `sprints/site/`.
+- `produtos/kit-vetora/` — copy.md (copy aprovada) + checklist.md (critérios de qualidade). Landing page HTML removida — será reconstruída na Sprint 05 após produto pronto.
+- `sprints/produto/sprint-01-estrategia-funil.md` — estratégia e funil completo definidos
+- `sprints/produto/sprint-02-produto-low-ticket.md` — escopo do Diagnóstico de Autoridade
+- `sprints/produto/sprint-03-order-bumps.md` — escopo dos order bumps
+- `sprints/produto/sprint-04-kit-vetora-conteudo.md` — escopo dos 8 módulos do Kit
+- `sprints/produto/sprint-05-paginas-funil.md` — escopo das LPs e configuração Cakto
+- `sprints/produto/sprint-06-trafego-lancamento.md` — estratégia de tráfego e métricas
+- `sprints/site/` — sprints de construção do site institucional
 
-### Próximos passos imediatos:
-- **Domínio:** comprar `vetora.com.br` e configurar em Vercel → Settings → Domains (projeto vetora-business)
-- **Animação de fundo do site:** dois experimentos em andamento — escolher um antes de finalizar o Hero
-  - `sprints/sprint-animacao-a-canvas-vetorial.md` — campo vetorial scroll-driven em Canvas 2D
-  - `sprints/sprint-animacao-b-video-scrubbing.md` — vídeo gerado no Kling AI, scrubado via scroll
-- Páginas internas: `/metodo`, `/servicos`, `/cases`, `/contato`
-- Blog: migrar artigo HTML para MDX, rota `/blog/[slug]`
-- Configurar formulário de contato no Formspree
-- LinkedIn: publicar manifesto e primeiro artigo como posts
+### Próximos passos imediatos (sequência de sprints):
+1. **Sprint 02** — Construir conteúdo do Diagnóstico de Autoridade (low ticket R$37)
+2. **Sprint 03** — Criar 1–3 order bumps
+3. **Sprint 04** — Construir os 8 módulos do Kit VETORA na Cakto
+4. **Sprint 05** — Landing pages + configuração completa do funil na Cakto
+5. **Sprint 06** — Lançamento orgânico → Meta Ads → métricas → decisão
+
+**Site institucional:** reconstruído do zero em `site/vetora-site/` — domínio vetora.com.br e publicação após funil validado.
 
 ---
 
@@ -44,39 +49,42 @@ Contexto completo: `produtos/saas/VETORA_Brand_SaaS_Context.md`
 
 ---
 
-## Kit VETORA — em pausa
+## Funil de produto (estrutura definida em jun/2026)
 
-Retomar após tração inicial com consultoria. Decisões tomadas permanecem válidas.
+```
+Diagnóstico de Autoridade (R$37)  ← entrada do funil
+        ↓
+Order Bumps R$47–R$97             ← eleva ticket médio
+        ↓
+Kit VETORA R$397 (upsell)         ← produto principal
+        ↓
+Kit + Consultoria R$897           ← anchor + lead para consultoria
+        ↓
+Consultoria de alto ticket R$3–10k ← destino final
+```
 
-## Decisões estratégicas tomadas (Kit VETORA)
+## Decisões estratégicas consolidadas
 
-- **Preço tier principal:** R$397
-- **Entrega:** ~~Notion~~ → **Cakto ou Kirvano** (área de membros real, acesso controlado por comprador)
-- **Checkout:** ~~Kiwify~~ → **Cakto ou Kirvano** (nativas do mercado BR, sem custo fixo)
-- **Domínio:** kit.vetora.com.br (subdomain)
-- **Lead magnet:** "Mini-diagnóstico de marca em 10 perguntas" (a criar — Sprint 03)
-- **Urgência:** ~~countdown localStorage~~ → **data fixa real** de encerramento do preço de lançamento
-- **Tudo virtual até estar 100% pronto** — publicação só quando o fluxo completo estiver validado
-
-## Diagnóstico realizado (jun/2026)
-
-Diagnóstico completo em `saidas/diagnostico-kit-vetora-2026-06.md`. Resultado: produto forte, estratégia de lançamento com gaps críticos. Go-live condicionado à conclusão de 6 sprints pré-lançamento.
+- **Produto low ticket:** Diagnóstico de Autoridade — 30 sinais que definem se o mercado reconhece (ou ignora) a expertise. Formato: PDF interativo. **Preço: R$37**
+- **Kit VETORA:** posição no funil = upsell principal. **Preço: R$397**. Anchor: Kit + 1h consultoria R$897
+- **Plataforma:** **Cakto** (definitivo — descartadas Kirvano e Kiwify)
+- **Urgência:** data fixa real de encerramento (definir na Sprint 05 antes de publicar)
+- **Landing page do low ticket:** a construir na Sprint 05 (produto primeiro, LP depois)
+- **Tudo virtual até fluxo completo validado** — publicação só quando funil de ponta a ponta estiver testado
 
 ## Prioridade principal
 
-Lançar o Kit VETORA Completo (R$397) e validar com 30 vendas no primeiro mês (~R$11.910 + 30 leads qualificados para consultoria de ticket alto).
-
-**Roteiro de sprints do Kit VETORA:** planejamento anterior (9 sprints) foi removido — retomar quando o Kit sair da pausa.
+Construir e lançar o funil completo: Diagnóstico de Autoridade (R$37) → order bumps → Kit VETORA (R$397). Meta de validação: 30 compradores do low ticket no primeiro mês, com taxa de upsell ≥ 10% para o Kit.
 
 ## O que pode esperar
 
-- Programa de afiliados (Hotmart) — fase 2
-- Recorrência/assinatura R$47/mês — fase 2
-- Conteúdo LinkedIn sistemático com perfil do fundador
+- Tráfego pago Meta Ads — fase 2 (após validação orgânica)
+- Programa de afiliados — fase 3
+- SaaS VETORA Brand — fase 3 (após funil validado e gerando receita)
+- Conteúdo LinkedIn sistemático — em paralelo ao funil
 
-**Canal principal de tráfego:** LinkedIn (posicionamento engenharia + IA + branding)
-**Canal secundário:** Instagram (bastidores do método, antes/depois)
-**Sem investimento em ads no início.**
+**Canal inicial:** orgânico (LinkedIn + Instagram + rede de contatos)
+**Canal fase 2:** Meta Ads (orçamento de teste R$200–R$360)
 
 ## Critérios de "pronto" para qualquer entregável
 

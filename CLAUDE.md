@@ -12,12 +12,12 @@ O VetoraOS é um sistema operacional de negócio baseado em arquivos. Não tem c
 _memoria/       cérebro do negócio (empresa, preferências, estratégia — apenas os 3 arquivos core)
 identidade/     identidade visual (design-guide.md, logo, fontes)
 produtos/       produtos digitais em construção (kit-vetora/, saas/)
-site/           landing pages e páginas web publicáveis (ex: site/vetora-next/)
+site/           landing pages e páginas web publicáveis (ex: site/vetora-site/)
 marketing/      saídas persistentes de marketing (módulos, conteúdo, SEO, campanhas, anúncios)
 dados/          drop zone de entrada (CSVs, PDFs, planilhas — input temporário)
 saidas/         saídas pontuais (análises, emails, relatórios avulsos)
 scripts/        utilitários Node.js/Python que skills chamam (render, publicação social)
-sprints/        documentos de planejamento de sprints ativos
+sprints/        documentos de planejamento de sprints ativos, organizados por tema (ex: sprints/produto/, sprints/site/)
 templates/      templates de skills e catálogo de skills externas disponíveis
 ```
 
