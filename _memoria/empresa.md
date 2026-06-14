@@ -23,13 +23,22 @@
 
 **Método VETORA (5 etapas):** Diagnóstico → Direção → Construção → Entrega → Evolução
 
-## Produto em construção: Kit VETORA
+## Produtos
+
+### Kit VETORA — em pausa
 
 Infoproduto premium que empacota o método e frameworks de branding da VETORA em templates editáveis. 8 módulos: Diagnóstico de Marca / Posicionamento / Identidade Verbal / Identidade Visual / Estrutura de Site / Apresentação Comercial / Biblioteca de Prompts de IA / Guia de Implementação.
 
 Tiers: Essencial R$197 · **Completo R$397 (foco)** · Kit + 1h consultoria R$897
-Plataforma recomendada: Kiwify. Deploy: Vercel/Netlify.
-Meta de validação: 30 vendas no primeiro mês.
+Plataforma: Cakto ou Kirvano. Deploy: Vercel/Netlify.
+Meta de validação: 30 vendas no primeiro mês. Pausa temporária — retoma após tração inicial com consultoria de alto ticket.
+
+### VETORA Brand SaaS — em construção
+
+Plataforma de identidade de marca para MEIs e pequenos negócios, sob o guarda-chuva VETORA.
+Planos: Starter R$49 · Pro R$127 · Agency R$297/mês.
+MVP: onboarding 13 perguntas → Branding Book via Claude API → 2 conceitos de logo → export PDF.
+Contexto completo: `produtos/saas/VETORA_Brand_SaaS_Context.md`
 
 ## Contexto adicional
 

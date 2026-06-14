@@ -26,6 +26,24 @@
 
 ---
 
+## VETORA Brand — SaaS em construção (jun/2026)
+
+Plataforma de identidade de marca para MEIs e pequenos negócios. Produto SaaS sob o guarda-chuva VETORA.
+Contexto completo: `produtos/saas/VETORA_Brand_SaaS_Context.md`
+
+**Stack:** Next.js 14 + Tailwind + Framer Motion · Supabase (auth, DB, storage) · Claude API (Branding Book) · DALL-E 3 (logo) · Stripe · Vercel
+**Planos:** Starter R$49 · Pro R$127 · Agency R$297 (recorrência mensal)
+**MVP (30 dias):** onboarding 13 perguntas → Branding Book via Claude API → 2 conceitos de logo → export PDF · sem login nem pagamento no MVP
+
+**Fase atual:** definição de nome final, construção do prompt mestre e landing de validação (captura de e-mail)
+**Próximos passos imediatos:**
+- Definir nome final do produto
+- Mapear fluxo de onboarding com opções de resposta
+- Construir e testar o Prompt Mestre do Branding Book
+- Landing page de validação (captura de e-mail antes do código)
+
+---
+
 ## Kit VETORA — em pausa
 
 Retomar após tração inicial com consultoria. Decisões tomadas permanecem válidas.

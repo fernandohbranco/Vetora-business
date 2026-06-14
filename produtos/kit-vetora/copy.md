@@ -167,7 +167,7 @@ Simples de usar. Poderoso de aplicar.
 **3 passos:**
 
 1. **Acesse em 1 clique**
-Após a compra, você recebe por e-mail o link para duplicar o Kit no seu Notion. Tudo organizado, sem download, sem instalação.
+Após a compra, você recebe por e-mail o link de acesso à sua área de membros na Cakto. Tudo organizado, sem download, sem instalação.
 _Pronto para começar em menos de 2 minutos._
 
 2. **Siga a sequência**
@@ -240,7 +240,7 @@ Em perspectiva: uma sessão de consultoria estratégica custaria R$897. O Kit en
 
 **CTA:** Quero o Kit VETORA →
 
-**Rodapé:** Entrega imediata via Notion · Pix e cartão · 7 dias de garantia
+**Rodapé:** Entrega imediata via Cakto · Pix e cartão · 7 dias de garantia
 Quer acompanhamento? Kit + 1h de consultoria por R$897 →
 
 ---
@@ -269,7 +269,7 @@ Não. O Kit é um sistema de decisão estratégica — você define o posicionam
 Para qualquer negócio que compete por valor e diferenciação — consultores, freelancers, empreendedores, profissionais liberais e técnicos. Se você vende volume ou compete exclusivamente por preço, este não é o Kit para você.
 
 **Q3: Como funciona a entrega?**
-Após a confirmação do pagamento, você recebe por e-mail um link para duplicar o Kit completo no seu Notion. Em um clique, todos os 8 módulos ficam organizados no seu espaço — prontos para editar. Sem download, sem instalação.
+Após a confirmação do pagamento, você recebe por e-mail o link de acesso à sua área de membros na Cakto. Em um clique, todos os 8 módulos ficam disponíveis e organizados — prontos para começar. Sem download, sem instalação.
 
 **Q4: Posso usar os templates em projetos de clientes?**
 Sim. A licença permite aplicar o método e os frameworks em projetos próprios e de clientes. O que não é permitido é revender ou redistribuir o Kit como produto.
@@ -278,7 +278,7 @@ Sim. A licença permite aplicar o método e os frameworks em projetos próprios 
 O Kit completo pode ser aplicado em 4 semanas com 4–6 horas por semana — ideal para quem tem outras atividades em paralelo. O Módulo 8 tem um guia de priorização que mostra o que fazer primeiro para ter resultado mais rápido.
 
 **Q6: O conteúdo é atualizado?**
-Sim. Como o Kit é entregue via Notion, atualizações de conteúdo ficam disponíveis automaticamente. Quem compra durante o lançamento garante o menor preço e acesso a todas as versões futuras sem custo adicional.
+Sim. Atualizações de conteúdo são disponibilizadas na área de membros e ficam acessíveis automaticamente. Quem compra durante o lançamento garante o menor preço e acesso a todas as versões futuras sem custo adicional.
 
 **Q7: Já tentei outros templates e não funcionou. O que é diferente aqui?**
 A diferença é o método antes do template. Outros packs entregam arquivos para preencher. O Kit VETORA entrega um sistema de decisão — você sabe por que cada escolha é feita, não apenas o que preencher. Sem diagnóstico feito, qualquer template é só estética sem direção.

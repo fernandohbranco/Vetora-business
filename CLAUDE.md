@@ -11,11 +11,13 @@ O VetoraOS é um sistema operacional de negócio baseado em arquivos. Não tem c
 ```
 _memoria/       cérebro do negócio (empresa, preferências, estratégia — apenas os 3 arquivos core)
 identidade/     identidade visual (design-guide.md, logo, fontes)
-site/           landing pages e páginas web publicáveis (ex: site/kit-vetora/)
+produtos/       produtos digitais em construção (kit-vetora/, saas/)
+site/           landing pages e páginas web publicáveis (ex: site/vetora-next/)
 marketing/      saídas persistentes de marketing (módulos, conteúdo, SEO, campanhas, anúncios)
 dados/          drop zone de entrada (CSVs, PDFs, planilhas — input temporário)
 saidas/         saídas pontuais (análises, emails, relatórios avulsos)
 scripts/        utilitários Node.js/Python que skills chamam (render, publicação social)
+sprints/        documentos de planejamento de sprints ativos
 templates/      templates de skills e catálogo de skills externas disponíveis
 ```
 
@@ -23,27 +25,72 @@ Skills locais ficam em `.claude/skills/` (específicas do projeto). Skills globa
 
 ---
 
-## Arquitetura Operacional VETORA
+## Catálogo de Skills
 
 O VetoraOS opera sob o Método VETORA: Diagnóstico → Direção → Construção → Entrega → Evolução.
 
-As skills em `.claude/skills/` estão organizadas por fase do método:
+**Distinção importante:** `produtos/` e `marketing/` são **outputs/produtos**. `.claude/skills/` são **procedimentos internos** que produzem ou apoiam esses outputs. Não misturar os dois conceitos.
 
-- **00-nucleo/** — identidade da marca, método operacional, sistema de design. Consultadas por todas as outras.
-- **00-os/** — skills de infraestrutura do OS: abrir sessão, atualizar contexto, instalar, salvar, ops (orquestrador), aprovar e publicar posts.
-- **01-diagnostico/** — análise de cliente, presença digital, mapeamento de gaps.
-- **02-direcao/** — posicionamento de marca, arquitetura de site, framework de landing page.
-- **03-construcao/** — copy, design system gerador, dev handoff, conteúdo de redes.
-- **04-entrega-qa/** — checklists de qualidade, revisões técnicas e de UX.
-- **05-comercial/** — propostas, conteúdo de autoridade no LinkedIn.
-- **_archived/** — skills aposentadas em quarentena de 60 dias.
+### 00-NUCLEO — Identidade e Método
 
-**Distinção importante:**
-- `site/kit-vetora/` e `marketing/kit-vetora/` são **outputs/produtos**.
-- `.claude/skills/` são **procedimentos internos** que produzem ou apoiam a criação desses outputs.
-- Não misturar os dois conceitos.
+Consultadas por todas as skills de criação antes de produzir qualquer output.
 
-Toda skill de criação de conteúdo consulta `vetora-brand-os` antes de produzir qualquer coisa.
+| Skill | Input | Output |
+|---|---|---|
+| `vetora-brand-os` | `_memoria/preferencias.md` | Contexto de identidade verbal (tom, arquétipos, restrições) |
+| `vetora-method` | — | Mapa de fases + skill por fase |
+| `vetora-design-system` | `identidade/design-guide.md` | Contexto de design visual |
+
+### 00-OS — Infraestrutura do Sistema
+
+| Skill | Input | Output |
+|---|---|---|
+| `abrir` | `_memoria/*` + `identidade/design-guide.md` | Contexto de sessão carregado |
+| `atualizar` | Workspace inteiro + `_memoria/*` | `_memoria/*` reconciliados |
+| `instalar` | Entrevista com usuário | `_memoria/*` + `identidade/design-guide.md` preenchidos |
+| `salvar` | git status | Commit + push no GitHub |
+| `ops` | Pedido em linguagem natural + `estrategia.md` | Roteamento para skill(s) certa(s) |
+| `aprovar-post` | Slug do post + Meta API config | Post publicado no site + Instagram + Facebook |
+
+### 01-DIAGNOSTICO
+
+| Skill | Input | Output |
+|---|---|---|
+| `client-diagnosis` | Entrevista estruturada com usuário | `_memoria/clientes/<nome>/diagnostico.md` |
+| `digital-presence-audit` | URL do site + redes + GMB | Relatório de auditoria com gaps priorizados |
+
+### 02-DIRECAO
+
+| Skill | Input | Output |
+|---|---|---|
+| `brand-positioning-architect` | `diagnostico.md` + entrevista | `_memoria/clientes/<nome>/posicionamento.md` |
+| `site-architecture-vetora` | `posicionamento.md` + briefing | `_memoria/clientes/<nome>/arquitetura-site.md` |
+| `landing-page-cro-vetora` | Brief + `posicionamento.md` | `marketing/landingpages/<nome>/index.html` |
+
+### 03-CONSTRUCAO
+
+| Skill | Input | Output |
+|---|---|---|
+| `vetora-copywriter` | Brief + `posicionamento.md` + `preferencias.md` | Copy (inline ou arquivo) |
+| `social-carousel-builder` | Tema + `design-guide.md` | `marketing/conteudo/<tema>/` (HTML + PNG + legenda.md) |
+| `ui-ux-pro-max` | Briefing de identidade | `identidade/design-system/MASTER.md` |
+| `claude-code-handoff` | `arquitetura-site.md` + design aprovado | `CLAUDE.md` do projeto + tokens + `.env.example` + checklist |
+
+### 04-ENTREGA-QA
+
+| Skill | Input | Output |
+|---|---|---|
+| `vetora-qa-checklist` | Material a revisar (site, LP, carrossel, proposta) | Relatório de aprovação por criticidade |
+| `web-qa-technical-vetora` | URL ou código do site | Relatório técnico (performance, SEO, acessibilidade) |
+| `ux-review-vetora` | HTML/URL/PNG a revisar | Relatório UX (9 dimensões, pontuação) |
+| `qa-expert` | Código do projeto + CI config | Relatório técnico completo (testes, segurança, CI/CD) |
+
+### 05-COMERCIAL
+
+| Skill | Input | Output |
+|---|---|---|
+| `proposal-builder-vetora` | `diagnostico.md` + briefing de escopo | `saidas/propostas/<nome>-<data>.md` |
+| `linkedin-fhb-authority` | Tema ou insight do Fernando | Post LinkedIn pronto para publicar |
 
 ---
 
@@ -65,7 +112,7 @@ Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o
 
 ## Fluxo de trabalho
 
-Antes de executar qualquer tarefa, verificar se existe skill relevante em `.claude/skills/`. Se encontrar, seguir as instruções da skill. Se não encontrar, executar a tarefa normalmente.
+Antes de executar qualquer tarefa, verificar no catálogo de skills neste arquivo se existe skill relevante. Se encontrar, seguir as instruções da skill. Se não encontrar, executar a tarefa normalmente.
 
 Ao concluir uma tarefa que não tinha skill mas parece repetível (o usuário provavelmente vai pedir de novo no futuro), perguntar:
 
@@ -125,12 +172,12 @@ Quando o usuário pedir skill nova:
 
 1. Verificar se existe template relevante em `templates/skills/`. Se existir, usar como base e adaptar pro contexto
 2. Perguntar se é específica desse projeto ou útil em qualquer:
-   - Específica → `.claude/skills/nome-da-skill/SKILL.md` (local)
-   - Universal → `~/.claude/skills/nome-da-skill/SKILL.md` (global)
+   - Específica → `.claude/skills/<fase>/<nome>/SKILL.md` (local)
+   - Universal → `~/.claude/skills/<nome>/SKILL.md` (global)
    - Skills visuais (UX, design, carrossel, landing page) ficam **sempre locais** — dependem do `identidade/design-guide.md` de cada projeto
 3. Ler `_memoria/empresa.md` e `_memoria/preferencias.md` pra calibrar o conteúdo da skill ao contexto do negócio
-4. Se a skill precisar de arquivos de apoio (templates, exemplos), criar dentro da pasta da skill
-5. Seguir o fluxo da skill-creator nativa do Claude Code
+4. Adicionar a skill na tabela do catálogo neste CLAUDE.md (fase correta)
+5. Se a skill precisar de arquivos de apoio (templates, exemplos), criar dentro da pasta da skill
 
 O catálogo de skills externas prontas pra instalar está em `templates/skills/catalogo.md`.
 

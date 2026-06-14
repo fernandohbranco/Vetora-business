@@ -808,7 +808,7 @@
       <div class="passo">
         <div class="passo-n-wrap"><div class="passo-n">1</div></div>
         <h4>Acesse em 1 clique</h4>
-        <p>Após a compra, você recebe por e-mail o link para duplicar o Kit no seu Notion. Tudo organizado, sem download, sem instalação.</p>
+        <p>Após a compra, você recebe por e-mail o link de acesso à sua área de membros na Cakto. Tudo organizado, sem download, sem instalação.</p>
         <p class="passo-result">Pronto para começar em menos de 2 minutos.</p>
       </div>
       <div class="passo">
@@ -891,8 +891,8 @@
             </svg>
           </div>
           <h4>Quer acompanhamento?</h4>
-          <!-- Substitua KIWIFY_URL_897_AQUI pela URL do produto Kit + consultoria no Kiwify (Sprint 3) -->
-          <p>Depois do Kit, há o próximo passo natural: <a href="KIWIFY_URL_897_AQUI">Kit + 1h de consultoria estratégica por R$897 →</a></p>
+          <!-- Substitua CAKTO_URL_897_AQUI pela URL do produto Kit + consultoria no Kiwify (Sprint 3) -->
+          <p>Depois do Kit, há o próximo passo natural: <a href="CAKTO_URL_897_AQUI">Kit + 1h de consultoria estratégica por R$897 →</a></p>
         </div>
       </div>
     </div>
@@ -973,12 +973,12 @@
           <div class="p-text"><strong>Módulo 8</strong> — Guia de Implementação (roteiro semanal + checklist final)</div>
         </div>
       </div>
-      <!-- Substitua KIWIFY_URL_AQUI pela URL do produto no Kiwify (Sprint 3) -->
-      <a href="KIWIFY_URL_AQUI" class="btn btn-cyan p-cta" rel="noopener">Quero o Kit VETORA →</a>
+      <!-- Substitua CAKTO_URL_AQUI pela URL do produto no Kiwify (Sprint 3) -->
+      <a href="CAKTO_URL_AQUI" class="btn btn-cyan p-cta" rel="noopener">Quero o Kit VETORA →</a>
       <p class="p-footer">
-        Entrega imediata via Notion &nbsp;·&nbsp; Pix e cartão &nbsp;·&nbsp; <strong>7 dias de garantia</strong><br>
-        <!-- Substitua KIWIFY_URL_897_AQUI pela URL do produto Kit + consultoria no Kiwify (Sprint 3) -->
-        <a href="KIWIFY_URL_897_AQUI" class="p-upsell">Quer acompanhamento? Kit + 1h de consultoria por R$897 →</a>
+        Entrega imediata via Cakto &nbsp;·&nbsp; Pix e cartão &nbsp;·&nbsp; <strong>7 dias de garantia</strong><br>
+        <!-- Substitua CAKTO_URL_897_AQUI pela URL do produto Kit + consultoria no Kiwify (Sprint 3) -->
+        <a href="CAKTO_URL_897_AQUI" class="p-upsell">Quer acompanhamento? Kit + 1h de consultoria por R$897 →</a>
       </p>
     </div>
   </div>
@@ -1032,7 +1032,7 @@
           <span class="faq-qt">Como funciona a entrega?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a">Após a confirmação do pagamento, você recebe por e-mail um link para duplicar o Kit completo no seu Notion. Em um clique, todos os 8 módulos ficam organizados no seu espaço — prontos para editar. Sem download, sem instalação.</div>
+        <div class="faq-a">Após a confirmação do pagamento, você recebe por e-mail o link de acesso à sua área de membros na Cakto. Em um clique, todos os 8 módulos ficam disponíveis e organizados — prontos para começar. Sem download, sem instalação.</div>
       </div>
 
       <div class="faq-item">
@@ -1056,7 +1056,7 @@
           <span class="faq-qt">O conteúdo é atualizado?</span>
           <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a">Sim. Como o Kit é entregue via Notion, atualizações de conteúdo ficam disponíveis automaticamente. Quem compra durante o lançamento garante o menor preço e acesso a todas as versões futuras sem custo adicional.</div>
+        <div class="faq-a">Sim. Atualizações de conteúdo são disponibilizadas na área de membros e ficam acessíveis automaticamente. Quem compra durante o lançamento garante o menor preço e acesso a todas as versões futuras sem custo adicional.</div>
       </div>
 
       <div class="faq-item">
@@ -1079,7 +1079,7 @@
     <p class="cta-sub">A janela de lançamento está aberta. Acesse agora e garanta o preço de entrada.</p>
     <a href="#oferta" class="btn btn-cyan btn-lg">Quero o Kit VETORA — R$397 →</a>
     <p class="cta-gar">7 dias de garantia incondicional — sem perguntas.</p>
-    <p class="cta-alt">Prefere acompanhamento? <a href="KIWIFY_URL_897_AQUI">Kit + 1h de consultoria por R$897 →</a></p>
+    <p class="cta-alt">Prefere acompanhamento? <a href="CAKTO_URL_897_AQUI">Kit + 1h de consultoria por R$897 →</a></p>
   </div>
 </section>
 
@@ -1122,12 +1122,10 @@
     });
   });
 
-  // Countdown — 7 dias a partir da primeira visita, persistido em localStorage
+  // Countdown — data fixa de encerramento do lançamento
+  // TODO: definir a data real antes de publicar (formato ISO 8601, fuso -03:00 = Brasília)
   (function () {
-    var KEY = 'vk_end_ts';
-    var stored = localStorage.getItem(KEY);
-    var end = stored ? parseInt(stored, 10) : Date.now() + 7 * 24 * 3600 * 1000;
-    if (!stored) localStorage.setItem(KEY, end);
+    var end = new Date('2026-08-01T23:59:59-03:00').getTime();
 
     var dEl = document.getElementById('cd-d');
     var hEl = document.getElementById('cd-h');
