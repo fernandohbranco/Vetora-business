@@ -49,6 +49,20 @@ Contexto completo: `produtos/saas/VETORA_Brand_SaaS_Context.md`
 
 ---
 
+## Infraestrutura Container + Clientes (frente aberta jun/2026)
+
+Os 8 clientes viraram repos VetoraOS independentes dentro de `clientes/`. Diagnóstico revelou drift de skills (15–24 por cliente, sem fonte única), duplicação massiva, vazamento de template ("MazyOS") e ausência de branding VETORA para entregáveis. Plano em 5 sprints: `sprints/infraestrutura/`.
+
+**Decisões fechadas:**
+- Sync de skills: versão canônica em `templates/skills-cliente/` + skill `/sync-skills`
+- Marca VETORA: skills de cliente leem assets do container por caminho relativo (não duplicar)
+- Git: `clientes/*` no `.gitignore` do container
+- Ordem: fonte única de skills primeiro
+
+**Sprints:** 01 Fonte única de skills + limpeza · 02 Marca VETORA + `/relatorio` · 03 Higiene de git · 04 Template + `/novo-cliente` · 05 Dashboard `/clientes`.
+
+**Decisões em aberto:** conjunto canônico de skills · nome do OS de cliente (manter "VetoraOS"?) · achatar nesting `clientes/<Nome>/<slug>/`.
+
 ## Funil de produto (estrutura definida em jun/2026)
 
 ```

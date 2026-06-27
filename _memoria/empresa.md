@@ -40,8 +40,25 @@ Planos: Starter R$49 · Pro R$127 · Agency R$297/mês.
 MVP: onboarding 13 perguntas → Branding Book via Claude API → 2 conceitos de logo → export PDF.
 Contexto completo: `produtos/saas/VETORA_Brand_SaaS_Context.md`
 
+## Clientes ativos
+
+Cada cliente é um **VetoraOS completo com repo git próprio**, dentro de `clientes/<Nome>/<slug>/` (o repo raiz `vetora/` funciona como container). Convenção e detalhes técnicos no `CLAUDE.md`.
+
+| Cliente | Slug | Segmento |
+|---|---|---|
+| Autec | `autec` | Automação/engenharia industrial (B2B) |
+| Dr. Marcio Grave | `DrMarcioGrave` | Profissional liberal (saúde) |
+| FRBranco Personalizados | `frbranco-personalizados` | Papelaria/presentes (marca paralela do Fernando) |
+| Prezaro Barbearia | `prezaro-barbearia` | Negócio local de serviço |
+| Priscila - Cantinho das Raízes | `cantinho-das-raizes` | Negócio da Priscila |
+| Priscila - Pés de Seda | `priscila-pes-de-seda` | Studio da Priscila |
+| Rancho 517 - Ferreira | `rancho517` | Espaço de eventos |
+| RoseArts | `rosearts` | Marca autoral/criativa |
+
+**Modelo de trabalho:** o container abriga o método VETORA e os assets de marca da VETORA; cada repo de cliente é o sistema operacional vivo daquele cliente, com a identidade visual **do cliente** em `identidade/`. Entregáveis que vão da VETORA → cliente usam a marca VETORA; conteúdo que o cliente publica usa a marca do cliente.
+
 ## Contexto adicional
 
-- FRBranco Personalizados é um projeto paralelo do Fernando (marca afetiva de papelaria/presentes), não cliente externo.
+- FRBranco Personalizados é um projeto paralelo do Fernando (marca afetiva de papelaria/presentes), não cliente externo — mas tem repo próprio em `clientes/`.
 - Cases em desenvolvimento: Autec, Rancho 517, FRBranco.
 - Canais de tráfego iniciais: LinkedIn (canal mais forte) e Instagram — sem ads no início.
