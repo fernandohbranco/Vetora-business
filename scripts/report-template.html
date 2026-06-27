@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+  report-template.html — Shell de marca VETORA para entregáveis (relatórios) em PDF.
+
+  NÃO editar por cliente. Fonte única no container (scripts/). As skills /relatorio e
+  /relatorio-ads leem este arquivo, substituem os placeholders {{...}} e renderizam via
+  scripts/render-report-pdf.js (Playwright HTML → PDF).
+
+  Placeholders:
+    {{TIPO}}      eyebrow (ex: "Relatório de performance")
+    {{TITULO}}    título principal do relatório
+    {{CLIENTE}}   nome do cliente
+    {{PERIODO}}   período coberto (ex: "12/05 a 18/05 de 2026")
+    {{DATA}}      data de emissão (ex: "27/06/2026")
+    {{LOGO}}      file:// absoluto da logo VETORA negativa (branca/escuro)
+    {{CONTEUDO}}  HTML do corpo do relatório (convertido do markdown pela skill)
+
+  O rodapé "Produzido por VETORA · ..." + numeração é injetado pelo render-report-pdf.js
+  (footerTemplate do Playwright) em TODAS as páginas — não fica neste HTML.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>{{TITULO}} — VETORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F3B; --cyan:#00A6A6; --ice:#F5F7FA; --grafite:#1E252B;
+    --prata:#B8C2CC; --cinza:#D9DEE3; --verde:#00A86B;
+    --sora:'Sora',system-ui,sans-serif; --inter:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:var(--inter); color:var(--grafite); font-size:11pt; line-height:1.6; }
+
+  /* ---------- Capa ---------- */
+  .capa{
+    position:relative; height:247mm; /* A4 útil aproximado */
+    background:var(--navy); color:#fff;
+    padding:34mm 26mm; display:flex; flex-direction:column;
+    page-break-after:always; overflow:hidden;
+  }
+  .capa::after{ /* acento vetor sutil no canto */
+    content:""; position:absolute; right:-60mm; top:-60mm; width:140mm; height:140mm;
+    border:1px solid rgba(0,166,166,.25); border-radius:2mm; transform:rotate(18deg);
+  }
+  .capa::before{
+    content:""; position:absolute; right:18mm; bottom:30mm; width:46mm; height:1px;
+    background:var(--cyan);
+  }
+  .capa__logo{ height:13mm; width:auto; margin-bottom:auto; }
+  .capa__eyebrow{
+    font-family:var(--sora); font-weight:600; font-size:11pt; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--cyan); margin-bottom:8mm;
+  }
+  .capa__titulo{
+    font-family:var(--sora); font-weight:700; font-size:34pt; line-height:1.08;
+    letter-spacing:-.02em; max-width:150mm; margin-bottom:14mm;
+  }
+  .capa__meta{ display:grid; grid-template-columns:1fr; gap:5mm; }
+  .capa__meta div{ border-top:1px solid rgba(184,194,204,.3); padding-top:3mm; max-width:120mm; }
+  .capa__meta .rotulo{
+    font-family:var(--mono); font-size:8pt; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--prata); display:block; margin-bottom:1.5mm;
+  }
+  .capa__meta .valor{ font-family:var(--sora); font-weight:600; font-size:13pt; color:#fff; }
+
+  /* ---------- Conteúdo ---------- */
+  /* Margens laterais do PDF são 0 (capa sangra até a borda); o corpo cria o próprio respiro. */
+  .conteudo{ padding:6mm 22mm 10mm; }
+  .conteudo h1{
+    font-family:var(--sora); font-weight:700; font-size:22pt; line-height:1.1;
+    letter-spacing:-.02em; color:var(--navy); margin:0 0 6mm;
+  }
+  .conteudo h2{
+    font-family:var(--sora); font-weight:600; font-size:16pt; line-height:1.15;
+    letter-spacing:-.01em; color:var(--navy); margin:11mm 0 4mm;
+    padding-bottom:2.5mm; border-bottom:2px solid var(--cyan); page-break-after:avoid;
+  }
+  .conteudo h3{
+    font-family:var(--sora); font-weight:600; font-size:12.5pt; color:var(--navy);
+    margin:7mm 0 2.5mm; page-break-after:avoid;
+  }
+  .conteudo p{ margin:0 0 3.5mm; }
+  .conteudo ul,.conteudo ol{ margin:0 0 4mm; padding-left:6mm; }
+  .conteudo li{ margin-bottom:1.8mm; }
+  .conteudo strong{ color:var(--navy); font-weight:600; }
+  .conteudo a{ color:var(--cyan); text-decoration:none; }
+  .conteudo code{ font-family:var(--mono); font-size:9.5pt; background:var(--ice);
+    padding:.5mm 1.5mm; border-radius:1mm; color:var(--navy); }
+  .conteudo hr{ border:none; border-top:1px solid var(--cinza); margin:7mm 0; }
+  .conteudo blockquote{
+    border-left:3px solid var(--cyan); background:var(--ice);
+    padding:3mm 5mm; margin:0 0 4mm; color:var(--grafite);
+  }
+
+  /* KPIs / cards */
+  .kpis{ display:flex; flex-wrap:wrap; gap:4mm; margin:0 0 6mm; }
+  .kpi{ flex:1 1 40mm; background:var(--ice); border:1px solid var(--cinza);
+    border-radius:1.5mm; padding:4mm 5mm; }
+  .kpi .rotulo{ font-family:var(--mono); font-size:8pt; letter-spacing:.05em;
+    text-transform:uppercase; color:#5a6a78; display:block; margin-bottom:1.5mm; }
+  .kpi .valor{ font-family:var(--sora); font-weight:700; font-size:18pt; color:var(--navy);
+    line-height:1; }
+  .kpi .delta{ font-family:var(--inter); font-size:9pt; font-weight:500; }
+  .kpi .delta.up{ color:var(--verde); } .kpi .delta.down{ color:#C0392B; }
+
+  /* Tabelas */
+  .conteudo table{ width:100%; border-collapse:collapse; margin:0 0 6mm;
+    font-size:10pt; page-break-inside:avoid; }
+  .conteudo thead th{
+    background:var(--navy); color:#fff; font-family:var(--sora); font-weight:600;
+    font-size:9pt; text-align:left; padding:3mm 4mm; letter-spacing:.01em;
+  }
+  .conteudo tbody td{ padding:2.8mm 4mm; border-bottom:1px solid var(--cinza); }
+  .conteudo tbody tr:nth-child(even){ background:var(--ice); }
+
+  /* Alertas — marcador em CSS (sem emoji; design-guide proíbe em material institucional) */
+  .alerta{ display:flex; gap:3mm; padding:3mm 4mm; border-radius:1.5mm; margin:0 0 2.5mm;
+    border-left:3px solid; font-size:10pt; align-items:baseline; }
+  .alerta::before{ content:""; flex:0 0 auto; width:2.4mm; height:2.4mm; border-radius:50%;
+    transform:translateY(.5mm); }
+  .alerta .rotulo{ font-weight:600; color:var(--navy); margin-right:1mm; }
+  .alerta.vermelho{ background:#FBECEC; border-color:#C0392B; }
+  .alerta.vermelho::before{ background:#C0392B; }
+  .alerta.amarelo{ background:#FCF6E5; border-color:#D4A017; }
+  .alerta.amarelo::before{ background:#D4A017; }
+  .alerta.verde{ background:#E8F6EF; border-color:var(--verde); }
+  .alerta.verde::before{ background:var(--verde); }
+
+  h2,h3{ page-break-after:avoid; }
+  table,blockquote,.kpi,.alerta{ page-break-inside:avoid; }
+</style>
+</head>
+<body>
+  <section class="capa">
+    <img class="capa__logo" src="{{LOGO}}" alt="VETORA">
+    <div class="capa__eyebrow">{{TIPO}}</div>
+    <h1 class="capa__titulo">{{TITULO}}</h1>
+    <div class="capa__meta">
+      <div><span class="rotulo">Cliente</span><span class="valor">{{CLIENTE}}</span></div>
+      <div><span class="rotulo">Período</span><span class="valor">{{PERIODO}}</span></div>
+      <div><span class="rotulo">Emitido em</span><span class="valor">{{DATA}}</span></div>
+    </div>
+  </section>
+
+  <main class="conteudo">
+    {{CONTEUDO}}
+  </main>
+</body>
+</html>

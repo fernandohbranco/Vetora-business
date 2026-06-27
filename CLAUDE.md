@@ -19,6 +19,9 @@ saidas/         saídas pontuais (análises, emails, relatórios avulsos)
 scripts/        utilitários Node.js/Python que skills chamam (render, publicação social)
 sprints/        documentos de planejamento de sprints ativos, organizados por tema (ex: sprints/produto/, sprints/site/)
 templates/      templates de skills e catálogo de skills externas disponíveis
+                templates/skills-cliente/ = fonte única canônica das skills de cliente (propagada via /sync-skills)
+clientes/       projetos de clientes ativos — cada cliente é um VetoraOS completo com repo git próprio
+                convenção: clientes/<Nome Visível>/<slug>/ (ex: clientes/Prezaro Barbearia/prezaro-barbearia/)
 ```
 
 Skills locais ficam em `.claude/skills/` (específicas do projeto). Skills globais ficam em `~/.claude/skills/` (disponíveis em qualquer projeto).
@@ -51,20 +54,21 @@ Consultadas por todas as skills de criação antes de produzir qualquer output.
 | `salvar` | git status | Commit + push no GitHub |
 | `ops` | Pedido em linguagem natural + `estrategia.md` | Roteamento para skill(s) certa(s) |
 | `aprovar-post` | Slug do post + Meta API config | Post publicado no site + Instagram + Facebook |
+| `sync-skills` | `templates/skills-cliente/` (biblioteca canônica) | Skills sincronizadas + `skills-lock.json` em cada `clientes/*/*/` |
 
 ### 01-DIAGNOSTICO
 
 | Skill | Input | Output |
 |---|---|---|
-| `client-diagnosis` | Entrevista estruturada com usuário | `_memoria/clientes/<nome>/diagnostico.md` |
+| `client-diagnosis` | Entrevista estruturada com usuário | `clientes/<Nome>/<slug>/_memoria/diagnostico.md` |
 | `digital-presence-audit` | URL do site + redes + GMB | Relatório de auditoria com gaps priorizados |
 
 ### 02-DIRECAO
 
 | Skill | Input | Output |
 |---|---|---|
-| `brand-positioning-architect` | `diagnostico.md` + entrevista | `_memoria/clientes/<nome>/posicionamento.md` |
-| `site-architecture-vetora` | `posicionamento.md` + briefing | `_memoria/clientes/<nome>/arquitetura-site.md` |
+| `brand-positioning-architect` | `diagnostico.md` + entrevista | `clientes/<Nome>/<slug>/_memoria/posicionamento.md` |
+| `site-architecture-vetora` | `posicionamento.md` + briefing | `clientes/<Nome>/<slug>/_memoria/arquitetura-site.md` |
 | `landing-page-cro-vetora` | Brief + `posicionamento.md` | `marketing/landingpages/<nome>/index.html` |
 
 ### 03-CONSTRUCAO

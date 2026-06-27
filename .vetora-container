@@ -1,0 +1,44 @@
+# Marcador de container VETORA
+#
+# Este arquivo identifica a RAIZ do container VETORA. As skills de cliente
+# (relatorio, relatorio-ads, etc.) sobem na árvore de pastas a partir do
+# diretório de trabalho até encontrar este arquivo. O diretório que o contém
+# é o CONTAINER — fonte da marca VETORA para qualquer entregável que vai PARA
+# o cliente.
+#
+# Regra de marca:
+#   entregável que a VETORA ENTREGA ao cliente  → marca VETORA (este container)
+#   conteúdo que o cliente PUBLICA              → identidade/ do próprio repo de cliente
+#
+# Se um repo de cliente for clonado FORA do container (sem este marcador acima
+# na árvore), o resolver cai no fallback: avisa e usa branding genérico, sem quebrar.
+
+version: 1
+brand: VETORA
+
+# Assets de marca (caminhos relativos a este container)
+identidade_dir: identidade
+design_guide: identidade/design-guide.md
+branding_book: identidade/branding-book.md
+logo_dir: identidade/logo-vetora
+logo_claro: identidade/logo-vetora/1-Logo horizontal colorida — fundo claro-semfundo.png
+logo_escuro: identidade/logo-vetora/2-Logo horizontal negativa — fundo escuro-semfundo.png
+logo_mono_branca: identidade/logo-vetora/4-Logo horizontal monocromática branca-semfundo.png
+favicon: identidade/logo-vetora/12-Favicon simplificado colorido-semfundo.png
+
+# Motor de export de entregáveis (resolvido via container)
+report_engine: scripts/render-report-pdf.js
+report_template: scripts/report-template.html
+
+# Tokens de marca (espelham identidade/design-guide.md)
+cor_navy: "#0B1F3B"
+cor_cyan: "#00A6A6"
+cor_ice: "#F5F7FA"
+cor_grafite: "#1E252B"
+cor_prata: "#B8C2CC"
+fonte_titulos: Sora
+fonte_corpo: Inter
+fonte_mono: JetBrains Mono
+
+# Rodapé padrão de todo entregável
+rodape: "Produzido por VETORA · vetora.com.br"
