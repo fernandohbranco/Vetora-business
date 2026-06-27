@@ -17,6 +17,10 @@ Thumbs.db
 # Dependências
 node_modules/
 
+# Python
+__pycache__/
+*.pyc
+
 # Arquivos temporários
 *.log
 *.tmp
@@ -24,3 +28,9 @@ node_modules/
 # Drop zone do usuário (só o README vai versionado)
 dados/*
 !dados/README.md
+
+# Clientes — cada um é repo VetoraOS próprio, versionado por si mesmo.
+# O container não rastreia o trabalho dos clientes.
+# Ancorado na raiz (/) para não casar com pastas "clientes" em outros lugares
+# (ex: a skill .claude/skills/00-os/clientes/).
+/clientes/

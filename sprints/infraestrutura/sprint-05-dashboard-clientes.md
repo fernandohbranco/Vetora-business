@@ -12,30 +12,30 @@ Com 8 clientes (e crescendo), falta uma visão de portfólio: quem é cliente at
 
 ## Passo 1 — Definir o índice
 
-- [ ] Criar `clientes-index.md` na raiz do container (rastreado pelo git do container, já que `clientes/` em si é ignorado)
-- [ ] Colunas: cliente, slug, status (ativo/pausado/concluído), serviços contratados, última atividade
-- [ ] Fonte dos dados: `CLAUDE.md` / `_memoria/` de cada repo de cliente
+- [x] Criar `clientes-index.md` na raiz do container (rastreado pelo git do container, já que `clientes/` em si é ignorado)
+- [x] Colunas: cliente, slug, status (ativo/pausado/concluído), serviços contratados, última atividade
+- [x] Fonte dos dados: `CLAUDE.md` / `_memoria/` de cada repo de cliente
 
 ## Passo 2 — Skill `/clientes`
 
-- [ ] Criar `.claude/skills/00-os/clientes/SKILL.md` no container
-- [ ] Varre `clientes/*/*/`, lê metadados de cada um e regenera `clientes-index.md`
-- [ ] Detecta última atividade via git log de cada repo de cliente
-- [ ] Sinaliza inconsistências (cliente sem CLAUDE.md, sem identidade, com skills desatualizadas)
+- [x] Criar `.claude/skills/00-os/clientes/SKILL.md` no container
+- [x] Varre `clientes/*/*/`, lê metadados de cada um e regenera `clientes-index.md`
+- [x] Detecta última atividade via git log de cada repo de cliente
+- [x] Sinaliza inconsistências (cliente sem CLAUDE.md, sem identidade, com skills desatualizadas)
 
 ## Passo 3 — Integração
 
-- [ ] `/novo-cliente` (Sprint 04) passa a chamar `/clientes` ao final, mantendo o índice vivo
-- [ ] Registrar `/clientes` no catálogo do `CLAUDE.md`
+- [x] `/novo-cliente` (Sprint 04) passa a chamar `/clientes` ao final, mantendo o índice vivo
+- [x] Registrar `/clientes` no catálogo do `CLAUDE.md`
 
 ---
 
 ## Critérios de "pronto"
 
-- [ ] `clientes-index.md` lista os 8 clientes com status e serviços
-- [ ] `/clientes` regenera o índice sob demanda
-- [ ] Índice aponta inconsistências (skills desatualizadas, faltando branding etc.)
-- [ ] `/clientes` no catálogo do `CLAUDE.md`
+- [x] `clientes-index.md` lista os 8 clientes com status e serviços
+- [x] `/clientes` regenera o índice sob demanda
+- [x] Índice aponta inconsistências (skills desatualizadas, faltando branding etc.)
+- [x] `/clientes` no catálogo do `CLAUDE.md`
 
 ---
 

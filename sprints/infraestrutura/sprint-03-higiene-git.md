@@ -12,28 +12,28 @@ Hoje `clientes/` não está no `.gitignore` do container e os repos de cliente n
 
 ## Passo 1 — Ignorar clientes no container
 
-- [ ] Adicionar `clientes/` ao `.gitignore` do container
-- [ ] Verificar `git -C vetora status` — conteúdo de `clientes/` não deve mais aparecer
-- [ ] Se algum arquivo de cliente já foi commitado no container, remover do índice (`git rm --cached`) sem apagar do disco
+- [x] Adicionar `clientes/` ao `.gitignore` do container
+- [x] Verificar `git -C vetora status` — conteúdo de `clientes/` não deve mais aparecer
+- [x] Se algum arquivo de cliente já foi commitado no container, remover do índice (`git rm --cached`) sem apagar do disco — N/A: nada de `clientes/` estava rastreado
 
 ## Passo 2 — Integridade dos repos de cliente
 
-- [ ] Confirmar que cada um dos 8 repos de cliente tem `.git` próprio
-- [ ] (Opcional) Verificar/configurar remote de cada cliente
-- [ ] Confirmar `.DS_Store` ignorado em todos (vi `.DS_Store` espalhado)
+- [x] Confirmar que cada um dos 8 repos de cliente tem `.git` próprio
+- [x] (Opcional) Verificar/configurar remote de cada cliente
+- [x] Confirmar `.DS_Store` ignorado em todos (vi `.DS_Store` espalhado) — RoseArts não tinha `.gitignore`; criado
 
 ## Passo 3 — Documentar a regra
 
-- [ ] Registrar no `CLAUDE.md` do container: `clientes/` é local, não versionado pelo container; cada cliente versiona a si mesmo
+- [x] Registrar no `CLAUDE.md` do container: `clientes/` é local, não versionado pelo container; cada cliente versiona a si mesmo
 
 ---
 
 ## Critérios de "pronto"
 
-- [ ] `git -C vetora status` não lista nada dentro de `clientes/`
-- [ ] Nenhum arquivo de cliente rastreado pelo container
-- [ ] Cada repo de cliente tem `.git` próprio e funcional
-- [ ] Regra documentada no `CLAUDE.md`
+- [x] `git -C vetora status` não lista nada dentro de `clientes/`
+- [x] Nenhum arquivo de cliente rastreado pelo container
+- [x] Cada repo de cliente tem `.git` próprio e funcional
+- [x] Regra documentada no `CLAUDE.md`
 
 ---
 

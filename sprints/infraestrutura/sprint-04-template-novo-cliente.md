@@ -12,43 +12,43 @@ O drift atual nasceu de repos clonados ad hoc de templates antigos (daí o "Mazy
 
 ## Passo 0 — Fechar decisão de nomenclatura
 
-- [ ] Padronizar nomes para kebab-case (hoje `DrMarcioGrave` destoa)
-- [ ] Decidir se achata `clientes/<Nome Visível>/<slug>/` → `clientes/<slug>/`
-- [ ] Aplicar a decisão na convenção do `CLAUDE.md` do container
+- [x] Padronizar nomes para kebab-case (hoje `DrMarcioGrave` destoa) — decidido: slug sempre kebab-case, vale p/ clientes novos (os 8 existentes não migram agora)
+- [x] Decidir se achata `clientes/<Nome Visível>/<slug>/` → `clientes/<slug>/` — decidido: **manter pasta dupla**
+- [x] Aplicar a decisão na convenção do `CLAUDE.md` do container
 
 ## Passo 1 — Definir esqueleto canônico de cliente
 
-- [ ] Listar pastas-padrão (ex: `_memoria`, `identidade`, `marketing`, `saidas`, `dados`, `scripts`) e opcionais (`site`, `sprints`, `produtos`)
-- [ ] Documentar quais são obrigatórias vs sob demanda
-- [ ] Definir o `CLAUDE.md` base do cliente (herdar de `templates/perfis/`, incluir a regra de marca VETORA vs cliente da Sprint 02)
+- [x] Listar pastas-padrão (ex: `_memoria`, `identidade`, `marketing`, `saidas`, `dados`, `scripts`) e opcionais (`site`, `sprints`, `produtos`)
+- [x] Documentar quais são obrigatórias vs sob demanda
+- [x] Definir o `CLAUDE.md` base do cliente (herdar de `templates/perfis/`, incluir a regra de marca VETORA vs cliente da Sprint 02)
 
 ## Passo 2 — Criar a skill `/novo-cliente`
 
-- [ ] Criar `.claude/skills/00-os/novo-cliente/SKILL.md` no container
-- [ ] Entrevista curta: nome do cliente, tipo de negócio, serviços contratados
-- [ ] Scaffold automático:
-  - [ ] Cria a pasta do cliente com a estrutura canônica
-  - [ ] Gera `CLAUDE.md` do cliente a partir do perfil certo
-  - [ ] Roda `/sync-skills <cliente>` para instalar as skills canônicas
-  - [ ] Liga o branding (confirma presença do marcador `.vetora-container`)
-  - [ ] Inicializa `.git` do cliente
-  - [ ] Adiciona o cliente ao índice (preparado para a Sprint 05)
+- [x] Criar `.claude/skills/00-os/novo-cliente/SKILL.md` no container
+- [x] Entrevista curta: nome do cliente, tipo de negócio, serviços contratados
+- [x] Scaffold automático:
+  - [x] Cria a pasta do cliente com a estrutura canônica
+  - [x] Gera `CLAUDE.md` do cliente a partir do perfil certo
+  - [x] Roda `/sync-skills <cliente>` para instalar as skills canônicas
+  - [x] Liga o branding (confirma presença do marcador `.vetora-container`)
+  - [x] Inicializa `.git` do cliente
+  - [x] Adiciona o cliente ao índice (preparado para a Sprint 05)
 
 ## Passo 3 — Validar
 
-- [ ] `/novo-cliente teste` cria um repo completo e padronizado
-- [ ] Confirmar que skills, branding e CLAUDE.md já vêm corretos
-- [ ] Remover o cliente de teste
+- [x] `/novo-cliente teste` cria um repo completo e padronizado
+- [x] Confirmar que skills, branding e CLAUDE.md já vêm corretos
+- [x] Remover o cliente de teste
 
 ---
 
 ## Critérios de "pronto"
 
-- [ ] Esqueleto canônico de cliente documentado
-- [ ] `/novo-cliente` gera repo padronizado em um comando
-- [ ] Cliente novo já nasce com skills canônicas (via `/sync-skills`) e branding ligado
-- [ ] Convenção de nomes aplicada e documentada no `CLAUDE.md`
-- [ ] `/novo-cliente` no catálogo do `CLAUDE.md`
+- [x] Esqueleto canônico de cliente documentado
+- [x] `/novo-cliente` gera repo padronizado em um comando
+- [x] Cliente novo já nasce com skills canônicas (via `/sync-skills`) e branding ligado
+- [x] Convenção de nomes aplicada e documentada no `CLAUDE.md`
+- [x] `/novo-cliente` no catálogo do `CLAUDE.md`
 
 ---
 

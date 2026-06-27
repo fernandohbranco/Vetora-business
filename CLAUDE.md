@@ -20,11 +20,15 @@ scripts/        utilitários Node.js/Python que skills chamam (render, publicaç
 sprints/        documentos de planejamento de sprints ativos, organizados por tema (ex: sprints/produto/, sprints/site/)
 templates/      templates de skills e catálogo de skills externas disponíveis
                 templates/skills-cliente/ = fonte única canônica das skills de cliente (propagada via /sync-skills)
+                templates/cliente-base/   = esqueleto canônico de cliente (instanciado via /novo-cliente)
 clientes/       projetos de clientes ativos — cada cliente é um VetoraOS completo com repo git próprio
                 convenção: clientes/<Nome Visível>/<slug>/ (ex: clientes/Prezaro Barbearia/prezaro-barbearia/)
+                <slug> sempre em kebab-case (minúsculas, sem acento, hífens). Vale para clientes novos
 ```
 
 Skills locais ficam em `.claude/skills/` (específicas do projeto). Skills globais ficam em `~/.claude/skills/` (disponíveis em qualquer projeto).
+
+**Git dos clientes:** `clientes/` está no `.gitignore` do container e **não é versionado por ele**. Cada cliente é um repo VetoraOS independente, com `.git` próprio e remote próprio, que versiona a si mesmo. Nunca commitar trabalho de cliente no repo do container.
 
 ---
 
@@ -55,6 +59,8 @@ Consultadas por todas as skills de criação antes de produzir qualquer output.
 | `ops` | Pedido em linguagem natural + `estrategia.md` | Roteamento para skill(s) certa(s) |
 | `aprovar-post` | Slug do post + Meta API config | Post publicado no site + Instagram + Facebook |
 | `sync-skills` | `templates/skills-cliente/` (biblioteca canônica) | Skills sincronizadas + `skills-lock.json` em cada `clientes/*/*/` |
+| `novo-cliente` | Entrevista curta + `templates/cliente-base/` | Repo de cliente padronizado em `clientes/<Nome>/<slug>/` (estrutura + CLAUDE.md + skills via /sync-skills + git) |
+| `clientes` | `_memoria/` + git log de cada `clientes/*/*/` | `clientes-index.md` (portfólio: status, serviços, última atividade, inconsistências) |
 
 ### 01-DIAGNOSTICO
 
