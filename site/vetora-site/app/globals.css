@@ -46,6 +46,14 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  /* Vetora brand tokens */
+  --color-vetora-azul-vetor: var(--vetora-azul-vetor);
+  --color-vetora-azul-profundo: var(--vetora-azul-profundo);
+  --color-vetora-ciano: var(--vetora-ciano);
+  --color-vetora-prata: var(--vetora-prata);
+  --color-vetora-grafite: var(--vetora-grafite);
+  --color-vetora-branco-gelo: var(--vetora-branco-gelo);
+  --color-vetora-borda: var(--vetora-borda);
 }
 
 :root {

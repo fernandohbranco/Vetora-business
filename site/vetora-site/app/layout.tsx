@@ -14,10 +14,24 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
+const description =
+  "Transformamos negócios reais em ativos digitais de valor — corrigindo o desalinhamento entre o que você entrega e o que o mercado consegue perceber.";
+
 export const metadata: Metadata = {
   title: "VETORA — Estúdio Estratégico de Branding, Sites e IA",
-  description:
-    "Transformamos negócios reais em ativos digitais de valor — corrigindo o desalinhamento entre o que você entrega e o que o mercado consegue perceber.",
+  description,
+  openGraph: {
+    title: "VETORA — Estúdio Estratégico de Branding, Sites e IA",
+    description,
+    siteName: "VETORA",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VETORA — Estúdio Estratégico de Branding, Sites e IA",
+    description,
+  },
 };
 
 export default function RootLayout({
