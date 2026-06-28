@@ -150,4 +150,15 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sora), system-ui, sans-serif;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hero scroll indicator drip animation */
+@keyframes scrollDrip {
+  0% { transform: translateY(-100%); }
+  45% { transform: translateY(0); }
+  75% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
 }

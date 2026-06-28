@@ -168,6 +168,26 @@ Todas as variações existem em dois arquivos: com fundo (para visualização) e
 
 ---
 
+## Fotos do fundador
+
+`identidade/fotos-fernando/` — 5 fotos geradas via GPT Image 2.0 com referência de fotos reais (2026-06-28). Alta aderência facial, estilo fotográfico realista.
+
+| Arquivo | Tipo | Uso principal |
+|---|---|---|
+| `1-Fernando.png` | Perfil institucional — fundo grafite escuro, camisa navy | Site (seção Fundador), LinkedIn, proposta |
+| `2-Fernando.png` | Apresentando — blazer navy, sala com monitor ao fundo | LinkedIn, artigos, conteúdo de autoridade |
+| `3-Fernando.png` | Em análise — laptop aberto, home office, luz de janela | Posts de bastidores, carrosséis de processo |
+| `4-Fernando.png` | Contexto industrial — CNC ao fundo, braços cruzados | Conteúdo engenharia + branding, diferencial |
+| `5-Fernando.png` | Casual-premium — cafeteria, camisa linho, sorriso natural | LinkedIn pessoal, humanização, stories |
+
+**Regras de uso:**
+- `1-Fernando.png` é a foto canônica para contextos institucionais e o site
+- Sempre usar em tons frios — não adicionar filtros quentes
+- Arquivos `.jpeg` na mesma pasta são as fotos reais de referência — não usar diretamente em peças
+- Foto do site em `site/vetora-site/public/foto-fundador.png` (cópia da `1-Fernando.png`)
+
+---
+
 ## Observações adicionais
 
 Referências de estilo: McKinsey, Palantir, Linear — strategic precision, not startup energy.

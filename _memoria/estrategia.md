@@ -11,8 +11,7 @@
 - `identidade/manifesto.md` — manifesto de marca escrito
 - `identidade/branding-book.md` — branding book compilado
 - `site/vetora-site/` — **site institucional reconstruído do zero em Next.js 16 + Tailwind CSS v4 + shadcn/ui** (jun/2026). Projeto limpo, sem código legado. Sprints de site em `sprints/site/`.
-  - `components/vetora/sections/Cases.tsx` — seção Cases implementada + refatorada (2026-06-28): 4 cards — FRBranco, Rancho 517, Prezaro Barbearia, Cantinho das Raízes. Grid 4 col desktop / 2×2 tablet / 1 col mobile. Tokens VETORA registrados em `@theme inline` (globals.css) como classes Tailwind (`text-vetora-ciano`, `bg-vetora-azul-vetor`, etc.). Inline styles eliminados (16 → 0). Dados extraídos para `lib/data/cases.ts` com interface `Case`. OG + Twitter metadata adicionados em `layout.tsx`. `next.config.ts` com `turbopack.root`. Build produção limpo, zero warnings.
-  - Seções pendentes (por sprint): Hero (sprint 03), Método + Serviços + Diferenciais (sprint 04), Fundador + CTA Final (sprint 05), Footer.
+  - **Site completo implementado (2026-06-28):** todas as 9 seções construídas — Navbar (scroll transparente→azul, mobile hamburger), Hero (grid técnico SVG, linhas Ciano, stagger framer-motion, scroll indicator), Problem, Services, Method (5 etapas com conector horizontal), Differentials, Cases (existia), Founder (foto real integrada), FinalCTA, Footer. Stack: framer-motion 12 instalado + `lib/motion.ts` utilitário de variantes. `identidade/fotos-fernando/1-Fernando.png` copiada para `public/foto-fundador.png` e integrada no Founder com `next/image fill`. Zero erros TypeScript nos componentes.
 - `scripts/doc-template.html` + `scripts/render-doc-pdf.js` — **template PDF premium** com 12 componentes, header por página, capa full-bleed (Sprint 06 — jun/2026)
 - `produtos/kit-vetora/` — copy.md (copy aprovada) + checklist.md (critérios de qualidade). Landing page HTML removida — será reconstruída na Sprint 05 após produto pronto.
 - `sprints/produto/sprint-01-estrategia-funil.md` — estratégia e funil completo definidos
@@ -33,10 +32,8 @@
 5. **Sprint 06** — Lançamento orgânico → Meta Ads → métricas → decisão
 
 **Site institucional (`site/vetora-site/`):**
-- Sprint 03 — Hero (primeira dobra) — **próxima a executar em código**
-- Sprint 04 — Método + Serviços + Diferenciais
-- Sprint 05 (restante) — Fundador + CTA Final + Footer
-- Sprint 06 — QA + performance + deploy no vetora.com.br
+- Sprints 03–05 — **CONCLUÍDAS (2026-06-28)** — todas as seções implementadas com framer-motion e foto real do fundador integrada
+- Sprint 06 — QA + performance + deploy no vetora.com.br — **próxima**
 
 **Clientes com trabalho em andamento:**
 - Rancho 517: Phase 2 / Sprint 4 em execução
