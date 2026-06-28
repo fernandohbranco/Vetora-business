@@ -27,7 +27,7 @@ export default function Footer() {
               alt="VETORA"
               width={1909}
               height={323}
-              className="h-7 w-auto"
+              className="h-16 w-auto self-start"
             />
             <p className="text-[14px] leading-[1.6] text-vetora-prata/50 max-w-[210px]">
               Estratégia, marca e tecnologia na direção certa.

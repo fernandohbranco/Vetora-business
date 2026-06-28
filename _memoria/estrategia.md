@@ -34,8 +34,8 @@
 **Site institucional (`site/vetora-site/`):**
 - Sprints 03–05 — **CONCLUÍDAS (2026-06-28)** — todas as seções implementadas com framer-motion e foto real do fundador integrada
 - Sprint 06 — QA + performance + deploy no vetora.com.br — **em andamento (2026-06-28)**
-  - Favicon colorido adicionado (`app/icon.png` — 1254×1254px, sem fundo)
-  - Logo do footer corrigida (proporção 2172×724 + `style={{ width: "auto" }}`)
+  - Favicon: trocado pela versão colorida **com fundo** (`identidade/logo-vetora/12-Favicon simplificado colorido.png`) — a versão sem fundo perdia contraste. Causa-raiz: o `app/favicon.ico` era o default do Next (servido em `/favicon.ico`, ganha do `metadata.icons`); Next 16/Turbopack exige PNG **RGBA** embutido no `.ico` (gerar sem alpha quebra o build). Atualizados `app/favicon.ico` + `app/icon.png` + `public/icon.png`.
+  - Logo do footer (`Footer.tsx`): não estava distorcida no arquivo (proporção real da logo ~5.9:1 é a correta). A distorção era CSS — `flex flex-col` (align-items:stretch) esticava a `<img>` na largura da coluna. Corrigido com `self-start`. Tamanhos atuais: header `h-14`, footer `h-16`.
 
 **Clientes com trabalho em andamento:**
 - Rancho 517: Phase 2 / Sprint 4 em execução
