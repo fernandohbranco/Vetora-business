@@ -25,10 +25,9 @@ export default function Footer() {
             <Image
               src="/logo-negativa.png"
               alt="VETORA"
-              width={2172}
-              height={724}
-              className="h-7"
-              style={{ width: "auto" }}
+              width={140}
+              height={36}
+              className="h-7 w-auto"
             />
             <p className="text-[14px] leading-[1.6] text-vetora-prata/50 max-w-[210px]">
               Estratégia, marca e tecnologia na direção certa.

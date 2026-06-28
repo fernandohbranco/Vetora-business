@@ -20,6 +20,10 @@ const description =
 export const metadata: Metadata = {
   title: "VETORA — Estúdio Estratégico de Branding, Sites e IA",
   description,
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+  },
   openGraph: {
     title: "VETORA — Estúdio Estratégico de Branding, Sites e IA",
     description,
