@@ -7,9 +7,10 @@
 **Perfil:** Solopreneur. Fundador: Fernando Henrique Branco — Engenheiro mecânico, Coordenador de Engenharia Industrial na Docol (CLT integral). Recurso mais escasso: tempo. Produto precisa exigir o mínimo de operação manual depois de lançado.
 **Diferencial competitivo:** Engenheiro industrial sênior com domínio de IA aplicada a branding, sites, copy e apresentações. Combinação rara: rigor técnico + visão de negócio + execução com IA.
 **Atende clientes:**
-- Empresas técnicas e industriais (ex: Autec — automação, engenharia, B2B)
-- Negócios locais com reputação consolidada (ex: Rancho 517 — espaço de eventos)
+- Negócios locais com reputação consolidada (ex: Rancho 517 — espaço de eventos, Prezaro Barbearia — barbearia premium por assinatura)
 - Marcas afetivas e autorais (ex: FRBranco Personalizados — papelaria, presentes)
+- Profissionais liberais (ex: Dr. Márcio Grave — cirurgia plástica)
+- Pequenos negócios com identidade em construção (ex: Cantinho das Raízes — plantas e decoração)
 
 **Principais entregas:**
 - Branding estratégico (posicionamento, arquétipo, tom de voz, identidade verbal)
@@ -44,21 +45,23 @@ Contexto completo: `produtos/saas/VETORA_Brand_SaaS_Context.md`
 
 Cada cliente é um **VetoraOS completo com repo git próprio**, dentro de `clientes/<Nome>/<slug>/` (o repo raiz `vetora/` funciona como container). Convenção e detalhes técnicos no `CLAUDE.md`.
 
-| Cliente | Slug | Segmento |
-|---|---|---|
-| Autec | `autec` | Automação/engenharia industrial (B2B) |
-| Dr. Marcio Grave | `DrMarcioGrave` | Profissional liberal (saúde) |
-| FRBranco Personalizados | `frbranco-personalizados` | Papelaria/presentes (marca paralela do Fernando) |
-| Prezaro Barbearia | `prezaro-barbearia` | Negócio local de serviço |
-| Priscila - Cantinho das Raízes | `cantinho-das-raizes` | Negócio da Priscila |
-| Priscila - Pés de Seda | `priscila-pes-de-seda` | Studio da Priscila |
-| Rancho 517 - Ferreira | `rancho517` | Espaço de eventos |
-| RoseArts | `rosearts` | Marca autoral/criativa |
+| Cliente | Slug | Segmento | Situação |
+|---|---|---|---|
+| FRBranco Personalizados | `frbranco-personalizados` | Papelaria/presentes (marca paralela do Fernando) | Ativo — trabalho entregue |
+| Rancho 517 - Ferreira | `rancho517` | Espaço de eventos | Ativo — trabalho entregue |
+| Prezaro Barbearia | `prezaro-barbearia` | Barbearia premium por assinatura, Joinville | Ativo — trabalho entregue; aguardando retorno do João (reunião jun/6) |
+| Priscila - Cantinho das Raízes | `cantinho-das-raizes` | Plantas e decoração verde | Concluído — pró-bono (tia Priscila); branding + site entregues |
+| Dr. Marcio Grave | `DrMarcioGrave` | Profissional liberal (saúde) | Lead — não vendido; em contato |
+| Priscila - Pés de Seda | `priscila-pes-de-seda` | Studio de estética (pés/unhas) | Lead — não vendido; em contato |
+| RoseArts | `rosearts` | Aviamentos e costura | Lead — não vendido; em contato |
+| Autec | `autec` | Soluções digitais (repo do próprio Fernando) | Repo interno — não é cliente externo |
 
 **Modelo de trabalho:** o container abriga o método VETORA e os assets de marca da VETORA; cada repo de cliente é o sistema operacional vivo daquele cliente, com a identidade visual **do cliente** em `identidade/`. Entregáveis que vão da VETORA → cliente usam a marca VETORA; conteúdo que o cliente publica usa a marca do cliente.
 
 ## Contexto adicional
 
 - FRBranco Personalizados é um projeto paralelo do Fernando (marca afetiva de papelaria/presentes), não cliente externo — mas tem repo próprio em `clientes/`.
-- Cases em desenvolvimento: Autec, Rancho 517, FRBranco.
+- Autec também é repo do próprio Fernando (testes, pitch industrial) — não é case VETORA.
+- Cantinho das Raízes é pró-bono para a tia Priscila; entregues branding completo + site.
+- **Cases exibidos no site da VETORA:** FRBranco Personalizados, Rancho 517, Prezaro Barbearia, Cantinho das Raízes — apenas estes 4. Os leads (Dr. Márcio, Pés de Seda, RoseArts) não aparecem até fechamento real.
 - Canais de tráfego iniciais: LinkedIn (canal mais forte) e Instagram — sem ads no início.

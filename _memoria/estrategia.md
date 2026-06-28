@@ -10,7 +10,10 @@
 - `saidas/pesquisa-mercado-2026-06.md` — pesquisa de mercado completa (competidores, keywords, ICP)
 - `identidade/manifesto.md` — manifesto de marca escrito
 - `identidade/branding-book.md` — branding book compilado
-- `site/vetora-site/` — **site institucional reconstruído do zero em Next.js + Tailwind CSS v4 + shadcn/ui** (jun/2026). Projeto limpo, sem código legado. Sprints de site em `sprints/site/`.
+- `site/vetora-site/` — **site institucional reconstruído do zero em Next.js 16 + Tailwind CSS v4 + shadcn/ui** (jun/2026). Projeto limpo, sem código legado. Sprints de site em `sprints/site/`.
+  - `components/vetora/sections/Cases.tsx` — seção Cases implementada (2026-06-28): 4 cards — FRBranco, Rancho 517, Prezaro Barbearia, Cantinho das Raízes. Grid 4 col desktop / 2×2 tablet / 1 col mobile. Fontes Sora + Inter, tokens VETORA em globals.css. Dev server rodando na porta 3000.
+  - Seções pendentes (por sprint): Hero (sprint 03), Método + Serviços + Diferenciais (sprint 04), Fundador + CTA Final (sprint 05), Footer.
+- `scripts/doc-template.html` + `scripts/render-doc-pdf.js` — **template PDF premium** com 12 componentes, header por página, capa full-bleed (Sprint 06 — jun/2026)
 - `produtos/kit-vetora/` — copy.md (copy aprovada) + checklist.md (critérios de qualidade). Landing page HTML removida — será reconstruída na Sprint 05 após produto pronto.
 - `sprints/produto/sprint-01-estrategia-funil.md` — estratégia e funil completo definidos
 - `sprints/produto/sprint-02-produto-low-ticket.md` — escopo do Diagnóstico de Autoridade
@@ -18,16 +21,29 @@
 - `sprints/produto/sprint-04-kit-vetora-conteudo.md` — escopo dos 8 módulos do Kit
 - `sprints/produto/sprint-05-paginas-funil.md` — escopo das LPs e configuração Cakto
 - `sprints/produto/sprint-06-trafego-lancamento.md` — estratégia de tráfego e métricas
-- `sprints/site/` — sprints de construção do site institucional
+- `sprints/site/` — sprints de construção do site institucional (docs completos, sprints 01–06)
 
 ### Próximos passos imediatos (sequência de sprints):
+
+**Funil de produto:**
 1. **Sprint 02** — Construir conteúdo do Diagnóstico de Autoridade (low ticket R$37)
 2. **Sprint 03** — Criar 1–3 order bumps
 3. **Sprint 04** — Construir os 8 módulos do Kit VETORA na Cakto
 4. **Sprint 05** — Landing pages + configuração completa do funil na Cakto
 5. **Sprint 06** — Lançamento orgânico → Meta Ads → métricas → decisão
 
-**Site institucional:** reconstruído do zero em `site/vetora-site/` — domínio vetora.com.br e publicação após funil validado.
+**Site institucional (`site/vetora-site/`):**
+- Sprint 03 — Hero (primeira dobra) — **próxima a executar em código**
+- Sprint 04 — Método + Serviços + Diferenciais
+- Sprint 05 (restante) — Fundador + CTA Final + Footer
+- Sprint 06 — QA + performance + deploy no vetora.com.br
+
+**Clientes com trabalho em andamento:**
+- Rancho 517: Phase 2 / Sprint 4 em execução
+- Dr. Márcio Grave: site premium em construção (lead ainda não fechado)
+- Priscila Pés de Seda: branding em construção (lead ainda não fechado)
+- Prezaro Barbearia: aguardando retorno do João (reunião realizada jun/6)
+- RoseArts: lead — contato a fazer
 
 ---
 
