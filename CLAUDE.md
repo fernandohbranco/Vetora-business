@@ -85,6 +85,7 @@ Consultadas por todas as skills de criação antes de produzir qualquer output.
 | `social-carousel-builder` | Tema + `design-guide.md` | `marketing/conteudo/<tema>/` (HTML + PNG + legenda.md) |
 | `ui-ux-pro-max` | Briefing de identidade | `identidade/design-system/MASTER.md` |
 | `claude-code-handoff` | `arquitetura-site.md` + design aprovado | `CLAUDE.md` do projeto + tokens + `.env.example` + checklist |
+| `gerar-doc` | Conteúdo do documento + metadados (tipo, cliente, data, campos de capa) | PDF premium em `saidas/documentos/<cliente>-<tipo>-<data>.pdf` via `scripts/doc-template.html` |
 
 ### 04-ENTREGA-QA
 

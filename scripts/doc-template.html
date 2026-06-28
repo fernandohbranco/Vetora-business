@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<!--
+  doc-template.html — Template VETORA para documentos estratégicos de cliente.
+  Motor: scripts/render-doc-pdf.js (Playwright A4)
+  Skill: .claude/skills/03-construcao/gerar-doc/SKILL.md
+
+  PLACEHOLDERS — substituídos pela skill antes de renderizar:
+    {{LOGO}}          Caminho file:// absoluto da logo negativa (capa escura)
+    {{TIPO}}          Eyebrow da capa ("Relatório de Reunião", "Proposta Comercial", ...)
+    {{TITULO}}        Título principal do documento
+    {{CONFIDENCIAL}}  Elemento HTML do badge ou string vazia
+    {{META_CAMPOS}}   HTML de itens .capa__meta-item para a capa
+    {{CAPA_RODAPE}}   HTML do .capa__rodape ou string vazia
+    {{CONTEUDO}}      HTML completo do corpo — use os componentes abaixo
+
+  COMPONENTES DISPONÍVEIS NO CORPO (.conteudo):
+    .secao-header + .secao-eyebrow + h2   — cabeçalho numerado de seção
+    .destaque                             — caixa navy (executive summary, insight)
+    .cards-grid.cols-2/3/4 > .card-item  — grade de cards numerados
+    .passo-lista > .passo                 — lista vertical de etapas
+    .citacao                              — blockquote com borda teal
+    .citacoes-grid > .citacao-item        — grade 2×2 de pull quotes
+    .callout                              — caixa de insight com label
+    .dois-colunas > .col-item             — grade 2 colunas de pares texto
+    .grupo-badge                          — cabeçalho de grupo (naming)
+    .opcao-card                           — card de opção numerada (naming)
+    .jornada > .jornada-passo[.ativo]     — jornada emocional/processual
+    table > thead/tbody + .badge-status   — tabela com badges de status
+    .alerta.vermelho/amarelo/verde/azul   — caixas de alerta
+    blockquote                            — citação simples
+    .nova-pagina                          — forçar quebra de página
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>{{TITULO}} — VETORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════════
+   TOKENS — Design Guide VETORA
+═══════════════════════════════════════════════════════════ */
+:root {
+  --navy:    #0B1F3B;
+  --cyan:    #00A6A6;
+  --ice:     #F5F7FA;
+  --grafite: #1E252B;
+  --prata:   #B8C2CC;
+  --cinza:   #D9DEE3;
+  --verde:   #00A86B;
+  --deep:    #061426;
+  --muted:   #5a6a78;
+
+  --sora:  'Sora',  system-ui, sans-serif;
+  --inter: 'Inter', system-ui, sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@page { size: A4; }
+
+body {
+  font-family: var(--inter);
+  color: var(--grafite);
+  font-size: 11pt;
+  line-height: 1.6;
+  background: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CAPA
+   A margem negativa cobre a área do headerTemplate do Playwright (20 mm),
+   fazendo o fundo navy sangrar até o topo da página sem mostrar o header branco.
+═══════════════════════════════════════════════════════════ */
+.capa {
+  position: relative;
+  background: var(--navy);
+  color: #fff;
+  margin-top: -20mm;               /* bleed sobre a margem do Playwright */
+  padding-top: calc(20mm + 36mm);  /* compensa o bleed + respiro visual */
+  padding-left: 26mm;
+  padding-right: 26mm;
+  padding-bottom: 32mm;
+  min-height: 297mm;               /* página A4 completa */
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+  overflow: hidden;
+}
+
+/* Elemento decorativo — quadrado rotacionado canto superior direito */
+.capa::after {
+  content: "";
+  position: absolute;
+  right: -55mm;
+  top: 10mm;
+  width: 130mm;
+  height: 130mm;
+  border: 1px solid rgba(0, 166, 166, .20);
+  border-radius: 2mm;
+  transform: rotate(18deg);
+  pointer-events: none;
+}
+
+/* Linha teal de acento — canto inferior direito */
+.capa::before {
+  content: "";
+  position: absolute;
+  right: 26mm;
+  bottom: 44mm;
+  width: 44mm;
+  height: 1px;
+  background: var(--cyan);
+}
+
+/* Badge "Documento Confidencial" */
+.capa__confidencial {
+  position: absolute;
+  top: calc(20mm + 16mm);
+  right: 26mm;
+  border: 1px solid rgba(184, 194, 204, .4);
+  padding: 2mm 4mm;
+  font-family: var(--mono);
+  font-size: 7pt;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--prata);
+  z-index: 1;
+}
+
+.capa__logo {
+  display: block;
+  height: 12mm;
+  width: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Empurra eyebrow/título para a metade inferior da capa */
+.capa__spacer { flex: 1; min-height: 18mm; }
+
+.capa__eyebrow {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 10pt;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 5mm;
+}
+
+.capa__titulo {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 30pt;
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  color: #fff;
+  max-width: 155mm;
+  margin-bottom: 14mm;
+}
+
+.capa__subtitulo {
+  font-family: var(--inter);
+  font-size: 12pt;
+  color: var(--prata);
+  margin-top: -10mm;
+  margin-bottom: 14mm;
+  font-style: italic;
+}
+
+/* Grade de meta-campos — cresce automaticamente com os itens injetados */
+.capa__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45mm, max-content));
+  gap: 4mm 14mm;
+}
+
+.capa__meta-item {
+  border-top: 1px solid rgba(184, 194, 204, .28);
+  padding-top: 3mm;
+}
+
+.capa__meta-rotulo {
+  font-family: var(--mono);
+  font-size: 7pt;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--prata);
+  display: block;
+  margin-bottom: 1.5mm;
+}
+
+.capa__meta-valor {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 11.5pt;
+  color: #fff;
+  display: block;
+  line-height: 1.3;
+}
+
+/* Rodapé interno da capa — referência, projeto, fase */
+.capa__rodape {
+  position: absolute;
+  bottom: 18mm;
+  left: 26mm;
+  right: 26mm;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 7pt;
+  color: rgba(184, 194, 204, .48);
+  border-top: 1px solid rgba(184, 194, 204, .14);
+  padding-top: 3mm;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTEÚDO — base
+═══════════════════════════════════════════════════════════ */
+.conteudo {
+  padding: 8mm 22mm 14mm;
+}
+
+/* Parágrafos e listas */
+.conteudo p  { margin: 0 0 4mm; }
+.conteudo ul,
+.conteudo ol { margin: 0 0 4mm; padding-left: 6mm; }
+.conteudo li { margin-bottom: 2mm; line-height: 1.55; }
+.conteudo strong { color: var(--navy); font-weight: 600; }
+.conteudo em     { font-style: italic; }
+.conteudo a      { color: var(--cyan); text-decoration: none; }
+
+.conteudo code {
+  font-family: var(--mono);
+  font-size: 9.5pt;
+  background: var(--ice);
+  padding: .5mm 1.5mm;
+  border-radius: 1mm;
+  color: var(--navy);
+}
+
+.conteudo hr {
+  border: none;
+  border-top: 1px solid var(--cinza);
+  margin: 8mm 0;
+}
+
+/* Hierarquia tipográfica interna */
+.conteudo h1 {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 20pt;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  margin: 0 0 5mm;
+}
+.conteudo h2 {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 18pt;
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  margin: 10mm 0 4mm;
+}
+.conteudo h3 {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 13pt;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 6mm 0 3mm;
+}
+.conteudo h4 {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--navy);
+  margin: 4mm 0 2mm;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Cabeçalho de seção numerada
+
+   <div class="secao-header">
+     <span class="secao-eyebrow">— 01</span>
+     <h2>Resumo Executivo</h2>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.secao-header {
+  margin: 12mm 0 6mm;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+.secao-header:first-child { margin-top: 4mm; }
+
+.secao-eyebrow {
+  font-family: var(--mono);
+  font-size: 9pt;
+  letter-spacing: .04em;
+  color: var(--cyan);
+  display: block;
+  margin-bottom: 3mm;
+}
+
+.secao-header h2 {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 22pt;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Caixa de destaque (navy)
+
+   <div class="destaque"><p>Texto...</p></div>
+═══════════════════════════════════════════════════════════ */
+.destaque {
+  background: var(--navy);
+  border-radius: 1.5mm;
+  padding: 7mm 8mm;
+  margin: 0 0 6mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.destaque p {
+  color: #dce6ef;
+  font-size: 11pt;
+  line-height: 1.65;
+  margin: 0;
+}
+.destaque p + p { margin-top: 3mm; }
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Grade de cards
+
+   <div class="cards-grid cols-2">          (ou cols-3, cols-4)
+     <div class="card-item">                (variante: card-item dark)
+       <div class="card-num">01</div>
+       <span class="card-titulo">Título</span>
+       <p class="card-desc">Descrição.</p>
+     </div>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.cards-grid {
+  display: grid;
+  gap: 4mm;
+  margin: 0 0 6mm;
+}
+.cards-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.cards-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.cards-grid.cols-4 { grid-template-columns: 1fr 1fr; } /* 2×2 */
+
+.card-item {
+  background: var(--ice);
+  border: 1px solid var(--cinza);
+  border-radius: 1.5mm;
+  padding: 5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.card-item.dark {
+  background: var(--navy);
+  border-color: transparent;
+}
+
+.card-num {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 20pt;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 2.5mm;
+}
+.card-titulo {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 2mm;
+}
+.card-item.dark .card-titulo { color: #fff; }
+.card-desc {
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--grafite);
+  margin: 0;
+}
+.card-item.dark .card-desc { color: var(--prata); }
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Lista de passos numerados
+
+   <div class="passo-lista">
+     <div class="passo">
+       <span class="passo-num">01</span>
+       <div class="passo-conteudo">
+         <strong class="passo-titulo">Nome do passo</strong>
+         <p class="passo-desc">Descrição opcional.</p>
+       </div>
+     </div>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.passo-lista { margin: 0 0 6mm; }
+
+.passo {
+  display: flex;
+  gap: 5mm;
+  padding: 4mm 0;
+  border-bottom: 1px solid var(--cinza);
+  break-inside: avoid;
+  page-break-inside: avoid;
+  align-items: flex-start;
+}
+.passo:last-child { border-bottom: none; }
+
+.passo-num {
+  font-family: var(--mono);
+  font-size: 9pt;
+  color: var(--cyan);
+  font-weight: 500;
+  flex: 0 0 10mm;
+  letter-spacing: .02em;
+  padding-top: .5mm;
+}
+.passo-conteudo { flex: 1; }
+
+.passo-titulo {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 1mm;
+}
+.passo-desc {
+  font-size: 10pt;
+  color: var(--grafite);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Citação simples
+
+   <div class="citacao">
+     <p>"Quando elas olham de novo, mudou completamente o pé."</p>
+     <cite>— Priscila</cite>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.citacao {
+  border-left: 3px solid var(--cyan);
+  background: var(--ice);
+  padding: 4mm 6mm;
+  margin: 0 0 5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.citacao p {
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--grafite);
+  margin: 0 0 2mm;
+  line-height: 1.65;
+}
+.citacao cite {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 9pt;
+  color: var(--cyan);
+  font-style: normal;
+  letter-spacing: .02em;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Grade de citações 2×2
+
+   <div class="citacoes-grid">
+     <div class="citacao-item">
+       <span class="citacao-aspas">"</span>
+       <p class="citacao-texto">Texto da citação.</p>
+       <span class="citacao-autor">— Fonte</span>
+     </div>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.citacoes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  margin: 0 0 6mm;
+  background: var(--navy);
+  border-radius: 1.5mm;
+  padding: 6mm;
+}
+.citacao-item {
+  background: rgba(255, 255, 255, .06);
+  border-radius: 1mm;
+  padding: 4mm 5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.citacao-aspas {
+  font-family: var(--sora);
+  font-size: 22pt;
+  color: var(--cyan);
+  line-height: 1;
+  display: block;
+  margin-bottom: 2mm;
+  font-style: italic;
+}
+.citacao-texto {
+  font-style: italic;
+  font-size: 10pt;
+  color: #dce6ef;
+  line-height: 1.6;
+  margin: 0 0 3mm;
+}
+.citacao-autor {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 8.5pt;
+  color: var(--cyan);
+  font-style: normal;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Callout / Insight
+
+   <div class="callout">
+     <span class="callout-label">INSIGHT ESTRATÉGICO DE MARCA</span>
+     <p>Esta origem é ouro...</p>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.callout {
+  background: var(--ice);
+  border: 1px solid var(--cinza);
+  border-left: 3px solid var(--cyan);
+  border-radius: 1.5mm;
+  padding: 4.5mm 6mm;
+  margin: 0 0 5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.callout-label {
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  display: block;
+  margin-bottom: 2.5mm;
+}
+.callout p {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--grafite);
+  margin: 0;
+}
+.callout p + p { margin-top: 2.5mm; }
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Grade duas colunas
+
+   <div class="dois-colunas">
+     <div class="col-item">
+       <span class="col-titulo">Tom de Voz</span>
+       <p class="col-desc">Quente, pausado...</p>
+     </div>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.dois-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin: 0 0 5mm;
+}
+.col-item {
+  background: var(--ice);
+  border: 1px solid var(--cinza);
+  border-radius: 1.5mm;
+  padding: 4mm 5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.col-titulo {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 2mm;
+}
+.col-desc {
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--grafite);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Grupo badge (naming / opções)
+
+   <div class="grupo-badge">
+     <span class="grupo-titulo">Grupo A · Renovação e Cuidado</span>
+     <p class="grupo-desc">Nomes que falam do que acontece...</p>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.grupo-badge {
+  background: var(--navy);
+  border-radius: 1.5mm;
+  padding: 4mm 6mm;
+  margin: 8mm 0 4mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.grupo-titulo {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 11pt;
+  color: #fff;
+  display: block;
+  margin-bottom: 1.5mm;
+}
+.grupo-desc {
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--prata);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Card de opção numerada (naming)
+
+   <div class="opcao-card">
+     <div class="opcao-num">01</div>
+     <div class="opcao-conteudo">
+       <h3 class="opcao-nome">Studio Renovar</h3>
+       <span class="opcao-handle">@studiorenovar</span>
+       <div class="opcao-secao">
+         <span class="opcao-secao-label">O QUE COMUNICA</span>
+         <p>Um espaço onde você vai e sai diferente...</p>
+       </div>
+       <div class="opcao-secao">
+         <span class="opcao-secao-label">POR QUE ESTÁ AQUI</span>
+         <p>O que você faz na maca não é só limpar caloso...</p>
+       </div>
+     </div>
+   </div>
+═══════════════════════════════════════════════════════════ */
+.opcao-card {
+  background: var(--ice);
+  border: 1px solid var(--cinza);
+  border-radius: 1.5mm;
+  padding: 5mm 6mm;
+  margin: 0 0 4mm;
+  display: flex;
+  gap: 5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  align-items: flex-start;
+}
+.opcao-num {
+  width: 8mm;
+  height: 8mm;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 10pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 8mm;
+  margin-top: .5mm;
+}
+.opcao-conteudo { flex: 1; }
+.opcao-nome {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 14pt;
+  color: var(--navy);
+  margin: 0 0 1mm;
+  line-height: 1.2;
+}
+.opcao-handle {
+  font-family: var(--mono);
+  font-size: 9pt;
+  color: var(--cyan);
+  display: block;
+  margin-bottom: 3mm;
+}
+.opcao-secao { margin-top: 3mm; }
+.opcao-secao-label {
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  display: block;
+  margin-bottom: 1.5mm;
+}
+.opcao-secao p {
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--grafite);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Jornada emocional / processual
+
+   <div class="jornada">
+     <div class="jornada-passo ativo">
+       <span class="jornada-num">01</span>
+       <div class="jornada-conteudo">
+         <strong class="jornada-titulo">Vergonha</strong>
+         <p class="jornada-desc">A cliente carrega há anos...</p>
+       </div>
+     </div>
+   </div>
+   .ativo = passo em destaque; sem .ativo = esmaecido
+═══════════════════════════════════════════════════════════ */
+.jornada { margin: 0 0 6mm; }
+
+.jornada-passo {
+  display: flex;
+  gap: 5mm;
+  padding: 3.5mm 0;
+  border-bottom: 1px solid var(--cinza);
+  break-inside: avoid;
+  page-break-inside: avoid;
+  align-items: flex-start;
+}
+.jornada-passo:last-child { border-bottom: none; }
+
+.jornada-num {
+  font-family: var(--mono);
+  font-size: 8.5pt;
+  color: var(--cinza);
+  flex: 0 0 10mm;
+  font-weight: 500;
+  padding-top: 1mm;
+}
+.jornada-passo.ativo .jornada-num { color: var(--cyan); }
+
+.jornada-conteudo { flex: 1; }
+
+.jornada-titulo {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--cinza);
+  display: block;
+  margin-bottom: 1mm;
+}
+.jornada-passo.ativo .jornada-titulo { color: var(--navy); }
+
+.jornada-desc {
+  font-size: 10pt;
+  color: var(--cinza);
+  margin: 0;
+  line-height: 1.5;
+}
+.jornada-passo.ativo .jornada-desc { color: var(--grafite); }
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Tabela
+   Uso: tag <table> padrão dentro de .conteudo
+
+   .badge-status.ok / .pendente / .imediato / .fase / .concluido
+═══════════════════════════════════════════════════════════ */
+.conteudo table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 6mm;
+  font-size: 10pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.conteudo thead th {
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 9pt;
+  text-align: left;
+  padding: 3mm 4mm;
+  letter-spacing: .01em;
+}
+.conteudo tbody td {
+  padding: 3mm 4mm;
+  border-bottom: 1px solid var(--cinza);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.conteudo tbody tr:nth-child(even) { background: var(--ice); }
+
+.badge-status {
+  display: inline-block;
+  padding: 1mm 3mm;
+  border-radius: 1mm;
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+.badge-status.ok        { background: #E8F6EF; color: #007A4D; }
+.badge-status.pendente  { background: #FCF6E5; color: #9B7200; }
+.badge-status.imediato  { background: #EBF4F4; color: #007A7A; }
+.badge-status.fase      { background: var(--ice); color: var(--navy); border: 1px solid var(--cinza); }
+.badge-status.concluido { background: var(--ice); color: var(--muted); border: 1px solid var(--cinza); }
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTE — Alerta
+
+   <div class="alerta vermelho">
+     <span class="alerta-label">Crítico</span> Descrição.
+   </div>
+   Variantes: .vermelho, .amarelo, .verde, .azul
+═══════════════════════════════════════════════════════════ */
+.alerta {
+  padding: 3.5mm 5mm;
+  border-radius: 1.5mm;
+  margin: 0 0 3mm;
+  border-left: 3px solid;
+  font-size: 10pt;
+  line-height: 1.55;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.alerta-label { font-weight: 600; color: var(--navy); margin-right: 1mm; }
+.alerta.vermelho { background: #FBECEC; border-color: #C0392B; }
+.alerta.amarelo  { background: #FCF6E5; border-color: #D4A017; }
+.alerta.verde    { background: #E8F6EF; border-color: var(--verde); }
+.alerta.azul     { background: #EBF4F4; border-color: var(--cyan); }
+
+/* ═══════════════════════════════════════════════════════════
+   BLOCKQUOTE base
+═══════════════════════════════════════════════════════════ */
+blockquote {
+  border-left: 3px solid var(--cyan);
+  background: var(--ice);
+  padding: 3.5mm 5.5mm;
+  margin: 0 0 4mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+blockquote p { font-style: italic; color: var(--grafite); margin: 0 0 1.5mm; }
+blockquote cite {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 9pt;
+  color: var(--cyan);
+  font-style: normal;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITÁRIOS
+═══════════════════════════════════════════════════════════ */
+.nova-pagina { page-break-before: always; break-before: page; }
+.sem-quebra  { break-inside: avoid; page-break-inside: avoid; }
+.mt-sm       { margin-top: 4mm; }
+.mt-md       { margin-top: 8mm; }
+.mt-lg       { margin-top: 14mm; }
+.mb-sm       { margin-bottom: 4mm; }
+.mb-md       { margin-bottom: 8mm; }
+.texto-cyan  { color: var(--cyan); }
+.texto-muted { color: var(--muted); }
+.texto-small { font-size: 9.5pt; }
+
+/* ═══════════════════════════════════════════════════════════
+   CONTROLES GLOBAIS DE QUEBRA
+═══════════════════════════════════════════════════════════ */
+h2, h3, .secao-header { page-break-after: avoid; break-after: avoid; }
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════ CAPA ════════════════ -->
+<section class="capa">
+
+  {{CONFIDENCIAL}}
+
+  <img class="capa__logo" src="{{LOGO}}" alt="VETORA">
+  <div class="capa__spacer"></div>
+
+  <div class="capa__eyebrow">{{TIPO}}</div>
+  <h1 class="capa__titulo">{{TITULO}}</h1>
+
+  <div class="capa__meta">
+    {{META_CAMPOS}}
+  </div>
+
+  {{CAPA_RODAPE}}
+
+</section>
+
+<!-- ════════════════ CONTEÚDO ════════════════ -->
+<main class="conteudo">
+  {{CONTEUDO}}
+</main>
+
+</body>
+</html>
