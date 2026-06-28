@@ -33,7 +33,9 @@
 
 **Site institucional (`site/vetora-site/`):**
 - Sprints 03–05 — **CONCLUÍDAS (2026-06-28)** — todas as seções implementadas com framer-motion e foto real do fundador integrada
-- Sprint 06 — QA + performance + deploy no vetora.com.br — **próxima**
+- Sprint 06 — QA + performance + deploy no vetora.com.br — **em andamento (2026-06-28)**
+  - Favicon colorido adicionado (`app/icon.png` — 1254×1254px, sem fundo)
+  - Logo do footer corrigida (proporção 2172×724 + `style={{ width: "auto" }}`)
 
 **Clientes com trabalho em andamento:**
 - Rancho 517: Phase 2 / Sprint 4 em execução
