@@ -25,8 +25,8 @@ export default function Footer() {
             <Image
               src="/logo-negativa.png"
               alt="VETORA"
-              width={140}
-              height={36}
+              width={1909}
+              height={323}
               className="h-7 w-auto"
             />
             <p className="text-[14px] leading-[1.6] text-vetora-prata/50 max-w-[210px]">

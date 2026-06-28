@@ -37,8 +37,8 @@ export default function Navbar() {
           <Image
             src="/logo-negativa.png"
             alt="VETORA"
-            width={140}
-            height={36}
+            width={1909}
+            height={323}
             priority
             className="h-8 w-auto"
           />
