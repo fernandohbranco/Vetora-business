@@ -117,14 +117,29 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* VETORA Design Tokens */
+:root {
+  --vetora-azul-vetor: #0B1F3B;
+  --vetora-azul-profundo: #061426;
+  --vetora-ciano: #00A6A6;
+  --vetora-prata: #B8C2CC;
+  --vetora-grafite: #1E252B;
+  --vetora-branco-gelo: #F5F7FA;
+  --vetora-borda: #D9DEE3;
+
+  --font-heading: var(--font-sora);
+  --font-sans: var(--font-inter);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
-  html {
-    @apply font-sans;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora), system-ui, sans-serif;
   }
 }

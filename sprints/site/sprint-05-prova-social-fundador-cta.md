@@ -22,7 +22,7 @@ eyebrow: CASES
 heading: Negócios reais.
          Percepção transformada.
 
-[ Grid de 3 cards de case — desktop: 3 colunas, mobile: 1 coluna ]
+[ Grid de 4 cards de case — desktop: 4 colunas, tablet: 2×2, mobile: 1 coluna ]
 
 [ CTA de seção ]
 ```
@@ -58,11 +58,11 @@ hover: box-shadow 0 8px 32px rgba(11, 31, 59, 0.08); transform translateY(-3px);
 **Conteúdo dos cases:**
 
 ```
-Case 1 — Autec
-Setor: Automação Industrial · B2B
-Situação: "Empresa técnica com reputação consolidada mas presença digital genérica."
-→ Branding estratégico + site institucional que comunica autoridade técnica no setor industrial.
-Tags: [Branding] [Site]
+Case 1 — FRBranco Personalizados
+Setor: Papelaria Afetiva · DTC · Autoridade criativa
+Situação: "Marca afetiva sem identidade estruturada."
+→ Identidade verbal + visual + presença digital alinhada ao produto e ao público.
+Tags: [Branding] [Identidade Visual] [Copy]
 
 Case 2 — Rancho 517
 Setor: Eventos Premium · Local
@@ -70,11 +70,17 @@ Situação: "Reputação local consolidada mas identidade visual sem coerência.
 → Posicionamento + identidade visual + site que justifica o posicionamento premium.
 Tags: [Branding] [Identidade Visual]
 
-Case 3 — FRBranco Personalizados
-Setor: Papelaria Afetiva · DTC
-Situação: "Marca afetiva sem identidade estruturada."
-→ Identidade verbal + visual + presença digital alinhada ao produto e ao público.
-Tags: [Branding] [Identidade Visual] [Copy]
+Case 3 — Prezaro Barbearia
+Setor: Barbearia Premium · Assinatura · Local
+Situação: "Maior clube de barbearia de Joinville com 700+ membros — mas conteúdo digital sem estratégia para comunicar o nível do serviço."
+→ Estratégia de conteúdo + presença digital construída para comunicar a experiência premium do clube de assinatura.
+Tags: [Conteúdo] [Estratégia Digital] [Analytics]
+
+Case 4 — Cantinho das Raízes
+Setor: Plantas e Decoração Verde · B2C · Local
+Situação: "Negócio com identidade genuína mas sem estrutura visual ou presença digital."
+→ Branding completo + sistema de identidade visual + site com galeria de produtos.
+Tags: [Branding] [Identidade Visual] [Site]
 ```
 
 **Tags de serviço:**

@@ -277,12 +277,14 @@ Percepção transformada.
 
 **Cards de case** (fundo branco, borda `#D9DEE3`, imagem ou mockup no topo):
 
+Grid: 4 colunas desktop / 2×2 tablet / 1 coluna mobile
+
 ```
-Case — Autec
-Automação industrial | B2B | Engenharia
-"Empresa técnica com reputação consolidada mas presença digital genérica."
-→ Branding estratégico + site institucional que comunica autoridade técnica no setor industrial.
-[Tag: Branding · Site]
+Case — FRBranco Personalizados
+Papelaria afetiva | DTC | Autoridade criativa
+"Marca afetiva sem identidade estruturada."
+→ Identidade verbal + visual + presença digital alinhada ao produto.
+[Tag: Branding · Identidade Visual · Copy]
 
 Case — Rancho 517
 Espaço de eventos | Local | Premium
@@ -290,11 +292,17 @@ Espaço de eventos | Local | Premium
 → Posicionamento + identidade visual + site que justifica o posicionamento premium.
 [Tag: Branding · Identidade Visual]
 
-Case — FRBranco Personalizados
-Papelaria afetiva | DTC | Autoridade criativa
-"Marca afetiva sem identidade estruturada."
-→ Identidade verbal + visual + presença digital alinhada ao produto.
-[Tag: Branding · Identidade Visual · Copy]
+Case — Prezaro Barbearia
+Barbearia premium | Assinatura | Local
+"Maior clube de barbearia de Joinville com 700+ membros — mas conteúdo digital sem estratégia para comunicar o nível do serviço."
+→ Estratégia de conteúdo + presença digital construída para comunicar a experiência premium do clube de assinatura.
+[Tag: Conteúdo · Estratégia Digital · Analytics]
+
+Case — Cantinho das Raízes
+Plantas e decoração verde | B2C | Local
+"Negócio com identidade genuína mas sem estrutura visual ou presença digital."
+→ Branding completo + sistema de identidade visual + site com galeria de produtos.
+[Tag: Branding · Identidade Visual · Site]
 ```
 
 **CTA de seção:** `Ver diagnóstico completo → [link em Ciano]`
