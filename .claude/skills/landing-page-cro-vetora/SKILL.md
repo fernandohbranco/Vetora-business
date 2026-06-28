@@ -6,7 +6,7 @@ description: >
   gerar qualquer arquivo. Antes de criar, consulta vetora-brand-os para padrão de marca e
   ui-ux-pro-max para sistema de design visual.
   Use quando o usuário disser "criar página de vendas", "landing page", "sales page",
-  "página de captura", "quero uma LP", "/landing-page-cro-vetora" ou "/pagina-de-vendas".
+  "página de captura", "quero uma LP" ou "/landing-page-cro-vetora".
 ---
 
 # /landing-page-cro-vetora — Landing Page de Alta Conversão VETORA

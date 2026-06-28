@@ -1,4 +1,4 @@
-﻿---
+---
 name: social-carousel-builder
 description: >
   Cria carrosséis e posts visuais para Instagram, TikTok e LinkedIn com a identidade visual VETORA.
@@ -6,7 +6,7 @@ description: >
   Suporta carrossel texto puro, carrossel com foto IA (gerada via OpenAI) e post único.
   Antes de criar, consulta vetora-brand-os para padrão de marca e identidade/design-guide.md para estilo.
   Use quando o usuário disser "carrossel", "post", "conteúdo pro instagram", "criar imagem",
-  "gerar foto", "post educativo", "conteúdo visual", "/social-carousel-builder" ou "/carrossel".
+  "gerar foto", "post educativo", "conteúdo visual" ou "/social-carousel-builder".
 ---
 
 # /social-carousel-builder — Carrossel e posts visuais VETORA

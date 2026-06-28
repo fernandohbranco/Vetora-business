@@ -84,6 +84,7 @@ Consultadas por todas as skills de criação antes de produzir qualquer output.
 | `vetora-copywriter` | Brief + `posicionamento.md` + `preferencias.md` | Copy (inline ou arquivo) |
 | `social-carousel-builder` | Tema + `design-guide.md` | `marketing/conteudo/<tema>/` (HTML + PNG + legenda.md) |
 | `ui-ux-pro-max` | Briefing de identidade | `identidade/design-system/MASTER.md` |
+| `frontend-design` | Briefing/brand + conteúdo da UI | Direção de design distintiva para qualquer interface frontend (LP, carrossel, dashboard) |
 | `claude-code-handoff` | `arquitetura-site.md` + design aprovado | `CLAUDE.md` do projeto + tokens + `.env.example` + checklist |
 | `gerar-doc` | Conteúdo do documento + metadados (tipo, cliente, data, campos de capa) | PDF premium em `saidas/documentos/<cliente>-<tipo>-<data>.pdf` via `scripts/doc-template.html` |
 
@@ -183,9 +184,11 @@ Quando o usuário pedir skill nova:
 
 1. Verificar se existe template relevante em `templates/skills/`. Se existir, usar como base e adaptar pro contexto
 2. Perguntar se é específica desse projeto ou útil em qualquer:
-   - Específica → `.claude/skills/<fase>/<nome>/SKILL.md` (local)
+   - Específica → `.claude/skills/<nome>/SKILL.md` (local)
    - Universal → `~/.claude/skills/<nome>/SKILL.md` (global)
    - Skills visuais (UX, design, carrossel, landing page) ficam **sempre locais** — dependem do `identidade/design-guide.md` de cada projeto
+
+   **Importante:** skills ficam num **único nível** dentro de `.claude/skills/` — uma pasta por skill, com `SKILL.md` direto nela. **Não aninhar em pastas de fase** (`.claude/skills/<fase>/<nome>/`) — o Claude Code só descobre skills um nível abaixo de `.claude/skills/`, então aninhar quebra o atalho `/` e o acionamento por contexto. A organização por fase (00-NUCLEO, 01-DIAGNOSTICO…) é **conceitual** e vive no catálogo acima, não no filesystem. O `name:` no frontmatter (kebab-case, sem BOM antes do `---`) é o que vira o comando `/`.
 3. Ler `_memoria/empresa.md` e `_memoria/preferencias.md` pra calibrar o conteúdo da skill ao contexto do negócio
 4. Adicionar a skill na tabela do catálogo neste CLAUDE.md (fase correta)
 5. Se a skill precisar de arquivos de apoio (templates, exemplos), criar dentro da pasta da skill

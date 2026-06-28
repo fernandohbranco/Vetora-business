@@ -7,7 +7,7 @@ description: >
   Antes de criar, consulta vetora-brand-os para paleta verbal e restrições de tom.
   Use quando o usuário disser "escreve um texto pra", "melhora esse copy", "preciso de uma headline",
   "como descrevo meu serviço", "reescreve isso", "cria um CTA", "tagline", "proposta de valor",
-  "redige um email", "/vetora-copywriter" ou "/copywriting".
+  "redige um email" ou "/vetora-copywriter".
   Para página de vendas completa (HTML), use /landing-page-cro-vetora.
 ---
 
